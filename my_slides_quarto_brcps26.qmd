@@ -2,7 +2,7 @@
 title: "Valutazione controfattuale dell’impatto sanitario da concentrazioni atmosferiche di $NO_2$ ad
 alta risoluzione spaziale e propagazione dell’incertezza."
 subtitle: "Il caso studio della Regione Veneto"
-author: "Massimo Bressan"
+author: "<br>Massimo Bressan"
 date: today
 title-slide-attributes:
   data-visibility: uncounted
@@ -55,7 +55,7 @@ casi attribuibili (casi di mortalità per cause respiratorie) associati all’es
 ---
 
 
-# Formula OMS VIS
+# Formula log-lineare VIS
 
 **Casi attribuibili ($AC$): quota di casi attesi associati all'inquinamento atmosferico da $NO_2$**
 
@@ -70,9 +70,9 @@ casi attribuibili (casi di mortalità per cause respiratorie) associati all’es
 
 
 
-- $N$: popolazione target di riferimento (popolazione $30+$)
+- $N$: popolazione target di riferimento
 
-- $B$: tasso basale grezzo esito sanitario (mortalità per cause respiratorie)
+- $B$: tasso basale esito sanitario
 
 <br>
 
@@ -86,9 +86,9 @@ $$AF = \frac{RR - 1}{RR} = 1 - \frac{1}{e^{\beta \cdot \Delta C}} = 1 - e^{-\bet
 :::
 
 
--  $\frac{RR - 1}{RR}$ proporzione dei casi sanitari evitati se l'esposizione viene ridotta sotto la soglia controfattuale
+-  AF = $\frac{RR - 1}{RR}$ proporzione dei casi sanitari evitati se l'esposizione viene ridotta sotto la soglia controfattuale
 
-- $e^{\beta \cdot \Delta C}$ *$Rischio Relativo* per il differenziale di concentrazione $\Delta C$
+- $e^{\beta \cdot \Delta C}$ *Rischio Relativo* per il differenziale di concentrazione $\Delta C$
 
 - $\beta = \frac{\ln(RR_{10})}{10}$ coefficiente funzione log-lineare concentrazione-risposta scalato su $10 \ \mu g~m^{-3}$
 
@@ -103,7 +103,7 @@ $$AF = \frac{RR - 1}{RR} = 1 - \frac{1}{e^{\beta \cdot \Delta C}} = 1 - e^{-\bet
 
 <br>
 
-## Sezioni censuarie ISTAT 2021
+## Sezioni censuarie
 
 <br>
 
@@ -117,9 +117,9 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 
 ```
 
-- 43 447 sezioni abitate 
-- superficie 14 511 km2
-- estensione  mediana 2.90 ha
+- sezioni abitate: 43 447 
+- superficie: 14 511 km2
+- estensione mediana: 2.90 ha
 
 :::
 
@@ -127,7 +127,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 
 <br>
 
-## Popolazione classe d'età 30+
+## Popolazione 30+
 
 <br>
 
@@ -141,8 +141,8 @@ knitr::include_graphics("./fig_tab/map_sez_pop30p.png")
 
 ```
 
-- popolazione totale: 4 847 745 abitanti
-- popolazione 30+: 3 521 995 abitanti (73%)
+- popolazione totale: 4 847 745 ab
+- popolazione 30+ ($N$): 3 521 995 ab (73%)
 - densità mediana: 13.5 ab/ha
 
 :::
@@ -152,7 +152,7 @@ knitr::include_graphics("./fig_tab/map_sez_pop30p.png")
 
 <br>
 
-## Casi attesi per sezione
+## Casi attesi
 
 <br>
 
@@ -166,14 +166,15 @@ knitr::include_graphics("./fig_tab/map_sezioni_attesi.png")
 
 ```
 
-- malattie sistema respiratorio (ICD-10:J00-J99)
 - tasso grezzo mortalità provinciale ($B$)
-- mortalità media RV: 0.107% (0.084% - 0.140%)
-- 107 casi ogni 100 000 abitanti
+- malattie sistema respiratorio (ICD-10:J00-J99)
+- media tasso: 0.107% (0.084% - 0.140%)
+- 107 casi ogni 100 000 ab
 
 :::
 
 ::::
+L'unità statistica di analisi è la sezione censuaria definita come unità geografica dei dati ambientali e sanitari aggregati con granularità spaziale più fine effettivamente disponibile (accessibile per normativa privacy dati sanitari individuali).
 
 <br>
 
@@ -185,7 +186,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_attesi.png")
 
 ---
 
-# Quadro ambientale {.columns-max}
+# Qualità Aria Ambiente {.columns-max}
 
 :::: {.columns}
 
@@ -193,12 +194,11 @@ knitr::include_graphics("./fig_tab/map_sezioni_attesi.png")
 
 ## NO2 output modellistica 2019-2025
 
-<br>
 
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| out-width: "100%"
+#| out-width: "80%"
 
 
 knitr::include_graphics("./fig_tab/map_no2_ts_rv.png")
@@ -208,14 +208,13 @@ knitr::include_graphics("./fig_tab/map_no2_ts_rv.png")
 
 ::: {.column width="50%"} 
 
-## NO2 boxplot 2019-2025
+## NO2 boxplot per Provincia 2019-2025
 
-<br>
 
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| out-width: "100%"
+#| out-width: "80%"
 
 knitr::include_graphics("./fig_tab/no2_boxplot_no2_provincia.png")
 
@@ -223,6 +222,8 @@ knitr::include_graphics("./fig_tab/no2_boxplot_no2_provincia.png")
 :::
 
 ::::
+
+[**Target OMS, valore soglia 10 $\mu g~m^{-3}$ (controfattuale):  media annuale prevista da LG QA per escludere significativi effetti sanitari.**]{.highlight}
 
 ---
 
@@ -273,7 +274,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_no2_2025.png")
 
 ::: {.column width="33%"} 
 
-## delta $NO_2$ : [2025 - target OMS]
+## delta $NO_2$ : [2025] - [target OMS]
 
 <br>
 
@@ -292,7 +293,22 @@ knitr::include_graphics("./fig_tab/map_sezioni_delta_no2_2025_target_oms.png")
 
 ::::
 
-qui testo descrittivo
+<br>
+
+- La media annuale di $NO_2$ attribuita alle singole censuarie è stata ottenuta tramite elaborazione geografica di overlay, definita da una media zonale pesata sulla superficie di intersezione, tra il disegno delle sezioni censuarie ed il grigliato regolare di output del modello euleriano di dispersione atmosferica CAMx con una risoluzione orizzontale di 4 km.
+
+
+- Il differenziale di esposizione tra il valore al 2025 di concentrazione di $NO_2$ in ciascuna
+sezione censuaria rispetto al controfattuale 10 $\mu g~m^{-3}$, previsto
+dalle linee guida OMS per escludere significativi effetti sulla salute, è risultato in media di
+5.7 $\mu g~m^{-3}$, con un valore mediano di 5.9 $\mu g~m^{-3}$ ed un range interquartile di 3.9 $\mu g~m^{-3}$.
+
+
+::: {.testo-centrato}
+
+[**Concentrazione ambientale vs. controfattuale OMS per sezione censuaria**]{.highlight}
+
+:::
 
 ---
 
@@ -332,9 +348,14 @@ knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025_by_province.png")
 
 ::::
 
+Per la Regione Veneto la popolazione delle sezioni censuarie risulta esposta ad una concentrazione media pesata (PWE population weighted exposure) di $NO_2$ pari a 16 $\mu g~m^{-3}$, mentre
+il valore medio pesato a livello provinciale è compreso entro l’intervallo tra circa 7 $\mu g~m^{-3}$,
+per la Provincia di Belluno, e circa 18 $\mu g~m^{-3}$, per le Province di Padova e Venezia.
+
 ::: {.testo-centrato}
 
-[**Confronto con valore controfattuale OMS**]{.highlight}
+
+[**Esposizione vs. controfattuale OMS**]{.highlight}
 
 :::
 
