@@ -322,7 +322,7 @@ dalle linee guida OMS per escludere significativi effetti sulla salute, è risul
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| out-width: "75%"
+#| out-width: "70%"
 
 knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025.png")
 
@@ -337,7 +337,7 @@ knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025.png")
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| out-width: "75%"
+#| out-width: "70%"
 
 knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025_by_province.png")
 
@@ -347,8 +347,10 @@ knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025_by_province.png")
 
 ::::
 
-Per Regione: concentrazione media  $NO_2$ pesata sulla popolazione 30+, circa 16 $\mu g~m^{-3}$.<br> Per Provincia: concentrazione media tra 7 $\mu g~m^{-3}$ (Belluno) e 18 $\mu g~m^{-3}$ (Padova e Venezia).
-
+::: {.compatto .testo-centrato}
+Per Regione, concentrazione media pesata sulla popolazione 30+: circa 16 $\mu g~m^{-3}$.<br> 
+Per Provincia, concentrazione media pesata sulla popolazione 30+: 7 $\mu g~m^{-3}$ (Belluno) - 18 $\mu g~m^{-3}$ (Padova e Venezia).
+:::
 
 ---
 
