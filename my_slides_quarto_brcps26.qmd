@@ -322,7 +322,7 @@ dalle linee guida OMS per escludere significativi effetti sulla salute, è risul
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| out-width: "100%"
+#| out-width: "75%"
 
 knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025.png")
 
@@ -337,7 +337,7 @@ knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025.png")
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| out-width: "100%"
+#| out-width: "75%"
 
 knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025_by_province.png")
 
@@ -347,16 +347,8 @@ knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025_by_province.png")
 
 ::::
 
-Per la Regione Veneto la popolazione delle sezioni censuarie risulta esposta ad una concentrazione media pesata (PWE population weighted exposure) di $NO_2$ pari a 16 $\mu g~m^{-3}$, mentre
-il valore medio pesato a livello provinciale è compreso entro l’intervallo tra circa 7 $\mu g~m^{-3}$,
-per la Provincia di Belluno, e circa 18 $\mu g~m^{-3}$, per le Province di Padova e Venezia.
+Per Regione: concentrazione media  $NO_2$ pesata sulla popolazione 30+, circa 16 $\mu g~m^{-3}$.<br> Per Provincia: concentrazione media tra 7 $\mu g~m^{-3}$ (Belluno) e 18 $\mu g~m^{-3}$ (Padova e Venezia).
 
-::: {.testo-centrato}
-
-
-[**Esposizione vs. controfattuale OMS**]{.highlight}
-
-:::
 
 ---
 
@@ -421,7 +413,7 @@ Per Regione Veneto, con incertezza RR (1.03 - 1.07):
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| out-width: "80%"
+#| out-width: "75%"
 
 knitr::include_graphics("./fig_tab/ac_resp_bootstrap_density_spat_temp_no_labs_e_stima_puntuale.png")
 
