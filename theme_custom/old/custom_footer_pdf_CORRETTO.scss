@@ -1,0 +1,598 @@
+/*-- scss:defaults --*/
+
+// Brand Colors
+$col-red: #AA0004;
+$col-red-dark: #850205;
+$col-black: #393D3F;
+$col-bg: #FAFAFA;
+$col-gray: #7D7D7D;
+
+// Shared banner geometry and optical vertical alignment.
+$banner-height: 65px;
+$banner-content-top: -37px;
+$banner-optical-shift: 4px;
+
+// Vertical start of title, subtitle, author and date on the cover.
+$title-slide-content-top: 450px;
+
+// UNIPD typography and canvas
+$body-bg: $col-bg;
+$body-color: $col-black;
+$font-family-sans-serif: Arial, Helvetica, sans-serif;
+$presentation-heading-font: Arial, Helvetica, sans-serif;
+
+/*-- scss:rules --*/
+
+/* ==========================================================================
+   1. BASE SLIDE LAYOUT & CANVAS CONFIGURATION
+   ========================================================================== */
+
+.reveal .slides section {
+  vertical-align: top !important; 
+  padding-top: 83px !important;
+  padding-bottom: 50px !important;
+  box-sizing: border-box;
+}
+
+.reveal-viewport,
+.reveal {
+  background-color: $col-bg;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Keep horizontal slides and optional vertical stacks aligned with the canvas. */
+.reveal .slides > section {
+  top: 0 !important;
+}
+
+.reveal .slides > section.stack > section {
+  top: 0 !important;
+}
+
+/* ==========================================================================
+   2. TOP HEADER BANNER (SCALABILE IN FULL SCREEN)
+   ========================================================================== */
+
+/* Disattiviamo il banner fisso sulla viewport che non scala con la slide */
+.reveal::before {
+  display: none !important;
+}
+
+.reveal::after {
+  content: none;
+}
+
+/* Fascia rossa inserita direttamente dentro le coordinate della slide */
+.reveal .slides section:not(#title-slide):not(.section-slide)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $banner-height;
+  background: $col-red;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 65px 100%);
+  z-index: 10;
+}
+
+/* Logo posizionato dentro il banner della slide */
+.reveal .slides section:not(#title-slide):not(.section-slide)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 40px;
+  display: block;
+  width: 436px;
+  height: $banner-height;
+  background-image: url("../../../../../images/image1.png");
+  background-repeat: no-repeat;
+  background-position: left calc(50% - #{$banner-optical-shift});
+  background-size: 300px auto;
+  z-index: 30;
+  pointer-events: none;
+}
+
+
+/* ==========================================================================
+   3. SLIDE AND BODY HEADINGS
+   ========================================================================== */
+
+/* Titolo H1 perfettamente allineato dentro il banner della slide */
+.reveal .slides section:not(#title-slide) > h1 {
+  position: absolute !important;
+  top: 0 !important;
+  right: 35px !important;
+  left: auto !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-end;
+  width: 75% !important;
+  height: $banner-height;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: white !important;
+  font-size: 1.85em !important;
+  font-weight: 800;
+  line-height: 1.1;
+  text-align: right !important;
+  text-transform: none;
+  transform: none !important;
+  z-index: 30;
+}
+
+.reveal .slides section:not(.title-slide) > h2 {
+  position: static !important;
+  display: block !important;
+  width: 100% !important;
+  height: auto;
+  margin: 0 0 22px 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  color: $col-black !important;
+  font-size: 1.65em !important;
+  line-height: 1.15;
+  z-index: auto;
+}
+
+.reveal .slides section:not(.title-slide) > h2 ~ * {
+  margin-top: 14px !important;
+}
+
+/* Titoli di livello inferiore */
+.reveal .slides section:not(#title-slide) h3,
+.reveal .slides section:not(#title-slide) h4,
+.reveal .slides section:not(#title-slide) h5,
+.reveal .slides section:not(#title-slide) h6 {
+  position: static !important;
+  width: 100%;
+  margin: 10px 0 10px 0 !important;
+  color: $col-black !important;
+  text-align: left !important;
+}
+
+/* ==========================================================================
+   4. FOOTER ELEMENTS (LOGO & SLIDE NUMBERS)
+   ========================================================================== */
+
+.reveal .slide-logo {
+  display: none !important;
+  position: fixed !important;
+  top: 100px !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: 40px !important;
+  height: 90px !important;
+  max-height: unset !important;
+  z-index: 20;
+}
+
+.reveal .slide-number {
+  position: fixed !important;
+  bottom: 16px !important;
+  right: 20px !important;
+  left: auto !important;  
+  top: auto !important;   
+  color: $col-red !important;
+  font-size: 0.36em !important;
+  font-style: normal !important;
+  font-weight: 600;
+  z-index: 20;
+}
+
+.reveal .slide-number a {
+  color: inherit !important;
+}
+
+.reveal .footer {
+  position: fixed !important;
+  right: 0 !important;
+  bottom: 16px !important;
+  left: 0 !important;
+  width: 100% !important;
+  color: $col-gray !important;
+  font-size: 0.2em !important;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-align: center !important;
+  z-index: 20;
+}
+
+.reveal .footer p {
+  margin: 0 !important;
+  text-align: center !important;
+}
+
+/* Thin rule separating slide content from the footer. */
+.reveal .footer::before {
+  content: "";
+  position: fixed;
+  right: 35px;
+  bottom: 42px;
+  left: 35px;
+  height: 1px;
+  background-color: $col-gray;
+}
+
+
+/* ==========================================================================
+   5. BODY TEXT & TYPOGRAPHY
+   ========================================================================== */
+
+.reveal .slides {
+  z-index: 11;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.reveal p, 
+.reveal li {
+  font-size: 1.5em;
+  color: $col-black;         
+}
+
+/* Target word highlight class --------------------*/
+
+.reveal .highlight {
+  color: $col-red !important;       /* Changes just this word to your brand red */
+  font-weight: bold !important;     /* Makes the word bold */
+  font-style: italic !important;    /* Makes the word italic */
+}
+
+/* Custom helper to scale up individual words inline ------*/
+
+.reveal .big {
+  font-size: 1.4em !important; /* <--- Adjust this value to control the word size */
+  display: inline-block;       /* Keeps layout spacing perfect for resized inline text */
+}
+
+/* Full Row Highlight Strip -----------------------------------*/
+
+.reveal .slides .row-highlight {
+  background-color: rgba($col-red, 0.12) !important; /* Uses 12% opacity of your brand red */
+  color: $col-black !important;                      /* Ensures text stays charcoal black */
+  padding: 5px 10px !important;                     /* Adds breathing room around text */
+  border-left: 6px solid $col-red !important;        /* Adds a clean vertical brand line on the left */
+  border-radius: 4px;                                /* Smooths the sharp corners slightly */
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  width: 100%;                                       /* Spans the full width of the text canvas */
+  box-sizing: border-box;
+}
+
+
+/* ========================================================================== 
+   6. TITLE SLIDE
+   ========================================================================== */
+
+/*
+ * Cover layout:
+ * - full University red background;
+ * - the compact University mark sits at roughly 20% of the slide height;
+ * - title, subtitle, author and date are centred below it.
+ */
+.reveal .slides #title-slide {
+  position: relative;
+  display: block !important;
+  width: 100%;
+  height: 100%;
+  padding: $title-slide-content-top 160px 90px 160px !important;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: left !important;
+  color: white !important;
+  background-color: $col-red !important;
+  /* Extend the cover colour beyond Reveal's internal slide margins. */
+  box-shadow: 0 0 0 100vmax $col-red;
+  isolation: isolate;
+}
+
+/* Official institutional lockup extracted from the PowerPoint template. */
+.reveal .slides #title-slide::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 1027px;
+  height: 227px;
+  transform: translate(-50%, -50%);
+  /* Path is relative to Reveal's generated theme directory. */
+  background-image: url("../../../../../images/image2.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: 1;
+}
+
+/* The extracted lockup already contains the University and Department text. */
+.reveal .slides #title-slide::after {
+  content: none;
+}
+
+.reveal .slides #title-slide h1.title {
+  width: 100%;
+  margin: 0 0 22px 0 !important;
+  color: white !important;
+  font-size: 3em !important;
+  font-weight: 700;
+  line-height: 1.08;
+  text-align: center !important;
+  text-transform: none;
+}
+
+.reveal .slides #title-slide .subtitle {
+  width: 100%;
+  margin: 0 0 38px 0 !important;
+  color: white !important;
+  font-size: 1.35em;
+  line-height: 1.25;
+  text-align: center !important;
+}
+
+.reveal .slides #title-slide .quarto-title-authors,
+.reveal .slides #title-slide .quarto-title-author,
+.reveal .slides #title-slide .quarto-title-author-name,
+.reveal .slides #title-slide .date {
+  margin: 0 !important;
+  padding: 0 !important;
+  color: white !important;
+  font-size: 1em;
+  line-height: 1.35;
+  text-align: center !important;
+}
+
+.reveal .slides #title-slide .quarto-title-authors {
+  width: 100%;
+  justify-content: center !important;
+}
+
+.reveal .slides #title-slide .date {
+  margin-top: 10px !important;
+}
+
+/* Keep global furniture off the cover while it is the current slide. */
+html:not(.print-pdf) .reveal:has(#title-slide.present) {
+  background-color: $col-red !important;
+}
+
+html:not(.print-pdf) .reveal:has(#title-slide.present)::before,
+html:not(.print-pdf) .reveal:has(#title-slide.present)::after,
+html:not(.print-pdf) .reveal:has(#title-slide.present) .slide-logo,
+html:not(.print-pdf) .reveal:has(#title-slide.present) .slide-number,
+html:not(.print-pdf) .reveal:has(#title-slide.present) .footer {
+  display: none !important;
+}
+
+
+/* ========================================================================== 
+   7. OPTIONAL RED SECTION / CLOSING SLIDE
+   ========================================================================== */
+
+.reveal .slides section.section-slide {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 100px 160px !important;
+  color: white !important;
+  background-color: $col-red !important;
+  box-shadow: 0 0 0 100vmax $col-red;
+  overflow: hidden;
+}
+
+.reveal .slides section.section-slide::before {
+  content: "";
+  order: 1;
+  width: 1027px;
+  height: 227px;
+  background-image: url("../../../../../images/image2.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.reveal .slides section.section-slide::after {
+  content: none;
+}
+
+.reveal .slides section.section-slide:not(#title-slide) > h1 {
+  position: static !important;
+  order: 3;
+  display: block !important;
+  width: 100% !important;
+  height: auto;
+  margin: 55px 0 0 0 !important;
+  color: white !important;
+  font-size: 2.25em !important;
+  font-weight: 700;
+  text-align: center !important;
+}
+
+html:not(.print-pdf) .reveal:has(.section-slide.present) {
+  background-color: $col-red !important;
+}
+
+html:not(.print-pdf) .reveal:has(.section-slide.present)::before,
+html:not(.print-pdf) .reveal:has(.section-slide.present)::after,
+html:not(.print-pdf) .reveal:has(.section-slide.present) .slide-number,
+html:not(.print-pdf) .reveal:has(.section-slide.present) .footer {
+  display: none !important;
+}
+
+/* ==========================================================================
+  8. PDF / PRINT EXPORT
+========================================================================== */
+  
+  /*
+  * Reveal's browser view allows header elements to extend above a section.
+ * During PDF export each section becomes a clipped page, so the negative
+ * header offset cuts the slide title. Keep the title and mark inside the
+ * printable slide while preserving the interactive layout above.
+ */
+@media print {
+  .reveal::before {
+    display: none !important;
+  }
+
+  .reveal .slides section:not(#title-slide):not(.section-slide) {
+    padding-top: 105px !important;
+    background:
+      linear-gradient(45deg, transparent 0 49.5%, $col-red 50% 100%)
+        left top / $banner-height $banner-height no-repeat,
+      linear-gradient($col-red, $col-red)
+        $banner-height top / calc(100% - #{$banner-height}) $banner-height no-repeat,
+      $col-bg !important;
+  }
+
+  .reveal .slides section:not(#title-slide):not(.section-slide)::before {
+    top: 0 !important;
+    left: 72px !important;
+  }
+
+  .reveal .slides section:not(#title-slide):not(.section-slide) > h1 {
+    top: 0 !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  /* Chromium can drop flex pseudo-elements when Reveal paginates slides. */
+  .reveal .slides section.section-slide {
+    position: relative !important;
+    display: block !important;
+    padding: 0 !important;
+    background-color: $col-red !important;
+    background-image: url("../../../../../images/image2.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center 32% !important;
+    background-size: 1027px auto !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .reveal .slides section.section-slide::before {
+    display: none !important;
+  }
+
+  .reveal .slides section.section-slide:not(#title-slide) > h1 {
+    position: absolute !important;
+    top: 58% !important;
+    right: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    transform: translateY(-50%) !important;
+  }
+
+}
+
+/* ==========================================================================
+   8B. PER-SLIDE FOOTER IN REVEAL PDF MODE
+   ========================================================================== */
+
+/*
+ * Quarto's Reveal footer is a single global element. In print mode that would
+ * also appear on the cover and on red section/closing slides. Hide the global
+ * footer and draw the same footer from the H1 of each ordinary slide instead.
+ */
+html.print-pdf .reveal > .footer,
+html.print-pdf .reveal > .footer.footer-default {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Divider line above the footer — ordinary slides only. */
+html.print-pdf .reveal .slides
+section:not(#title-slide):not(.section-slide) > h1::before {
+  content: "";
+  position: absolute;
+  top: calc(900px - 42px);
+  left: -27.5%;
+  width: 127.5%;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  background-color: $col-gray;
+  z-index: 50;
+  pointer-events: none;
+}
+
+/* Footer text — ordinary slides only. */
+html.print-pdf .reveal .slides
+section:not(#title-slide):not(.section-slide) > h1::after {
+  content: "BRCPS26 - Dipartimento di Scienze Cardio-Toraco-Vascolari e Sanità Pubblica - Unità di Biostatistica, Epidemiologia e Sanità Pubblica";
+  position: absolute;
+  top: calc(900px - 32px);
+  left: -27.5%;
+  width: 127.5%;
+  margin: 0;
+  padding: 0;
+  color: $col-gray;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-transform: none;
+  white-space: nowrap;
+  z-index: 50;
+  pointer-events: none;
+}
+
+html.print-pdf .reveal .slide-number {
+  font-size: 12px !important;
+  line-height: 1 !important;
+  right: 18px !important;
+  bottom: 14px !important;
+}
+
+/* ==========================================================================
+   MAPPE IN COLONNE
+   ========================================================================== */
+
+.reveal .slides section .columns {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  width: 100% !important;
+  margin: 0 !important;
+  gap: 1.5% !important;
+  align-items: flex-start !important;
+}
+
+.reveal .slides section .columns > .column {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+  flex: 1 !important;
+}
+
+.reveal .slides section .columns > .column h3 {
+  font-size: 1.25em !important;
+  margin: 0 0 10px 0 !important;
+  text-align: center !important;
+}
+
+.reveal .slides section .columns > .column p {
+  width: 100% !important;
+  text-align: center !important;
+  margin: 0 !important;
+}
+
+.reveal .slides section .columns > .column figure {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.reveal .slides section .columns > .column figure img,
+.reveal .slides section .columns > .column img {
+  display: block !important;
+  // width: 100% !important;
+  max-width: 100% !important;
+  // height: auto !important;
+  max-height: 90vh !important;
+  object-fit: contain !important;
+}
