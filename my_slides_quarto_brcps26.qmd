@@ -1,6 +1,5 @@
 ---
-title: "Valutazione controfattuale dell’impatto sanitario da concentrazioni atmosferiche di $NO_2$ ad
-alta risoluzione spaziale e propagazione dell’incertezza."
+title: "Valutazione di impatto sanitario da ${NO}_2$ atmosferico:<br>analisi controfattuale ed incertezza di stima"
 subtitle: "Il caso studio della Regione Veneto"
 author: "<br>Massimo Bressan"
 date: today
@@ -24,7 +23,7 @@ format:
 
 ---
 
-# Project Work Overview
+# Overview PW
 
 ## Obiettivo
 
@@ -41,16 +40,16 @@ casi attribuibili (casi di mortalità per cause respiratorie) associati all’es
 
 - tassi grezzi mortalità di base per cause respiratorie (Codici ICD-10: J00-J99) per Provincia (casi attesi)
 
-- Risk Ratio (OMS/HRAPIE-2, 2025): 1.05 (1.03 - 1.07) per popolazione 30+ in sezioni censuarie 
+- Risk Ratio: 1.05 (1.03 - 1.07) per popolazione 30+ in sezioni censuarie (OMS/HRAPIE-2, 2025)
 
-- funzione concentrazione risposta (formula OMS AirQ+) per stima causale determinante ambientale ed esito sanitario
+- funzione concentrazione risposta (formula OMS AirQ+) per stima causale tra determinante ambientale ed esito sanitario
 
 
 ## Risultati
 
 - stima puntuale casi attribuibili (AC) e frazione attribuibile (AF) anno 2025 per Regione Veneto (somma totale casi stimati per sezione)
 
-- bootstrap non parametrico per propagazione statistica incertezza di stima AC e AF
+- bootstrap non parametrico per propagazione incertezza statistica  i stima AC e AF
 
 ---
 
