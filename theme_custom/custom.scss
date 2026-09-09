@@ -270,6 +270,11 @@ $presentation-heading-font: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
 
+/* left alignment */
+
+.left-align {
+  text-align: left !important;
+}
 
 /* ========================================================================== 
    6. TITLE SLIDE
@@ -708,24 +713,45 @@ html.print-pdf .reveal .slides section.columns-max .columns > .column img {
   text-align: center;
 }
 
+/* testo sx -----------------------------------------------------------*/
+
+.testo-sinistra {
+  width: 100%;
+  text-align: left;
+}
+
 /* Riduce l'interlinea e lo spazio tra gli elementi dell'elenco --------------*/
 
-.compatto {
+/* Riduce interlinea e spaziatura; dimensione personalizzabile */
+.reveal .slides section .compatto {
   margin-top: 0.5em;
   margin-bottom: 0.2em;
-  line-height: 1;
+  line-height: 1.15;
 }
 
-.compatto ul li {
+/* Il paragrafo deve sovrascrivere la regola generale a 24px */
+.reveal .slides section .compatto p {
+  font-size: var(--text-size, 20px);
+  line-height: inherit;
+  margin-bottom: 0.2em;
+}
+
+/* Eventuali elenchi contenuti nel blocco */
+.reveal .slides section .compatto li {
+  font-size: var(--text-size, 20px);
+  line-height: inherit;
   margin-top: 0.5em;
-  margin-bottom: 0.2em; /* Riduce lo spazio sotto ogni punto dell'elenco */
-  line-height: 1;
+  margin-bottom: 0.2em;
 }
 
-.compatto p {
-  margin-bottom: 0.2em; /* Riduce lo spazio sotto i paragrafi di testo */
+/* Evita che paragrafi dentro i puntati cambino nuovamente dimensione */
+.reveal .slides section .compatto li p {
+  font-size: inherit;
 }
 
+.reveal .slides section .compatto {
+  margin-top: 0.5em !important;
+}
 
 /* Dimensione personalizzata delle formule ----------------------------------- */
 
