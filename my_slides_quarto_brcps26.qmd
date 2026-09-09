@@ -30,9 +30,8 @@ format:
 - valutazione controfattuale di impatto sanitario (VIS) del numero di
 casi attribuibili (di mortalità per cause respiratorie) associati all’esposizione a lungo termine (media annuale) dei livelli di $NO_2$ in aria ambiente (outdoor) nella Regione Veneto
 
-<br>
 
-## Metodi
+## Metodi e dataset
 
 - studio ecologico: unità di analisi sezione censuaria Regione Veneto (dati aggregati ISTAT 2021)
 
@@ -46,7 +45,6 @@ casi attribuibili (di mortalità per cause respiratorie) associati all’esposiz
 
 - funzione concentrazione-risposta per stima causale (formulazione OMS AirQ+) 
 
-<br>
 
 ## Risultati
 
@@ -176,9 +174,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_attesi.png")
 :::
 
 ::::
-L'unità statistica di analisi è la sezione censuaria definita come unità geografica dei dati ambientali e sanitari aggregati con granularità spaziale più fine effettivamente disponibile (accessibile per normativa privacy dati sanitari individuali).
-
-<br>
+La sezione censuaria è l'unità statistica di analisi definita come unità geografica dei dati ambientali e sanitari aggregati con granularità spaziale più fine disponibile (accessibile per normativa privacy dati sanitari individuali).
 
 ::: {.testo-centrato}
 
@@ -200,7 +196,7 @@ L'unità statistica di analisi è la sezione censuaria definita come unità geog
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| out-width: "80%"
+#| out-width: "75%"
 
 
 knitr::include_graphics("./fig_tab/map_no2_ts_rv.png")
@@ -216,7 +212,7 @@ knitr::include_graphics("./fig_tab/map_no2_ts_rv.png")
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| out-width: "80%"
+#| out-width: "75%"
 
 knitr::include_graphics("./fig_tab/no2_boxplot_no2_provincia.png")
 
@@ -225,7 +221,7 @@ knitr::include_graphics("./fig_tab/no2_boxplot_no2_provincia.png")
 
 ::::
 
-[**Target OMS, valore soglia 10 $\mu g~m^{-3}$ (controfattuale):  media annuale prevista da LG QA per escludere significativi effetti sanitari**]{.highlight}
+[**Target OMS: valore soglia 10 $\mu g~m^{-3}$ (controfattuale) come  media annuale per escludere significativi effetti sanitari (LG QA  OMS)**]{.highlight}
 
 ---
 
@@ -296,14 +292,9 @@ knitr::include_graphics("./fig_tab/map_sezioni_delta_no2_2025_target_oms.png")
 
 ::::
 
-<br>
+- Media annuale $NO_2$: overlay geografico tra disegno delle sezioni censuarie ed il grigliato regolare di output del modello euleriano di dispersione atmosferica CAMx con una risoluzione orizzontale di 4 km. 
 
-- Media annuale $NO_2$ ottenuta tramite overlay geografico tra disegno delle sezioni censuarie ed il grigliato regolare di output del modello euleriano di dispersione atmosferica CAMx con una risoluzione orizzontale di 4 km. 
-
-
-- Differenziale di esposizione tra valore di concentrazione ambientale $NO_2$ al 2025 in ciascuna
-sezione censuaria ed il controfattuale 10 $\mu g~m^{-3}$ (OMS): media 5.7 $\mu g~m^{-3}$, mediana  5.9 $\mu g~m^{-3}$, range interquartile 3.9 $\mu g~m^{-3}$.
-
+- Differenziale di esposizione tra valore di concentrazione ambientale $NO_2$ al 2025 in ciascuna sezione censuaria ed il controfattuale 10 $\mu g~m^{-3}$ (OMS): media 5.7 $\mu g~m^{-3}$, mediana  5.9 $\mu g~m^{-3}$, range interquartile 3.9 $\mu g~m^{-3}$.
 
 ::: {.testo-centrato}
 
@@ -330,7 +321,7 @@ knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025.png")
 
 ```
 
-- media pesata popolazione 30+: circa 16 $\mu g~m^{-3}$
+- media pesata popolazione: RV = 16 $\mu g~m^{-3}$
 
 :::
 
@@ -347,7 +338,8 @@ knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025_by_province.png")
 
 ```
 
--  media pesata popolazione 30+: 7 $\mu g~m^{-3}$ (Belluno), 18 $\mu g~m^{-3}$ (Padova e Venezia).
+-  media pesata popolazione: BL = 7 $\mu g~m^{-3}$, PD, VE = 18 $\mu g~m^{-3}$
+
 :::
 
 ::::
@@ -424,16 +416,13 @@ knitr::include_graphics("./fig_tab/ac_resp_bootstrap_density_spat_temp_no_labs_e
 
 ```
 
-
-
-
 ::: {.compatto .testo-sinistra style="--text-size: 20px;"}
 
 - linea verticale tratteggiata in grigio: stima puntuale: 109 casi/anno (2025).
 
 - *incertezza epidemiologica*: estrazione con reinserimento del $RR$ da distribuzione log-normale con valore centrale 1.05
 
-- *incertezza temporale*: estrazione con reinserimento del valore medio annuale di NO2 per la serie storica 2019-2025
+- *incertezza temporale*: estrazione con reinserimento valore medio annuale di NO2 per serie storica 2019-2025
 
 - integrazione fattore di calibrazione popolazione bootstrap
 
@@ -450,6 +439,13 @@ knitr::include_graphics("./fig_tab/ac_resp_bootstrap_density_spat_temp_no_labs_e
 
 
 ---
+
+# Fine {.section-slide data-visibility="uncounted"}
+
+---
+
+# BACKUP SLIDES
+
 
 # new
 
@@ -485,10 +481,3 @@ NUMBER
 
 Testo conclusivo.
 
----
-
-# Fine {.section-slide data-visibility="uncounted"}
-
----
-
-# BACKUP SLIDES

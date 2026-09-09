@@ -168,12 +168,12 @@ $presentation-heading-font: Arial, Helvetica, sans-serif;
 
 .reveal .slide-number {
   position: fixed !important;
-  bottom: 16px !important;
-  right: 20px !important;
+  bottom: 10px !important;
+  right: 10px !important;
   left: auto !important;  
   top: auto !important;   
   color: $col-red !important;
-  font-size: 0.36em !important;
+  font-size: 0.25em !important;
   font-style: normal !important;
   font-weight: 600;
   z-index: 20;
@@ -186,7 +186,7 @@ $presentation-heading-font: Arial, Helvetica, sans-serif;
 .reveal .footer {
   position: fixed !important;
   right: 0 !important;
-  bottom: 16px !important;
+  bottom: 10px !important;
   left: 0 !important;
   width: 100% !important;
   color: $col-gray !important;
@@ -206,10 +206,10 @@ $presentation-heading-font: Arial, Helvetica, sans-serif;
 .reveal .footer::before {
   content: "";
   position: fixed;
-  right: 35px;
-  bottom: 42px;
-  left: 35px;
-  height: 1px;
+  right: 45px;
+  bottom: 25px;
+  left: 45px;
+  height: 0.8px;
   background-color: $col-gray;
 }
 
@@ -438,42 +438,159 @@ html:not(.print-pdf) .reveal:has(.section-slide.present) .footer {
 }
 
 /* ==========================================================================
-  8. PDF / PRINT EXPORT
-========================================================================== */
-  
-  /*
-  * Reveal's browser view allows header elements to extend above a section.
- * During PDF export each section becomes a clipped page, so the negative
- * header offset cuts the slide title. Keep the title and mark inside the
- * printable slide while preserving the interactive layout above.
+   8. PDF / PRINT EXPORT
+   ========================================================================== */
+
+/*
+ * Le coordinate sono quelle del canvas Reveal (1600 x 900 nel QMD),
+ * non quelle della pagina fisica del PDF. Si possono modificare anche
+ * da una singola slide tramite le custom properties --pdf-... .
+ *
+ * Le variabili possono essere ridefinite sul section della singola slide.
+ * Non impostarle su un div interno: le custom properties non risalgono
+ * dal figlio al section. Le variabili globali restano disponibili ovunque.
  */
 @media print {
+  html.print-pdf .reveal .slides {
+    --pdf-footer-bottom: 50px; // Distanza del testo dal bordo inferiore
+    --pdf-rule-bottom: 75px; // Distanza linea dal bordo inferiore
+    --pdf-rule-inset: 45px; // Margini laterali della linea
+    --pdf-footer-inset: 90px;
+    --pdf-footer-font-size: 14px;
+    --pdf-rule-thickness: 1px;
+    --pdf-footer-reserved-space: 85px;
+    --pdf-logo-left: 72px;
+    --pdf-logo-height: 20px;
+    --pdf-logo-top: calc(
+      (#{$banner-height} - var(--pdf-logo-height)) / 2
+      - #{$banner-optical-shift}
+);
+  }
+
+  /* Il banner fisso sulla viewport non deve apparire nella stampa. */
   .reveal::before {
     display: none !important;
   }
 
-  .reveal .slides section:not(#title-slide):not(.section-slide) {
+  /*
+   * Il logo e la fascia rossa vengono disegnati nello sfondo della slide.
+   * Le immagini di sfondo non occupano i pseudo-elementi e non dipendono
+   * dalla larghezza del titolo. L'ultimo livello e' il colore del canvas.
+   * Il percorso dell'immagine e' quello originale del tema Quarto.
+   */
+  html.print-pdf .reveal .slides section:not(#title-slide):not(.section-slide) {
+    position: relative !important;
+    box-sizing: border-box !important;
     padding-top: 105px !important;
-    background:
-      linear-gradient(45deg, transparent 0 49.5%, $col-red 50% 100%)
-        left top / $banner-height $banner-height no-repeat,
-      linear-gradient($col-red, $col-red)
-        $banner-height top / calc(100% - #{$banner-height}) $banner-height no-repeat,
-      $col-bg !important;
+    padding-bottom: var(--pdf-footer-reserved-space) !important;
+    background-color: $col-bg !important;
+    background-image:
+      url("../../../../../images/image1.png"),
+      linear-gradient(45deg, transparent 0 49.5%, $col-red 50% 100%),
+      linear-gradient($col-red, $col-red) !important;
+    background-repeat: no-repeat, no-repeat, no-repeat !important;
+    background-position:
+  var(--pdf-logo-left) var(--pdf-logo-top),
+  left top,
+  $banner-height top !important;
+
+background-size:
+  auto var(--pdf-logo-height),
+  $banner-height $banner-height,
+  calc(100% - #{$banner-height}) $banner-height !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
-  .reveal .slides section:not(#title-slide):not(.section-slide)::before {
-    top: 0 !important;
-    left: 72px !important;
+  /* Il banner HTML non deve coprire il footer PDF. */
+  html.print-pdf .reveal .slides section:not(#title-slide):not(.section-slide)::before,
+  html.print-pdf .reveal .slides section:not(#title-slide):not(.section-slide)::after {
+    display: block !important;
+    clip-path: none !important;
+    transform: none !important;
+    background-image: none !important;
+    background-repeat: no-repeat !important;
+    pointer-events: none;
   }
 
-  .reveal .slides section:not(#title-slide):not(.section-slide) > h1 {
+  /* Il titolo conserva la posizione del layout, senza pseudo-elementi footer. */
+  html.print-pdf .reveal .slides section:not(#title-slide):not(.section-slide) > h1 {
     top: 0 !important;
     transform: none !important;
     overflow: visible !important;
   }
 
-  /* Chromium can drop flex pseudo-elements when Reveal paginates slides. */
+  html.print-pdf .reveal .slides section:not(#title-slide):not(.section-slide) > h1::before,
+  html.print-pdf .reveal .slides section:not(#title-slide):not(.section-slide) > h1::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  /*
+   * LINEA PDF: ancorata al bordo inferiore della slide, non al titolo.
+   * Aumentare --pdf-rule-bottom per spostarla verso l'alto.
+   */
+  html.print-pdf .reveal .slides section:not(#title-slide):not(.section-slide)::before {
+    content: "" !important;
+    position: absolute !important;
+    top: auto !important;
+    bottom: var(--pdf-rule-bottom) !important;
+    left: var(--pdf-rule-inset) !important;
+    right: var(--pdf-rule-inset) !important;
+    width: auto !important;
+    height: var(--pdf-rule-thickness) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: $col-gray !important;
+    z-index: 50 !important;
+  }
+
+  /*
+   * FOOTER PDF: il suo bottom si riferisce alla slide intera.
+   * Il testo e' lo stesso del footer definito nel QMD.
+   */
+  html.print-pdf .reveal .slides section:not(#title-slide):not(.section-slide)::after {
+    content: "BRCPS26 - Dipartimento di Scienze Cardio-Toraco-Vascolari e Sanità Pubblica - Unità di Biostatistica, Epidemiologia e Sanità Pubblica" !important;
+    position: absolute !important;
+    top: auto !important;
+    bottom: var(--pdf-footer-bottom) !important;
+    left: var(--pdf-footer-inset) !important;
+    right: var(--pdf-footer-inset) !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: $col-gray !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: var(--pdf-footer-font-size) !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.02em !important;
+    text-align: center !important;
+    text-transform: none !important;
+    white-space: nowrap !important;
+    background: transparent !important;
+    z-index: 50 !important;
+  }
+
+  /*
+   * Il footer Quarto e' globale: durante la stampa si nasconde per evitare
+   * che venga ripetuto sulla copertina e sulle slide rosse.
+   * Lo stesso vale per la sua linea e per la numerazione HTML.
+   */
+  html.print-pdf .reveal .footer,
+  html.print-pdf .reveal .footer.footer-default,
+  html.print-pdf .reveal .footer::before,
+  html.print-pdf .reveal .slide-number:not(.slide-number-pdf) {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /*
+   * Slide rossa di sezione/chiusura. Si conserva il layout esistente,
+   * che evita la perdita dei pseudo-elementi flex in Chromium.
+   */
   .reveal .slides section.section-slide {
     position: relative !important;
     display: block !important;
@@ -500,69 +617,18 @@ html:not(.print-pdf) .reveal:has(.section-slide.present) .footer {
     margin: 0 !important;
     transform: translateY(-50%) !important;
   }
-
 }
 
 /* ==========================================================================
-   8B. PER-SLIDE FOOTER IN REVEAL PDF MODE
+   8B. PAGE NUMBERS IN REVEAL PDF MODE
    ========================================================================== */
 
 /*
- * Quarto's Reveal footer is a single global element. In print mode that would
- * also appear on the cover and on red section/closing slides. Hide the global
- * footer and draw the same footer from the H1 of each ordinary slide instead.
+ * Reveal crea un .slide-number-pdf dentro ogni .pdf-page. Si mantiene la
+ * numerazione del tema originale, ancorandola alla stessa quota del footer.
+ * Il denominatore / 10 e' quello del file originale: modificarlo se cambia
+ * il numero totale delle slide conteggiate.
  */
-html.print-pdf .reveal > .footer,
-html.print-pdf .reveal > .footer.footer-default {
-  display: none !important;
-  visibility: hidden !important;
-}
-
-/* Divider line above the footer — ordinary slides only. */
-html.print-pdf .reveal .slides
-section:not(#title-slide):not(.section-slide) > h1::before {
-  content: "";
-  position: absolute;
-  top: calc(900px - 15px);
-  left: -27.5%;
-  width: 127.5%;
-  height: 1px;
-  margin: 0;
-  padding: 0;
-  background-color: $col-gray;
-  z-index: 50;
-  pointer-events: none;
-}
-
-/* Footer text — ordinary slides only. */
-html.print-pdf .reveal .slides
-section:not(#title-slide):not(.section-slide) > h1::after {
-  content: "BRCPS26 - Dipartimento di Scienze Cardio-Toraco-Vascolari e Sanità Pubblica - Unità di Biostatistica, Epidemiologia e Sanità Pubblica";
-  position: absolute;
-  top: calc(900px - 10px);
-  left: -27.5%;
-  width: 127.5%;
-  margin: 0;
-  padding: 0;
-  color: $col-gray;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  text-align: center;
-  text-transform: none;
-  white-space: nowrap;
-  z-index: 50;
-  pointer-events: none;
-}
-
-/* PDF slide numbers:
-   Reveal creates one .slide-number-pdf INSIDE each .pdf-page.
-   The generic .slide-number rule above uses position: fixed, which makes all
-   PDF numbers land on top of each other. Reset them to page-local positioning
-   and number only counted slides. */
 html.print-pdf .reveal .slides {
   counter-reset: pdf-slide-number;
 }
@@ -574,14 +640,13 @@ html.print-pdf .reveal .slides > .pdf-page:not(:has([data-visibility="uncounted"
 html.print-pdf .reveal .slide-number-pdf {
   position: absolute !important;
   right: 36px !important;
-  bottom: 14px !important;
+  bottom: var(--pdf-footer-bottom, 20px) !important;
   left: auto !important;
   top: auto !important;
 
-  /* Hide Reveal's physical page number; replace it with our counter below. */
+  /* Nasconde il numero fisico di Reveal; lo sostituisce il counter. */
   font-size: 0 !important;
   line-height: 1 !important;
-
   color: $col-red !important;
   background: transparent !important;
   padding: 0 !important;
@@ -598,7 +663,7 @@ html.print-pdf .reveal .slide-number-pdf::before {
   color: $col-red;
 }
 
-/* No page number on title slide or uncounted section/closing slides. */
+/* Nessun numero sulle slide con data-visibility="uncounted". */
 html.print-pdf .reveal .slides > .pdf-page:has([data-visibility="uncounted"])
 .slide-number-pdf {
   display: none !important;
