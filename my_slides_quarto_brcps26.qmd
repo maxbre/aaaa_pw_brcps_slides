@@ -432,10 +432,25 @@ knitr::include_graphics("./fig_tab/ac_resp_bootstrap_density_spat_temp_no_labs_e
 
 # Conclusioni
 
+*significato dello studio:*
+
+- la stima di impatto sanitario rappresenta il numero di *casi/anno teorici*, cioè i decessi evitabili nell'eventualità in cui tutte le sezioni censuarie della Regione Veneto siano esposte ad un livello di concentrazione ambientale di $NO_2 \leq 10\ \mu g~m^{-3}$, che rappresenta la soglia OMS stabilita dalle attuali evidenze scientifiche per escludere significativi (misurabili) effetti sanitari (malattie per cause respiratorie codici ICD-10: J00-J99)
+
+*risultati di stima:*
+
+- il confronto tra la stima puntuale riferita all’anno 2025 (circa 109 casi/anno) e la stima centrale ottenuta dalla procedura di bootstrap non parametrico (circa 148 casi/anno, IC 95% 86–211) segnala dal punto di vista metodologico che affidarsi al solo dato deterministico rischia di sottostimare il carico sanitario atteso perchè non tiene  conto della variabilità storica delle concentrazioni ambientali nè dell'incertezza dell’incertezza epidemiologica associata all'intervallo di confidenza del RR
+
+- l’esposizione a $NO_2$ resta un determinante ambientale non trascurabile
+della mortalità per cause respiratorie in Regione Veneto, con un carico sanitario stimato tra le 86 e le 211 unità/anno (IC 95% bootstrap) concentrato prevalentemente nelle aree di pianura a maggiore densità abitativa e pressione antropica
+
+*implicazioni operative:*
+
+- politiche regionali di riduzione dell’esposizione a $NO_2$ potrebbero ottenere il maggior beneficio sanitario se prioritariamente indirizzate alle aree di pianura a maggiore pressione antropica (densità abitativa, riscaldamento domestico, traffico veicolare, insediamenti produttivi) rispetto all’applicazione
+di un approccio indifferenziato sull’intero territorio regionale
 
 ---
 
-# Limiti e sviluppi futuri
+# Limiti dello studio e sviluppi futuri
 
 
 ---
