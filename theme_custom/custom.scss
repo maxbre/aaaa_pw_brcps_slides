@@ -168,7 +168,7 @@ $presentation-heading-font: Arial, Helvetica, sans-serif;
 
 .reveal .slide-number {
   position: fixed !important;
-  bottom: 10px !important;
+  bottom: 5px !important;
   right: 10px !important;
   left: auto !important;  
   top: auto !important;   
@@ -640,7 +640,7 @@ html.print-pdf .reveal .slides > .pdf-page:not(:has([data-visibility="uncounted"
 html.print-pdf .reveal .slide-number-pdf {
   position: absolute !important;
   right: 36px !important;
-  bottom: var(--pdf-footer-bottom, 20px) !important;
+  bottom: var(--pdf-footer-bottom, 5px) !important;
   left: auto !important;
   top: auto !important;
 
