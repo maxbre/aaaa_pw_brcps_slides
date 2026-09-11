@@ -1,5 +1,5 @@
 ---
-title: "Valutazione di impatto sanitario da ${NO}_2$ atmosferico:<br>analisi controfattuale ed incertezza di stima"
+title: "Valutazione di impatto sanitario dell’esposizione atmosferica a $NO_2$: scenario controfattuale e propagazione dell’incertezza."
 subtitle: "Il caso studio della Regione Veneto"
 author: "<br>Massimo Bressan"
 date: today
@@ -37,9 +37,9 @@ casi attribuibili (di mortalità per cause respiratorie) associati all’esposiz
 
 - concentrazioni $NO_2$ da modellistica di dispersione atmosferica (serie storica 2019-2025)
 
-- soglia controfattuale di esposizione  da letteratura OMS 10 $\mu g~m^{-3}$ (no effetti significativi riconosciuti)
+- soglia controfattuale di esposizione  da letteratura OMS 10 $\mu g~m^{-3}$ (racccomandazione)
 
-- tassi grezzi mortalità di base per cause respiratorie (Codici ICD-10: J00-J99) per Provincia (casi attesi)
+- tassi grezzi mortalità di base per cause respiratorie (Codici ICD-10: J00-J99) per Provincia (casi attesi modellati)
 
 - Risk Ratio: 1.05 (1.03 - 1.07) per popolazione 30+ in sezioni censuarie (OMS/HRAPIE-2, 2025)
 
@@ -54,6 +54,27 @@ casi attribuibili (di mortalità per cause respiratorie) associati all’esposiz
 
 ---
 
+# In formule
+
+$C_{i,\mathrm{obs}}=\text{concentrazione 2025}$
+
+e 
+
+$C_{i,\mathrm{cf}}=\min(C_{i,\mathrm{obs}},10)$
+
+Quindi:
+
+$\Delta C_i=\max(C_{i,\mathrm{obs}}-10, 0)$
+
+Il numero di casi attribuibili è stimato applicando una funzione concentrazione-risposta esterna:
+
+$AC_i=N_iB_i\left(1-e^{-\beta\Delta C_i}\right)$
+
+La domanda controfattuale è dunque:
+
+*Quanti decessi respiratori in meno si stimerebbero, a parità delle altre condizioni, se nelle sezioni con concentrazioni superiori a 10 $\mu g~m^{-3}$  l’esposizione fosse portata a 10 $\mu g~m^{-3}$?*
+
+---
 
 # Formula log-lineare VIS
 
@@ -127,7 +148,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 
 <br>
 
-## Popolazione 30+
+## Popolazione residente 30+
 
 <br>
 
@@ -152,7 +173,7 @@ knitr::include_graphics("./fig_tab/map_sez_pop30p.png")
 
 <br>
 
-## Casi Attesi
+## Casi attesi modellati
 
 <br>
 
@@ -174,7 +195,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_attesi.png")
 :::
 
 ::::
-La sezione censuaria è l'unità statistica di analisi definita come unità geografica dei dati ambientali e sanitari aggregati con granularità spaziale più fine disponibile (accessibile per normativa privacy dati sanitari individuali).
+La sezione censuaria è l'unità statistica di analisi definita come unità geografica dei dati di popolazione con granularità spaziale più fine disponibile (accessibile per normativa privacy dati sanitari individuali).
 
 ::: {.testo-centrato}
 
@@ -405,28 +426,34 @@ Per Regione Veneto, stima con incertezza RR (1.03 - 1.07):
 
 ---
 
-# Stima distribuzione bootstrap 
+# Simulazione 2025
 
-```{r}
-#| echo: false
-#| fig-align: "center"
-#| out-width: "60%"
 
-knitr::include_graphics("./fig_tab/ac_resp_bootstrap_density_spat_temp_no_labs_e_stima_puntuale.png")
 
-```
+---
 
-::: {.compatto .testo-sinistra style="--text-size: 20px;"}
+# Simulazione storica
 
-- linea verticale tratteggiata in grigio: stima puntuale: 109 casi/anno (2025).
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- #| fig-align: "center" -->
+<!-- #| out-width: "60%" -->
 
-- *incertezza epidemiologica*: estrazione con reinserimento del $RR$ da distribuzione log-normale con valore centrale 1.05
+<!-- knitr::include_graphics("./fig_tab/....png") -->
 
-- *incertezza temporale*: estrazione con reinserimento valore medio annuale di NO2 per serie storica 2019-2025
+<!-- ``` -->
 
-- integrazione fattore di calibrazione popolazione bootstrap
+<!-- ::: {.compatto .testo-sinistra style="--text-size: 20px;"} -->
 
-:::
+<!-- - linea verticale tratteggiata in grigio: stima puntuale: 109 casi/anno (2025). -->
+
+<!-- - *incertezza epidemiologica*: estrazione con reinserimento del $RR$ da distribuzione log-normale con valore centrale 1.05 -->
+
+<!-- - *incertezza temporale*: estrazione con reinserimento valore medio annuale di NO2 per serie storica 2019-2025 -->
+
+<!-- - integrazione fattore di calibrazione popolazione bootstrap -->
+
+<!-- ::: -->
 
 ---
 
@@ -434,19 +461,15 @@ knitr::include_graphics("./fig_tab/ac_resp_bootstrap_density_spat_temp_no_labs_e
 
 *significato dello studio:*
 
-- la stima di impatto sanitario rappresenta il numero di *casi/anno teorici*, cioè i decessi evitabili nell'eventualità in cui tutte le sezioni censuarie della Regione Veneto siano esposte ad un livello di concentrazione ambientale di $NO_2 \leq 10\ \mu g~m^{-3}$, che rappresenta la soglia OMS stabilita dalle attuali evidenze scientifiche per escludere significativi (misurabili) effetti sanitari (malattie per cause respiratorie codici ICD-10: J00-J99)
 
 *risultati di stima:*
 
-- il confronto tra la stima puntuale riferita all’anno 2025 (circa 109 casi/anno) e la stima centrale ottenuta dalla procedura di bootstrap non parametrico (circa 148 casi/anno, IC 95% 86–211) segnala dal punto di vista metodologico che affidarsi al solo dato deterministico rischia di sottostimare il carico sanitario atteso perchè non tiene  conto della variabilità storica delle concentrazioni ambientali nè dell'incertezza dell’incertezza epidemiologica associata all'intervallo di confidenza del RR
 
-- l’esposizione a $NO_2$ resta un determinante ambientale non trascurabile
-della mortalità per cause respiratorie in Regione Veneto, con un carico sanitario stimato tra le 86 e le 211 unità/anno (IC 95% bootstrap) concentrato prevalentemente nelle aree di pianura a maggiore densità abitativa e pressione antropica
+
 
 *implicazioni operative:*
 
-- politiche regionali di riduzione dell’esposizione a $NO_2$ potrebbero ottenere il maggior beneficio sanitario se prioritariamente indirizzate alle aree di pianura a maggiore pressione antropica (densità abitativa, riscaldamento domestico, traffico veicolare, insediamenti produttivi) rispetto all’applicazione
-di un approccio indifferenziato sull’intero territorio regionale
+
 
 ---
 
