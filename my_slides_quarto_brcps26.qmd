@@ -434,27 +434,6 @@ Per Regione Veneto, stima con incertezza RR (1.03 - 1.07):
 
 # Simulazione storica
 
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- #| fig-align: "center" -->
-<!-- #| out-width: "60%" -->
-
-<!-- knitr::include_graphics("./fig_tab/....png") -->
-
-<!-- ``` -->
-
-<!-- ::: {.compatto .testo-sinistra style="--text-size: 20px;"} -->
-
-<!-- - linea verticale tratteggiata in grigio: stima puntuale: 109 casi/anno (2025). -->
-
-<!-- - *incertezza epidemiologica*: estrazione con reinserimento del $RR$ da distribuzione log-normale con valore centrale 1.05 -->
-
-<!-- - *incertezza temporale*: estrazione con reinserimento valore medio annuale di NO2 per serie storica 2019-2025 -->
-
-<!-- - integrazione fattore di calibrazione popolazione bootstrap -->
-
-<!-- ::: -->
-
 ---
 
 # Conclusioni
