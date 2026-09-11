@@ -270,6 +270,36 @@ $presentation-heading-font: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
 
+/* left alignment --------------------------------------------------------------
+
+.left-align {
+  text-align: left !important;
+}
+
+-------------------------------------------------------------------------------*/
+
+.reveal .slides section .columns > .column.left-align {
+  align-items: flex-start !important;
+  text-align: left !important;
+}
+
+.reveal .slides section .columns > .column.left-align h2,
+.reveal .slides section .columns > .column.left-align h3,
+.reveal .slides section .columns > .column.left-align h4,
+.reveal .slides section .columns > .column.left-align p,
+.reveal .slides section .columns > .column.left-align ul,
+.reveal .slides section .columns > .column.left-align ol,
+.reveal .slides section .columns > .column.left-align li,
+.reveal .slides section .columns > .column.left-align li p {
+  text-align: left !important;
+}
+
+.reveal .slides section .columns > .column.left-align ul,
+.reveal .slides section .columns > .column.left-align ol {
+  align-self: stretch !important;
+  box-sizing: border-box;
+}
+
 /* ========================================================================== 
    6. TITLE SLIDE
    ========================================================================== */
@@ -682,7 +712,7 @@ html.print-pdf .reveal .slides > .pdf-page:has([data-visibility="uncounted"])
   flex-direction: column !important;
   align-items: center !important;
   box-sizing: border-box !important;
-  flex: 0 1 auto !important;
+  flex: 1 !important;
 }
 
 .reveal .slides section .columns > .column h3 {
@@ -695,31 +725,6 @@ html.print-pdf .reveal .slides > .pdf-page:has([data-visibility="uncounted"])
   width: 100% !important;
   text-align: center !important;
   margin: 0 !important;
-}
-
-/* Allineamento a sinistra opzionale per le sole colonne testuali.
-   La maggiore specificità prevale sulle regole centrate di .column senza
-   modificarne dimensioni, flex-basis o comportamento delle immagini. */
-.reveal .slides section .columns > .column.left-align {
-  align-items: flex-start !important;
-  text-align: left !important;
-}
-
-.reveal .slides section .columns > .column.left-align h2,
-.reveal .slides section .columns > .column.left-align h3,
-.reveal .slides section .columns > .column.left-align h4,
-.reveal .slides section .columns > .column.left-align p,
-.reveal .slides section .columns > .column.left-align ul,
-.reveal .slides section .columns > .column.left-align ol,
-.reveal .slides section .columns > .column.left-align li,
-.reveal .slides section .columns > .column.left-align li p {
-  text-align: left !important;
-}
-
-.reveal .slides section .columns > .column.left-align ul,
-.reveal .slides section .columns > .column.left-align ol {
-  align-self: stretch !important;
-  box-sizing: border-box;
 }
 
 .reveal .slides section .columns > .column figure {
@@ -736,12 +741,6 @@ html.print-pdf .reveal .slides > .pdf-page:has([data-visibility="uncounted"])
   margin-right: auto;
 }
 
-.reveal .slides section .tabella-grande th,
-.reveal .slides section .tabella-grande td {
-  font-size: var(--table-font-size, 26px) !important;
-  line-height: var(--table-line-height, 1.25) !important;
-  padding: var(--table-padding, 8px) 12px;
-}
 
 /* ==========================================================================
    FIGURE/MAPPE IN COLONNE — MASSIMA DIMENSIONE

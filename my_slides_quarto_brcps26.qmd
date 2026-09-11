@@ -23,96 +23,154 @@ format:
 
 ---
 
-# Overview Project Work
-
-## Obiettivo
-
-- valutazione controfattuale di impatto sanitario (VIS) del numero di
-casi attribuibili (di mortalità per cause respiratorie) associati all’esposizione a lungo termine (media annuale) dei livelli di $NO_2$ in aria ambiente (outdoor) nella Regione Veneto
-
-
-## Metodi e dataset
-
-- studio ecologico: unità di analisi sezione censuaria Regione Veneto (dati aggregati ISTAT 2021)
-
-- concentrazioni $NO_2$ da modellistica di dispersione atmosferica (serie storica 2019-2025)
-
-- soglia controfattuale di esposizione  da letteratura OMS 10 $\mu g~m^{-3}$ (racccomandazione)
-
-- tassi grezzi mortalità di base per cause respiratorie (Codici ICD-10: J00-J99) per Provincia (casi attesi modellati)
-
-- Risk Ratio: 1.05 (1.03 - 1.07) per popolazione 30+ in sezioni censuarie (OMS/HRAPIE-2, 2025)
-
-- funzione concentrazione-risposta per stima causale (formulazione OMS AirQ+) 
-
-
-## Risultati
-
-- stima puntuale casi attribuibili (AC) e frazione attribuibile (AF) anno 2025 (somma casi stimati per sezione)
-
-- bootstrap non parametrico per propagazione incertezza statistica di stima AC e AF
-
----
-
-# In formule
-
-$C_{i,\mathrm{obs}}=\text{concentrazione 2025}$
-
-e 
-
-$C_{i,\mathrm{cf}}=\min(C_{i,\mathrm{obs}},10)$
-
-Quindi:
-
-$\Delta C_i=\max(C_{i,\mathrm{obs}}-10, 0)$
-
-Il numero di casi attribuibili è stimato applicando una funzione concentrazione-risposta esterna:
-
-$AC_i=N_iB_i\left(1-e^{-\beta\Delta C_i}\right)$
-
-La domanda controfattuale è dunque:
-
-*Quanti decessi respiratori in meno si stimerebbero, a parità delle altre condizioni, se nelle sezioni con concentrazioni superiori a 10 $\mu g~m^{-3}$  l’esposizione fosse portata a 10 $\mu g~m^{-3}$?*
-
----
-
-# Formula log-lineare VIS
-
-**Casi attribuibili ($AC$): quota di casi attesi associati all'inquinamento atmosferico da $NO_2$**
+# Domanda di Sanità Pubblica
 
 <br>
+<br>
 
+::: {.testo-centrato}
 
-::: {.formula .highlight style="--formula-size: 36px;"}
-
-[$$AC = N \cdot B \cdot AF$$]{.highlight}
+[**Quanti decessi per cause respiratorie sono potenzialmente evitabili se<br> l'esposizione annuale a $NO_2$ atmosferico viene ricondotta al livello guida OMS?**]{.highlight .big}
 
 :::
 
+<br>
+<br>
+
+*Valutazione controfattuale di impatto sanitario (VIS) del numero di casi attribuibili per esposizione a lungo termine (media annuale) ai livelli ambientali di $NO_2$ (outdoor) in Regione Veneto.*
+
+<br>
+<br>
 
 
-- $N$: popolazione target di riferimento
+- **Popolazione**: adulti residenti di età pari o superiore a 30 anni (adulti)
 
-- $B$: tasso basale esito sanitario
+- **Territorio**: sezioni censuarie della Regione Veneto (ISTAT 2021)
+
+- **Ambiente**: concentrazioni atmosferiche $NO_2$
+
+- **Esito sanitario**: mortalità per malattie respiratorie (ICD-10 J00–J99)
+
+- **Scenario controfattuale OMS**: valore guida $10\ \mu g\,m^{-3}$ (media annuale) 
+
+- **Metodi**: funzione concentrazione-risposta (OMS AirQ+)
 
 <br>
 
-**Frazione attribuibile ($AF$): rapporto casi attribuibili su casi attesi (casi attesi = $N \cdot B$)**
+
+---
+
+# Disegno dello studio e fonti informative 
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+## Sezioni censuarie
 
 <br>
 
-::: {.formula .highlight}
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: "100%"
 
-$$AF = \frac{RR - 1}{RR} = 1 - \frac{1}{e^{\beta \cdot \Delta C}} = 1 - e^{-\beta \cdot \Delta C}$$
+
+knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
+
+```
+
 :::
 
+::: {.column .left-align width="50%"}
 
--  AF = $\frac{RR - 1}{RR}$ proporzione dei casi sanitari evitati se l'esposizione viene ridotta sotto la soglia controfattuale
+<br>
+<br>
 
-- $e^{\beta \cdot \Delta C}$ *Rischio Relativo* per il differenziale di concentrazione $\Delta C$
+::: {.tabella-grande style="--table-font-size: 24px; --table-line-height: 1.5; --table-padding: 8px;"}
 
-- $\beta = \frac{\ln(RR_{10})}{10}$ coefficiente funzione log-lineare concentrazione-risposta scalato su $10 \ \mu g~m^{-3}$
+| Componente | Dato utilizzato |
+|:--|:--|
+| Disegno | Studio ecologico su base territoriale |
+| Unità demografica | 43 447 sezioni censuarie (ISTAT 2021) |
+| Popolazione target | 3 521 995 residenti 30+ (ISTAT 2021) |
+| Esposizione | $NO_2$ modello SPIAIR/CAMx griglia 4 km ARPAV |
+| Mortalità basale | Tassi grezzi provinciali 30+ (ISTAT 2024) |
+| Funzione rischio | $RR_{10}=1{.}05$ - IC 95%: 1.03 – 1.07 |
+| Serie storica $NO_2$ | 2019–2025 ARPAV |
+:::
 
+:::
+
+::::
+
+<br>
+
+- **Unità di analisi**: sezione censuaria come unità di popolazione con granularità spaziale più fine (normativa privacy dati sanitari individuali).
+
+- **Granularità demografica**: la funzione concentrazione-risposta è applicata a ogni sezione prima dell'aggregazione regionale.
+
+- **Mortalità basale**: impiego dei dei tassi grezzi provinciali è un'approssimazione esplicita (tassi età-specifici non disponibili).
+
+
+---
+
+# Dal controfattuale alla stima regionale
+
+<br>
+
+## Per ciascuna sezione censuaria $i$:
+
+<br>
+
+$$
+C_{i,\mathrm{cf}}=\min(C_{i,2025},10),
+\qquad
+\Delta C_i=\max(C_{i,2025}-10, 0)
+$$
+<br>
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+## Decessi attesi per sezione
+
+
+$$
+E_i=N_{i,30+}\cdot B_{p(i),30+}
+$$
+$N_{i,30+}$: popolazione della sezione
+
+$B_{p(i),30+}$: tasso grezzo provinciale
+
+:::
+
+::: {.column width="50%"}
+
+## Casi attribuibili per sezione
+
+$$
+AC_i=E_i\cdot\left(1-e^{-\beta\Delta C_i}\right)
+$$
+
+$$
+\beta=\frac{\log(RR_{10})}{10}
+$$
+:::
+
+::::
+
+<br>
+
+## I risultati per sezione sono poi aggregati per ottenere la stima regionale:
+
+$$
+AC_{\mathrm{Regione}}=\sum_i AC_i
+$$
+
+Nelle sezioni censuarie con $C_i \leq 10$, lo scenario controfattuale coincide con concentrazione modellata per cui viene definito $\Delta C_i = 0$ al fine di non attribuire un *effetto protettivo artificiale*.
 
 ---
 
@@ -195,7 +253,6 @@ knitr::include_graphics("./fig_tab/map_sezioni_attesi.png")
 :::
 
 ::::
-La sezione censuaria è l'unità statistica di analisi definita come unità geografica dei dati di popolazione con granularità spaziale più fine disponibile (accessibile per normativa privacy dati sanitari individuali).
 
 ::: {.testo-centrato}
 
@@ -205,13 +262,13 @@ La sezione censuaria è l'unità statistica di analisi definita come unità geog
 
 ---
 
-# Qualità Aria Ambiente {.columns-max}
+# Qualità aria ambiente {.columns-max}
 
 :::: {.columns}
 
 ::: {.column width="50%"}
 
-## NO2 output modellistica 2019-2025
+## $NO_2$ modellistica 2019-2025
 
 
 ```{r}
@@ -227,8 +284,7 @@ knitr::include_graphics("./fig_tab/map_no2_ts_rv.png")
 
 ::: {.column width="50%"} 
 
-## NO2 boxplot per Provincia 2019-2025
-
+## $NO_2$ boxplot per Provincia 2019-2025
 
 ```{r}
 #| echo: false
@@ -238,11 +294,12 @@ knitr::include_graphics("./fig_tab/map_no2_ts_rv.png")
 knitr::include_graphics("./fig_tab/no2_boxplot_no2_provincia.png")
 
 ```
+
 :::
 
 ::::
 
-[**Target OMS: valore soglia 10 $\mu g~m^{-3}$ (controfattuale) come  media annuale per escludere significativi effetti sanitari (LG QA  OMS)**]{.highlight}
+[Il valore OMS controfattuale non è una soglia biologica al di sotto della quale il rischio è necessariamente nullo.]{.highlight}
 
 ---
 
@@ -251,57 +308,32 @@ knitr::include_graphics("./fig_tab/no2_boxplot_no2_provincia.png")
 :::: {.columns}
 
 
-::: {.column width="33%"}
-
-## Sezioni censuarie ISTAT 2021
-
-<br>
-
-```{r}
-#| echo: false
-#| fig-align: "center"
-#| out-width: "100%"
-
-
-knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
-
-```
-
-- disegno sezioni
-
-:::
-
-
-::: {.column width="33%"}
+::: {.column width="50%"}
 
 ## $NO_2$ anno 2025
 
-<br>
-
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| out-width: "100%"
+#| out-width: "80%"
 
 knitr::include_graphics("./fig_tab/map_sezioni_no2_2025.png")
 
 ```
 
 - statistiche zonali $NO_2$ per sezione
-- media pesata su superficie intersezione
 
 :::
 
-::: {.column width="33%"} 
+::: {.column width="50%"} 
 
 ## delta $NO_2$ : [2025] - [target OMS]
 
-<br>
 
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| out-width: "100%"
+#| out-width: "80%"
 
 knitr::include_graphics("./fig_tab/map_sezioni_delta_no2_2025_target_oms.png")
 
@@ -313,9 +345,9 @@ knitr::include_graphics("./fig_tab/map_sezioni_delta_no2_2025_target_oms.png")
 
 ::::
 
-- Media annuale $NO_2$: overlay geografico tra disegno delle sezioni censuarie ed il grigliato regolare di output del modello euleriano di dispersione atmosferica CAMx con una risoluzione orizzontale di 4 km. 
+- Media annuale $NO_2$: overlay disegno sezioni censuarie e grigliato output modello dispersione atmosferica CAMx con risoluzione orizzontale 4 km. 
 
-- Differenziale di esposizione tra valore di concentrazione ambientale $NO_2$ al 2025 in ciascuna sezione censuaria ed il controfattuale 10 $\mu g~m^{-3}$ (OMS): media 5.7 $\mu g~m^{-3}$, mediana  5.9 $\mu g~m^{-3}$, range interquartile 3.9 $\mu g~m^{-3}$.
+- Delta esposizione tra concentrazione ambientale $NO_2$ al 2025 e controfattuale 10 $\mu g~m^{-3}$ (OMS): media 5.7 $\mu g~m^{-3}$, mediana  5.9 $\mu g~m^{-3}$, range interquartile 3.9 $\mu g~m^{-3}$.
 
 ::: {.testo-centrato}
 
@@ -325,11 +357,11 @@ knitr::include_graphics("./fig_tab/map_sezioni_delta_no2_2025_target_oms.png")
 
 ---
 
-# Esposizione Popolazione {.columns-max}
+# Esposizione popolazione {.columns-max}
 
 :::: {.columns}
 
-::: {.column width="45%"} 
+::: {.column width="50%"} 
 
 ## Per Regione
 
@@ -346,7 +378,7 @@ knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025.png")
 
 :::
 
-::: {.column width="45%"} 
+::: {.column width="50%"} 
 
 ## Per Provincia
 
@@ -368,7 +400,7 @@ knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025_by_province.png")
 
 ---
 
-# Stima puntuale 2025 {.columns-max}
+# Stima puntuale 2025
 
 :::: {.columns}
 
@@ -412,7 +444,7 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 
 ::::
 
-::: {.compatto .testo-centrato}
+::: {.testo-centrato}
 
 Per Regione Veneto, stima con valore centrale RR = 1.05:
 
@@ -428,32 +460,231 @@ Per Regione Veneto, stima con incertezza RR (1.03 - 1.07):
 
 # Simulazione 2025
 
+:::: {.columns}
 
+::: {.column width="70%"}
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: "85%"
+
+knitr::include_graphics("./fig_tab/ac_sim_2025.png")
+```
+
+:::
+
+::: {.column .left-align width="28.50%"}
+
+<br>
+
+## Che cosa varia?
+
+- estrazione valore di $RR_{10}$ da una distribuzione log-normale.
+
+
+## Rimangono fissi
+
+- concentrazioni modellate 2025
+
+- popolazione sezionale
+
+- tassi grezzi provinciali
+
+
+## Risultato
+
+- **mediana:** 108,7 casi/anno
+
+- **IC 95%:** 67,6–149,7 casi/anno
+
+- **stima deterministica:** 109 casi/anno
+
+<br>
+
+[IC 95% propaga esclusivamente l'incertezza epidemiologica del $RR$ (condizionato agli altri input trattati come noti)]{.highlight}
+
+:::
+
+::::
 
 ---
 
-# Simulazione storica
+# Simulazione storica 2019-2025
+
+:::: {.columns}
+
+::: {.column width="70%"}
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: "85%"
+
+knitr::include_graphics("./fig_tab/ac_sim_hist.png")
+```
+
+:::
+
+::: {.column .left-align width="28.50%"}
+
+<br>
+
+## A ogni iterazione
+
+- selezionato un anno 2019 - 2025
+- campo spaziale applicato a tutte le sezioni
+- viene estratto un valore del $RR$
+- popolazione e tassi basali fissi
+
+## Risultato
+
+- **mediana:** 145,8 casi/anno
+- **intervallo 95%:** 81,5 – 230,5
+- valore centrale superiore del **34%** rispetto al 2025
+
+<br>
+
+[Descrive la sensibilità agli scenari storici (anno di esposizione): non è un IC della stima 2025 e non è una previsione futura]{.highlight}
+
+:::
+
+::::
 
 ---
 
 # Conclusioni
 
-*significato dello studio:*
+
+::: {.columns}
+
+::: {.column .left-align width="33%"}
+
+<br>
+
+## Impatto sanitario
+
+<br>
+
+109 decessi respiratori attribuibili/anno
+
+$$AF=2{,}86\%$$
+
+popolazione 30+ nello scenario 2025
+
+:::
+
+::: {.column .left-align  width="33%"}
+
+<br>
+
+## Territorio
+
+<br>
+
+Il carico stimato è maggiore nelle aree con:
+
+- popolazione più numerosa
+- concentrazioni più elevate
+- maggiore differenziale dal riferimento OMS
+
+Padova e Venezia presentano i valori assoluti più elevati
+
+:::
+
+::: {.column .left-align width="33%"}
+
+<br>
+
+## Tempo
+
+<br>
+
+Il 2025 è uno scenario relativamente favorevole rispetto a gran parte del periodo 2019–2025
 
 
-*risultati di stima:*
+La simulazione storica non sostituisce la stima specifica del 2025.
 
+:::
 
+:::
 
+<br>
+<br>
 
-*implicazioni operative:*
+::: {.row-highlight}
 
+I risultati quantificano un impatto potenziale sulla popolazione 30+:
 
+- *non* si tratta di decessi individualmente identificabili (stime ecologiche di gruppo)
+
+- *non* è una dimostrazione di causalità locale (nesting $RR$ da letteratura OMS)
+
+:::
 
 ---
 
-# Limiti dello studio e sviluppi futuri
+# Limiti dello studio
 
+::: {.columns}
+
+::: {.column .left-align width="50%"}
+
+## Dati e disegno
+
+- natura ecologica dei dati;
+- esposizione modellata con risoluzione di 4 km;
+- analisi limitata al solo $NO_2$;
+- popolazione, mortalità ed esposizione riferite ad anni diversi.
+
+:::
+
+::: {.column .left-align width="50%"}
+
+## Mortalità e incertezza
+
+- tassi grezzi provinciali applicati alle sezioni;
+- mancato aggiustamento per la struttura per età;
+- incertezza di popolazione, tassi ed esposizione non propagata;
+- serie storica di soli sette anni e caratterizzata da un trend.
+
+:::
+
+:::
+
+::: {.row-highlight}
+
+IC della simulazione 2025 rappresenta l'incertezza del $RR$, non l'incertezza complessiva della VIS.
+
+:::
+
+---
+
+# Possibili sviluppi futuri
+
+- **Mortalità basale età-specifica**
+
+   Applicare, quando disponibili, i tassi provinciali età-specifici.
+
+- **Propagazione integrata dell'incertezza**  
+
+   Includere errore delle concentrazioni modellate, tassi basali e stime demografiche.
+
+- **Modellazione spazio-temporale**  
+
+   Rappresentare dipendenza tra aree contigue, autocorrelazione e trend delle concentrazioni.
+
+- **Analisi causale e socio-demografica**  
+
+   Integrare covariate territoriali e metodi di inferenza causale spaziale.
+
+::: {.row-highlight}
+
+Priorità
+
+acquisire tassi età-specifici e verificare quanto la scelta del tasso basale influenzi i risultati finali (analisi di sensitività).
+
+:::
 
 ---
 
@@ -462,39 +693,4 @@ Per Regione Veneto, stima con incertezza RR (1.03 - 1.07):
 ---
 
 # BACKUP SLIDES
-
-
-# new
-
-## Titolo h2 nel corpo della slide
-
-normal text
-
-This is a sentence where I want to change a [specific]{.highlight} word.
-
-This is a sentence where one [word]{.big} is scaled up.
-
-::: {.row-highlight}
-This entire row of text will have a background highlight stretching across the slide.
-:::
-
----
-
-# Titolo slide 2 — Risultati e conclusioni
-
-## Titolo h2 nel corpo della slide
-
-BULLET
-
-- bullet
-- bullet 
-
-NUMBER
-
-1. numbered
-1. numbered
-
-### Titolo h3 nel corpo della slide
-
-Testo conclusivo.
 
