@@ -319,11 +319,12 @@ $presentation-heading-font: Arial, Helvetica, sans-serif;
   content: none;
 }
 
+/* Cover typography in fixed px units for predictable HTML/PDF rendering. */
 .reveal .slides #title-slide h1.title {
   width: 100%;
   margin: 0 0 22px 0 !important;
   color: white !important;
-  font-size: 3em !important;
+  font-size: 50px !important;  // titolo
   font-weight: 700;
   line-height: 1.08;
   text-align: center !important;
@@ -334,19 +335,17 @@ $presentation-heading-font: Arial, Helvetica, sans-serif;
   width: 100%;
   margin: 0 0 38px 0 !important;
   color: white !important;
-  font-size: 2em;
+  font-size: 38px !important;  // sottotitolo
   line-height: 1.25;
   text-align: center !important;
 }
 
+/* Containers do not set font-size, avoiding nested em multiplication. */
 .reveal .slides #title-slide .quarto-title-authors,
-.reveal .slides #title-slide .quarto-title-author,
-.reveal .slides #title-slide .quarto-title-author-name,
-.reveal .slides #title-slide .date {
+.reveal .slides #title-slide .quarto-title-author {
   margin: 0 !important;
   padding: 0 !important;
   color: white !important;
-  font-size: 1.2em;
   line-height: 1.35;
   text-align: center !important;
 }
@@ -356,8 +355,24 @@ $presentation-heading-font: Arial, Helvetica, sans-serif;
   justify-content: center !important;
 }
 
+/* Author name */
+.reveal .slides #title-slide .quarto-title-author-name {
+  margin: 0 !important;
+  padding: 0 !important;
+  color: white !important;
+  font-size: 28px !important;   // autore
+  line-height: 1.35;
+  text-align: center !important;
+}
+
+/* Date */
 .reveal .slides #title-slide .date {
-  margin-top: 10px !important;
+  margin: 10px 0 0 0 !important;
+  padding: 0 !important;
+  color: white !important;
+  font-size: 18px !important;  // data
+  line-height: 1.35;
+  text-align: center !important;
 }
 
 /* Keep global furniture off the cover while it is the current slide. */
