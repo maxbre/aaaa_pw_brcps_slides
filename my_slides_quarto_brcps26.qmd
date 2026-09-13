@@ -82,7 +82,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 
 ---
 
-# Dal controfattuale sezione alla stima regionale
+# Dal controfattuale per sezione alla stima regionale
 
 ::: {.formula style="--formula-size: 36px;"}
 
