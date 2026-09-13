@@ -79,7 +79,6 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 
 - Impiego dei dei tassi grezzi provinciali è un'approssimazione esplicita (tassi età-specifici non disponibili).
 
-
 ---
 
 # Dal controfattuale per sezione alla stima regionale
@@ -89,7 +88,6 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 [$\Delta C_i \longrightarrow AF_i \longrightarrow AC_i$]{.highlight}
 
 :::
-
 
 ## Per sezione censuaria $i$:
 
@@ -127,17 +125,19 @@ $$
 $$
 RR_i = e^{\beta\Delta C_i} \qquad \beta=\frac{\log(RR_{10})}{10}
 $$
-$AF_i$: quota casi attribuibile all’esposizione
+$AF_i$: quota casi attribuibili all’esposizione
 
 :::
 
 ::: {.column width="30%"}
 
-## Casi attribuibili
+## Casi evitabili
 
 $$
 AC_i=E_i\cdot AF_i
 $$
+stima di impatto controfattuale
+
 :::
 
 ::::
@@ -572,7 +572,8 @@ Il carico stimato è maggiore nelle aree con:
 - concentrazioni più elevate
 - maggiore differenziale dal riferimento OMS
 
-Padova e Venezia presentano i valori assoluti più elevati
+Padova e Venezia con i valori assoluti più elevati, 
+Belluno più bassi
 
 :::
 
@@ -632,7 +633,6 @@ I risultati quantificano un impatto potenziale sulla popolazione 30+:
 - tassi grezzi provinciali applicati alle sezioni
 - mancato aggiustamento per la struttura per età
 - incertezza di popolazione, tassi ed esposizione non propagata
-- serie storica di sette anni e caratterizzata da un trend
 
 :::
 
@@ -675,6 +675,8 @@ IC della simulazione 2025 rappresenta l'incertezza del $RR$, non l'incertezza co
 Priorità
 
 acquisire tassi età-specifici e verificare quanto la scelta del tasso basale influenzi i risultati finali (analisi di sensitività).
+
+downscaling modellistica qualità aria
 
 :::
 
