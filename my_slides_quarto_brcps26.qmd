@@ -23,58 +23,24 @@ format:
 
 ---
 
-# Domanda di Sanità Pubblica
-
-<br>
-<br>
+# Domanda VIS | disegno | fonti
 
 ::: {.testo-centrato}
 
-[**Quanti decessi per cause respiratorie sono potenzialmente evitabili se<br> l'esposizione annuale a $NO_2$ atmosferico viene ricondotta al livello guida OMS?**]{.highlight .big}
+[**Quanti casi di decesso per cause respiratorie sono potenzialmente evitabili se<br> l'esposizione annuale a $NO_2$ atmosferico viene ricondotta al livello guida OMS?**]{.highlight .big}
 
 :::
-
-<br>
-<br>
-
-*Valutazione controfattuale di impatto sanitario (VIS) del numero di casi attribuibili per esposizione a lungo termine (media annuale) ai livelli ambientali di $NO_2$ (outdoor) in Regione Veneto.*
-
-<br>
-<br>
-
-
-- **Popolazione**: adulti residenti di età pari o superiore a 30 anni (adulti)
-
-- **Territorio**: sezioni censuarie della Regione Veneto (ISTAT 2021)
-
-- **Ambiente**: concentrazioni atmosferiche $NO_2$
-
-- **Esito sanitario**: mortalità per malattie respiratorie (ICD-10 J00–J99)
-
-- **Scenario controfattuale OMS**: valore guida $10\ \mu g\,m^{-3}$ (media annuale) 
-
-- **Metodi**: funzione concentrazione-risposta (OMS AirQ+)
-
-<br>
-
-
----
-
-# Disegno di studio e fonti
-
 
 :::: {.columns}
 
 ::: {.column width="50%"}
-
-## Sezioni censuarie
 
 <br>
 
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| out-width: "100%"
+#| out-width: "120%"
 
 
 knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
@@ -86,19 +52,19 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 ::: {.column .left-align width="50%"}
 
 <br>
-<br>
 
 ::: {.tabella-grande style="--table-font-size: 24px; --table-line-height: 1.5; --table-padding: 8px;"}
 
 | Componente | Dato utilizzato |
 |:--|:--|
-| Disegno | Studio ecologico su base territoriale |
+| Disegno studio | Ecologico su base territoriale |
 | Unità demografica | 43 447 sezioni censuarie (ISTAT 2021) |
 | Popolazione target | 3 521 995 residenti 30+ (ISTAT 2021) |
-| Esposizione | $NO_2$ modello SPIAIR/CAMx griglia 4 km ARPAV |
+| Esposizione | $NO_2$ modellato griglia 4 km (ARPAV) |
 | Mortalità basale | Tassi grezzi provinciali 30+ (ISTAT 2024) |
-| Funzione rischio | $RR_{10}=1{.}05$ - IC 95%: 1.03 – 1.07 |
-| Serie storica $NO_2$ | 2019–2025 ARPAV |
+| Esito sanitario  | Mortalità malattie respiratorie (ICD-10 J00–J99) |
+| Funzione rischio | $RR_{10}=1{.}05$ - IC 95%: 1.03 – 1.07 (OMS) |
+| Serie storica $NO_2$ | 2019–2025 (ARPAV) |
 :::
 
 :::
@@ -107,15 +73,16 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 
 <br>
 
-- **Unità di analisi**: sezione censuaria come unità di popolazione con granularità spaziale più fine (normativa privacy dati sanitari individuali).
+- Sezione censuaria come unità di analisi della popolazione a granularità spaziale più fine (normativa privacy dati sanitari individuali).
 
-- **Granularità demografica**: la funzione concentrazione-risposta è applicata a ogni sezione prima dell'aggregazione regionale.
+- Funzione concentrazione-risposta applicata a ogni sezione prima dell'aggregazione regionale.
 
-- **Mortalità basale**: impiego dei dei tassi grezzi provinciali è un'approssimazione esplicita (tassi età-specifici non disponibili).
+- Impiego dei dei tassi grezzi provinciali è un'approssimazione esplicita (tassi età-specifici non disponibili).
+
 
 ---
 
-# Dal controfattuale alla stima regionale
+# Dal controfattuale sezione alla stima regionale
 
 ::: {.formula style="--formula-size: 36px;"}
 
@@ -651,10 +618,10 @@ I risultati quantificano un impatto potenziale sulla popolazione 30+:
 
 ## Dati e disegno
 
-- natura ecologica dei dati;
-- esposizione modellata con risoluzione di 4 km;
-- analisi limitata al solo $NO_2$;
-- popolazione, mortalità ed esposizione riferite ad anni diversi.
+- natura ecologica dei dati
+- esposizione modellata con risoluzione di 4 km
+- analisi limitata al solo $NO_2$
+- popolazione, mortalità ed esposizione riferite ad anni diversi
 
 :::
 
@@ -662,10 +629,10 @@ I risultati quantificano un impatto potenziale sulla popolazione 30+:
 
 ## Mortalità e incertezza
 
-- tassi grezzi provinciali applicati alle sezioni;
-- mancato aggiustamento per la struttura per età;
-- incertezza di popolazione, tassi ed esposizione non propagata;
-- serie storica di soli sette anni e caratterizzata da un trend.
+- tassi grezzi provinciali applicati alle sezioni
+- mancato aggiustamento per la struttura per età
+- incertezza di popolazione, tassi ed esposizione non propagata
+- serie storica di sette anni e caratterizzata da un trend
 
 :::
 
@@ -718,4 +685,97 @@ acquisire tassi età-specifici e verificare quanto la scelta del tasso basale in
 ---
 
 # BACKUP SLIDES
+
+---
+
+# Domanda di Sanità Pubblica
+
+<br>
+<br>
+
+::: {.testo-centrato}
+
+[**Quanti decessi per cause respiratorie sono potenzialmente evitabili se<br> l'esposizione annuale a $NO_2$ atmosferico viene ricondotta al livello guida OMS?**]{.highlight .big}
+
+:::
+
+<br>
+<br>
+
+*Valutazione controfattuale di impatto sanitario (VIS) del numero di casi attribuibili per esposizione a lungo termine (media annuale) ai livelli ambientali di $NO_2$ (outdoor) in Regione Veneto.*
+
+<br>
+<br>
+
+
+- **Popolazione**: adulti residenti di età pari o superiore a 30 anni (adulti)
+
+- **Territorio**: sezioni censuarie della Regione Veneto (ISTAT 2021)
+
+- **Ambiente**: concentrazioni atmosferiche $NO_2$
+
+- **Esito sanitario**: mortalità per malattie respiratorie (ICD-10 J00–J99)
+
+- **Scenario controfattuale OMS**: valore guida $10\ \mu g\,m^{-3}$ (media annuale) 
+
+- **Metodi**: funzione concentrazione-risposta (OMS AirQ+)
+
+<br>
+
+
+---
+
+# Disegno di studio e fonti
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+## Sezioni censuarie
+
+<br>
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: "100%"
+
+
+knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
+
+```
+
+:::
+
+::: {.column .left-align width="50%"}
+
+<br>
+<br>
+
+::: {.tabella-grande style="--table-font-size: 24px; --table-line-height: 1.5; --table-padding: 8px;"}
+
+| Componente | Dato utilizzato |
+|:--|:--|
+| Disegno | Studio ecologico su base territoriale |
+| Unità demografica | 43 447 sezioni censuarie (ISTAT 2021) |
+| Popolazione target | 3 521 995 residenti 30+ (ISTAT 2021) |
+| Esposizione | $NO_2$ modello SPIAIR/CAMx griglia 4 km (ARPAV) |
+| Mortalità basale | Tassi grezzi provinciali 30+ (ISTAT 2024) |
+| Funzione rischio | $RR_{10}=1{.}05$ - IC 95%: 1.03 – 1.07 (OMS) |
+| Serie storica $NO_2$ | 2019–2025 (ARPAV) |
+:::
+
+:::
+
+::::
+
+<br>
+
+- **Unità di analisi**: sezione censuaria come unità di popolazione con granularità spaziale più fine (normativa privacy dati sanitari individuali).
+
+- **Granularità demografica**: la funzione concentrazione-risposta è applicata a ogni sezione prima dell'aggregazione regionale.
+
+- **Mortalità basale**: impiego dei dei tassi grezzi provinciali è un'approssimazione esplicita (tassi età-specifici non disponibili).
+
 
