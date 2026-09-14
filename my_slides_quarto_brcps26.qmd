@@ -1,5 +1,5 @@
 ---
-title: "Valutazione di impatto sanitario dell’inquinamento atmosferico da $NO_2$: scenario controfattuale e propagazione dell’incertezza"
+title: "Valutazione di impatto sanitario<br>dell’inquinamento atmosferico da $NO_2$: scenario controfattuale ed  analisi dell’incertezza"
 subtitle: "Il caso studio della Regione Veneto"
 author: "<br>Massimo Bressan"
 date: today
@@ -27,7 +27,7 @@ format:
 
 ::: {.testo-centrato}
 
-[**Quanti casi di decesso per cause respiratorie sono potenzialmente evitabili se<br> l'esposizione annuale a $NO_2$ atmosferico viene ricondotta al livello guida OMS?**]{.highlight .big}
+[**Quanti decessi per cause respiratorie sono potenzialmente evitabili se<br> l'esposizione annuale a $NO_2$ atmosferico viene ricondotta al livello guida OMS?**]{.highlight .big}
 
 :::
 
@@ -73,11 +73,11 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 
 <br>
 
-- Sezione censuaria come unità di analisi della popolazione a granularità spaziale più fine (normativa privacy dati sanitari individuali).
+- Sezione censuaria:  unità di analisi della popolazione a granularità spaziale più fine (limite normativa privacy dati sanitari individuali).
 
-- Funzione concentrazione-risposta applicata a ogni sezione prima dell'aggregazione regionale.
+- Funzione concentrazione-risposta: applicata a ogni sezione prima dell'aggregazione regionale.
 
-- Impiego dei dei tassi grezzi provinciali è un'approssimazione esplicita (tassi età-specifici non disponibili).
+- Tassi grezzi provincial: è un'approssimazione esplicita dei dati (tassi età-specifici non disponibili).
 
 ---
 
@@ -494,7 +494,7 @@ knitr::include_graphics("./fig_tab/ac_sim_2025.png")
 
 ---
 
-# Simulazione storica 2019-2025
+# Simulazione 2019-2025
 
 :::: {.columns}
 
@@ -517,7 +517,7 @@ knitr::include_graphics("./fig_tab/ac_sim_hist.png")
 ## A ogni iterazione
 
 - selezionato un anno 2019 - 2025
-- campo spaziale applicato a tutte le sezioni
+- campo spaziale concentrazione applicato a tutte le sezioni
 - viene estratto un valore del $RR$
 - popolazione e tassi basali fissi
 
@@ -529,7 +529,7 @@ knitr::include_graphics("./fig_tab/ac_sim_hist.png")
 
 <br>
 
-[Descrive la sensibilità agli scenari storici (anno di esposizione): non è un IC della stima 2025 e non è una previsione futura]{.highlight}
+[Descrive la sensibilità dei risultati agli scenari storici impiegati (anno di esposizione): non è un IC della stima 2025 e non è una previsione futura]{.highlight}
 
 :::
 
@@ -546,7 +546,7 @@ knitr::include_graphics("./fig_tab/ac_sim_hist.png")
 
 <br>
 
-## Impatto sanitario
+## Impatto
 
 <br>
 
@@ -585,8 +585,9 @@ Belluno più bassi
 
 <br>
 
-- Il 2025 è uno scenario relativamente favorevole rispetto a gran parte del periodo 2019–2025
+- Stima casi/anno potenzialmente evitabili. 
 
+- Scenario 2025 relativamente favorevole rispetto a gran parte del periodo 2019–2025
 
 - La simulazione storica non sostituisce la stima specifica del 2025.
 
@@ -599,6 +600,8 @@ Belluno più bassi
 
 ::: {.row-highlight}
 
+L'esposizione a $\mathrm{NO}_2$ eccedente il livello controfattuale di riferimento è associata a un carico non trascurabile di mortalità respiratoria nella popolazione adulta del Veneto.
+
 I risultati quantificano un impatto potenziale sulla popolazione 30+:
 
 - *non* si tratta di decessi individualmente identificabili (stime ecologiche di gruppo)
@@ -606,6 +609,7 @@ I risultati quantificano un impatto potenziale sulla popolazione 30+:
 - *non* è una dimostrazione di causalità locale (nesting $RR$ da letteratura OMS)
 
 :::
+
 
 ---
 
@@ -631,16 +635,11 @@ I risultati quantificano un impatto potenziale sulla popolazione 30+:
 ## Mortalità e incertezza
 
 - tassi grezzi provinciali applicati alle sezioni
-- mancato aggiustamento per la struttura per età
-- incertezza di popolazione, tassi ed esposizione non propagata
+- mancato aggiustamento della struttura per età
+- incertezza popolazione, tassi ed esposizione non propagata
+- IC simulazione 2025 rappresenta l'incertezza del $RR$, non l'incertezza complessiva VIS
 
 :::
-
-:::
-
-::: {.row-highlight}
-
-IC della simulazione 2025 rappresenta l'incertezza del $RR$, non l'incertezza complessiva della VIS.
 
 :::
 
