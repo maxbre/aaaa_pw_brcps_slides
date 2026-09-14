@@ -613,33 +613,48 @@ I risultati quantificano un impatto potenziale sulla popolazione 30+:
 
 ---
 
-# Limiti dello studio
+<br>
+<br>
+
+# Disegno studio: punti di forza e limiti
+
+:::: {.columns}
+
+::: {.column width="48%"}
+
+### Punti di forza
+
+- Analisi demografica alla scala delle sezioni censuarie
+- Calcolo sezionale prima dell’aggregazione regionale
+- Scenario controfattuale esplicito: $NO_2 = 10\ \mu g\,m^{-3}$
+- Separazione tra:
+  - incertezza epidemiologica del $RR$
+  - variabilità temporale dell’esposizione
+- Procedura trasparente e replicabile
+
+:::
+
+::: {.column width="48%"}
+
+### Limiti
+
+- Disegno ecologico: nessuna inferenza individuale
+- Possibili confondimento spaziale, MAUP e spillover
+- Tassi provinciali grezzi 30+: nessun aggiustamento per età
+- Esposizione vincolata al grigliato di 4 km
+- Disallineamento temporale: popolazione 2021, mortalità 2024, esposizione 2025
+- Incertezza propagata solo per il $RR$
+- Simulazione storica descrittiva, non prognostica
+
+:::
+
+::::
 
 <br>
 
-::: {.columns}
+::: {.row-highlight}
 
-::: {.column .left-align width="50%"}
-
-## Dati e disegno
-
-- natura ecologica dei dati
-- esposizione modellata con risoluzione di 4 km
-- analisi limitata al solo $NO_2$
-- popolazione, mortalità ed esposizione riferite ad anni diversi
-
-:::
-
-::: {.column .left-align width="50%"}
-
-## Mortalità e incertezza
-
-- tassi grezzi provinciali applicati alle sezioni
-- mancato aggiustamento della struttura per età
-- incertezza popolazione, tassi ed esposizione non propagata
-- IC simulazione 2025 rappresenta l'incertezza del $RR$, non l'incertezza complessiva VIS
-
-:::
+L'estensione della propagazione dell'incertezza, l'adozione di modelli spaziali e spazio-temporali e l'integrazione di metodi di inferenza causale renderebbero la valutazione più solida e più adatta al supporto quantitativo delle politiche regionali di prevenzione ambientale e sanitaria.
 
 :::
 
@@ -647,35 +662,31 @@ I risultati quantificano un impatto potenziale sulla popolazione 30+:
 
 # Possibili sviluppi futuri
 
-<br>
-<br>
+- **Mortalità basale**
+  - utilizzo di tassi provinciali età-specifici
+  - confronto di sensibilità tra tassi provinciali e regionali
 
-- **Mortalità basale età-specifica**
+- **Propagazione integrata dell’incertezza**
+  - concentrazioni modellate
+  - tassi di mortalità
+  - stime demografiche
 
-   Applicare, quando disponibili, i tassi provinciali età-specifici.
+- **Stime ambientali**
+  - downscaling modellistica regionale 1 km 
+  - propagazione dell’errore con struttura spaziale
 
-- **Propagazione integrata dell'incertezza**  
+- **Modelli spaziali e spazio-temporali**
+  - Stima stabilizzata della mortalità nelle piccole aree mediante Empirical Bayes
+  - Modelli gerarchici bayesiani per la dipendenza spaziale, con inferenza tramite INLA
+  - Modellazione esplicita del trend e dell’autocorrelazione temporale
 
-   Includere errore delle concentrazioni modellate, tassi basali e stime demografiche.
-
-- **Modellazione spazio-temporale**  
-
-   Rappresentare dipendenza tra aree contigue, autocorrelazione e trend delle concentrazioni.
-
-- **Analisi causale e socio-demografica**  
-
-   Integrare covariate territoriali e metodi di inferenza causale spaziale.
-
-<br>
-<br>
+- **Inferenza causale spaziale**
+  - controllo dei confondenti socio-demografici
+  - applicazione di *propensity score*, *IPTW*, *g-computation*
 
 ::: {.row-highlight}
 
-Priorità
-
-acquisire tassi età-specifici e verificare quanto la scelta del tasso basale influenzi i risultati finali (analisi di sensitività).
-
-downscaling modellistica qualità aria
+**Obiettivo operativo:** estendere la VIS da analisi descrittiva a strumento più robusto di supporto alle politiche regionali.
 
 :::
 
@@ -778,5 +789,77 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 - **Granularità demografica**: la funzione concentrazione-risposta è applicata a ogni sezione prima dell'aggregazione regionale.
 
 - **Mortalità basale**: impiego dei dei tassi grezzi provinciali è un'approssimazione esplicita (tassi età-specifici non disponibili).
+
+---
+
+
+# Pro / Contro dello studio
+
+
+Il principale contributo metodologico dello studio consiste nell'applicazione della funzione di impatto alla massima granularità demografica disponibile prima dell'aggregazione regionale e nella separazione tra l'incertezza epidemiologica del rischio relativo e la variabilità degli scenari temporali di esposizione. Questa distinzione evita di combinare indiscriminatamente fonti di variabilità con significati differenti, migliora la trasparenza interpretativa dei risultati e rende la procedura replicabile a supporto della programmazione regionale in materia di ambiente e sanità pubblica.
+
+<br>
+
+::: {.columns}
+
+::: {.column .left-align width="50%"}
+
+## Dati e disegno
+
+- natura ecologica dei dati
+- esposizione modellata con risoluzione di 4 km
+- analisi limitata al solo $NO_2$
+- popolazione, mortalità ed esposizione riferite ad anni diversi
+
+:::
+
+::: {.column .left-align width="50%"}
+
+## Mortalità e incertezza
+
+- tassi grezzi provinciali applicati alle sezioni
+- mancato aggiustamento della struttura per età
+- incertezza popolazione, tassi ed esposizione non propagata
+- IC simulazione 2025 rappresenta l'incertezza del $RR$, non l'incertezza complessiva VIS
+
+:::
+
+:::
+
+---
+
+# Possibili sviluppi futuri
+
+<br>
+<br>
+
+- **Mortalità basale età-specifica**
+
+   Applicare, quando disponibili, i tassi provinciali età-specifici.
+
+- **Propagazione integrata dell'incertezza**  
+
+   Includere errore delle concentrazioni modellate, tassi basali e stime demografiche.
+
+- **Modellazione spazio-temporale**  
+
+   Rappresentare dipendenza tra aree contigue, autocorrelazione e trend delle concentrazioni.
+
+- **Analisi causale e socio-demografica**  
+
+   Integrare covariate territoriali e metodi di inferenza causale spaziale.
+
+<br>
+<br>
+
+::: {.row-highlight}
+
+Priorità
+
+acquisire tassi età-specifici e verificare quanto la scelta del tasso basale influenzi i risultati finali (analisi di sensitività).
+
+downscaling modellistica qualità aria
+
+:::
 
 
