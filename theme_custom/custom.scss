@@ -867,3 +867,24 @@ html.print-pdf .reveal .slides section.columns-max .columns > .column img {
 .reveal .slides section .formula p {
   font-size: var(--formula-size, 28px);
 }
+
+/* ==========================================================================
+   EVIDENZIAZIONE SELETTIVA RIGHE TABELLE
+   ========================================================================== */
+
+.reveal .slides .tabella-highlight tbody tr {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Genera classi .riga-1 ... .riga-30 */
+@for $i from 1 through 30 {
+  .reveal .slides .tabella-highlight.riga-#{$i} tbody tr:nth-child(#{$i}) {
+    background-color: rgba(200, 30, 30, 0.12) !important;
+    font-weight: 700;
+  }
+
+  .reveal .slides .tabella-highlight.riga-#{$i} tbody tr:nth-child(#{$i}) td:first-child {
+    border-left: 4px solid $col-red !important;
+  }
+}

@@ -25,15 +25,19 @@ format:
 
 # Domanda VIS | disegno | fonti
 
+<br>
+
 ::: {.testo-centrato}
 
 [**Quanti decessi per cause respiratorie sono potenzialmente evitabili se<br> l'esposizione annuale a $NO_2$ atmosferico viene ricondotta al livello guida OMS?**]{.highlight .big}
 
 :::
 
+<br>
+
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="55%"}
 
 <br>
 
@@ -49,11 +53,11 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 
 :::
 
-::: {.column .left-align width="50%"}
+::: {.column .left-align width="45%"}
 
 <br>
 
-::: {.tabella-grande style="--table-font-size: 24px; --table-line-height: 1.5; --table-padding: 8px;"}
+::: {.tabella-grande style="--table-font-size: 22px; --table-line-height: 1.5; --table-padding: 8px;"}
 
 | Componente | Dato utilizzato |
 |:--|:--|
@@ -72,12 +76,6 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 ::::
 
 <br>
-
-- Sezione censuaria:  unità di analisi della popolazione a granularità spaziale più fine (limite normativa privacy dati sanitari individuali).
-
-- Funzione concentrazione-risposta: applicata a ogni sezione prima dell'aggregazione regionale.
-
-- Tassi grezzi provincial: è un'approssimazione esplicita dei dati (tassi età-specifici non disponibili).
 
 ---
 
@@ -177,8 +175,8 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 ```
 
 - sezioni abitate: 43 447 
-- superficie: 14 511 km2
-- estensione mediana: 2.90 ha
+- superficie totale: 14 511 km2
+- mediana sezione: 2.90 ha
 
 :::
 
@@ -200,9 +198,8 @@ knitr::include_graphics("./fig_tab/map_sez_pop30p.png")
 
 ```
 
-- popolazione totale: 4 847 745 ab
-- popolazione 30+ ($N$): 3 521 995 ab (73%)
-- densità mediana: 13.5 ab/ha
+- popolazione 30+ ($N$): 3 521 995 ab (73% popolazione totale)
+- densità mediana sezione: 13.5 ab/ha
 
 :::
 
@@ -227,12 +224,13 @@ knitr::include_graphics("./fig_tab/map_sezioni_attesi.png")
 
 - tasso grezzo mortalità provinciale ($B$)
 - malattie sistema respiratorio (ICD-10:J00-J99)
-- media tasso: 0.107% (0.084% - 0.140%)
-- 107 casi ogni 100 000 ab
+- tasso medio regionale: 0.107% (0.084% - 0.140%), 107 casi ogni 100 000 ab
 
 :::
 
 ::::
+
+<br>
 
 ::: {.testo-centrato}
 
@@ -281,7 +279,7 @@ knitr::include_graphics("./fig_tab/no2_boxplot_no2_provincia.png")
 
 ::: {.testo-centrato}
 
-[Il valore OMS controfattuale non è una soglia biologica al di sotto della quale il rischio è necessariamente nullo.]{.highlight}
+[Il valore OMS controfattuale non è una soglia biologica al di sotto della quale il rischio è necessariamente nullo]{.highlight}
 
 :::
 
@@ -331,7 +329,9 @@ knitr::include_graphics("./fig_tab/map_sezioni_delta_no2_2025_target_oms.png")
 
 - Media annuale $NO_2$: overlay disegno sezioni censuarie e grigliato output modello dispersione atmosferica CAMx con risoluzione orizzontale 4 km. 
 
-- Delta esposizione tra $NO_2$ al 2025 e controfattuale 10 $\mu g~m^{-3}$ (OMS): media 5.7 $\mu g~m^{-3}$, mediana  5.9 $\mu g~m^{-3}$, range interquartile 3.9 $\mu g~m^{-3}$.
+- Delta esposizione $NO_2$: media 5.7 $\mu g~m^{-3}$, mediana  5.9 $\mu g~m^{-3}$, range interquartile 3.9 $\mu g~m^{-3}$.
+
+<br>
 
 ::: {.testo-centrato}
 
@@ -358,7 +358,7 @@ knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025.png")
 
 ```
 
-- media pesata popolazione: RV = 16 $\mu g~m^{-3}$
+- media pesata RV: 16 $\mu g~m^{-3}$
 
 :::
 
@@ -375,7 +375,7 @@ knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025_by_province.png")
 
 ```
 
--  media pesata popolazione: BL = 7 $\mu g~m^{-3}$, PD, VE = 18 $\mu g~m^{-3}$
+-  media pesata Provincia: BL = 7 $\mu g~m^{-3}$, PD e VE = 18 $\mu g~m^{-3}$
 
 :::
 
@@ -413,6 +413,8 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 <br>
 <br>
 
+::: {.tabella-highlight .riga-2 .riga-5}
+
 
 | Provincia | Attesi | AC | AF | $AC_{low}$ | $AC_{upp}$ |
 | :--- | ---: | ---: | ---: | ---: | ---: |
@@ -425,6 +427,7 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 | Vicenza | 668 | 17.70 | 0.0265 | 10.80 | 24.40 |
 
 :::
+:::
 
 ::::
 
@@ -432,7 +435,7 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 
 Per Regione Veneto, stima con valore centrale RR = 1.05:
 
-[*$AC$ = 109 casi/anno per cause respiratorie nella popolazione età 30+ ($AF$ = 2.86%)*]{.highlight}
+[*$AC$ = 109.0 casi/anno per cause respiratorie nella popolazione età 30+ ($AF$ = 2.86%)*]{.highlight}
 
 Per Regione Veneto, stima con incertezza RR (1.03 - 1.07):
 
@@ -446,19 +449,19 @@ Per Regione Veneto, stima con incertezza RR (1.03 - 1.07):
 
 :::: {.columns}
 
-::: {.column width="70%"}
+::: {.column width="75%"}
 
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| out-width: "85%"
+#| out-width: "77%"
 
 knitr::include_graphics("./fig_tab/ac_sim_2025.png")
 ```
 
 :::
 
-::: {.column .left-align width="28.50%"}
+::: {.column .left-align width="25%"}
 
 <br>
 
@@ -486,7 +489,7 @@ knitr::include_graphics("./fig_tab/ac_sim_2025.png")
 
 <br>
 
-[IC 95% propaga esclusivamente l'incertezza epidemiologica del $RR$ (condizionato agli altri input trattati come noti)]{.highlight}
+[IC 95% propaga esclusivamente l'incertezza epidemiologica del $RR$]{.highlight}
 
 :::
 
@@ -498,38 +501,47 @@ knitr::include_graphics("./fig_tab/ac_sim_2025.png")
 
 :::: {.columns}
 
-::: {.column width="70%"}
+::: {.column width="65%"}
 
 ```{r}
+
 #| echo: false
 #| fig-align: "center"
-#| out-width: "85%"
+#| out-width: "95%"
 
 knitr::include_graphics("./fig_tab/ac_sim_hist.png")
+
 ```
 
 :::
 
-::: {.column .left-align width="28.50%"}
+::: {.column .left-align width="35%"}
 
-<br>
 
-## A ogni iterazione
+```{r}
 
-- selezionato un anno 2019 - 2025
-- campo spaziale concentrazione applicato a tutte le sezioni
-- viene estratto un valore del $RR$
-- popolazione e tassi basali fissi
+#| echo: false
+#| fig-align: "center"
+#| out-width: "71%"
 
-## Risultato
+knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
 
-- **mediana:** 145,8 casi/anno
-- **intervallo 95%:** 81,5 – 230,5
-- valore centrale superiore del **34%** rispetto al 2025
+```
 
-<br>
+*Ad ogni iterazione:*
 
-[Descrive la sensibilità dei risultati agli scenari storici impiegati (anno di esposizione): non è un IC della stima 2025 e non è una previsione futura]{.highlight}
+- selezione anno 2019 - 2025, campo spaziale applicato a tutte le sezioni, 
+estratto un valore $RR$, popolazione e tassi basali fissi
+
+*Risultato:*
+
+- mediana: 145,8 casi/anno, intervallo 95%: 81,5 – 230,5, valore centrale **+34%** rispetto al 2025
+
+::: {.testo-centrato}
+
+[Descrive la sensibilità dei risultati agli scenari storici impiegati (anno esposizione)]{.highlight}
+
+:::
 
 :::
 
@@ -585,7 +597,7 @@ Belluno più bassi
 
 <br>
 
-- Stima casi/anno potenzialmente evitabili. 
+- Stima casi/anno potenzialmente evitabili 
 
 - Scenario 2025 relativamente favorevole rispetto a gran parte del periodo 2019–2025
 
@@ -596,11 +608,10 @@ Belluno più bassi
 :::
 
 <br>
-<br>
 
 ::: {.row-highlight}
 
-L'esposizione a $\mathrm{NO}_2$ eccedente il livello controfattuale di riferimento è associata a un carico non trascurabile di mortalità respiratoria nella popolazione adulta del Veneto.
+L'esposizione a $\mathrm{NO}_2$ eccedente il livello controfattuale di riferimento è associata ad un carico non trascurabile di mortalità respiratoria nella popolazione 30+ del Veneto.
 
 I risultati quantificano un impatto potenziale sulla popolazione 30+:
 
@@ -610,13 +621,13 @@ I risultati quantificano un impatto potenziale sulla popolazione 30+:
 
 :::
 
-
 ---
 
-<br>
-<br>
-
 # Disegno studio: punti di forza e limiti
+
+
+<br>
+<br>
 
 :::: {.columns}
 
@@ -697,6 +708,16 @@ L'estensione della propagazione dell'incertezza, l'adozione di modelli spaziali 
 ---
 
 # BACKUP SLIDES
+
+---
+
+
+- Sezione censuaria:  unità di analisi della popolazione a granularità spaziale più fine (limite normativa privacy dati sanitari individuali).
+
+- Funzione concentrazione-risposta: applicata a ogni sezione prima dell'aggregazione regionale.
+
+- Tassi grezzi provinciali: è un'approssimazione esplicita dei dati (tassi età-specifici non disponibili).
+
 
 ---
 
