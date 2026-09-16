@@ -474,6 +474,19 @@ html:not(.print-pdf) .reveal:has(.section-slide.present) .footer {
       (#{$banner-height} - var(--pdf-logo-height)) / 2
       - #{$banner-optical-shift}
 );
+ /* AGGIUNGERE QUI */
+  html.print-pdf .reveal .slides > .pdf-page:has(#title-slide),
+  html.print-pdf .reveal .slides > .pdf-page:has(#title-slide) .slide-background {
+    background-color: $col-red !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Il banner fisso sulla viewport non deve apparire nella stampa. */
+  .reveal::before {
+    display: none !important;
+  }
+  
   }
 
   /* Il banner fisso sulla viewport non deve apparire nella stampa. */
