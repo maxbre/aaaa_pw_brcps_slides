@@ -460,10 +460,11 @@ html:not(.print-pdf) .reveal:has(.section-slide.present) .footer {
  * dal figlio al section. Le variabili globali restano disponibili ovunque.
  */
 @media print {
+
   html.print-pdf .reveal .slides {
-    --pdf-footer-bottom: 50px; // Distanza del testo dal bordo inferiore
-    --pdf-rule-bottom: 75px; // Distanza linea dal bordo inferiore
-    --pdf-rule-inset: 45px; // Margini laterali della linea
+    --pdf-footer-bottom: 50px;
+    --pdf-rule-bottom: 75px;
+    --pdf-rule-inset: 45px;
     --pdf-footer-inset: 90px;
     --pdf-footer-font-size: 14px;
     --pdf-rule-thickness: 1px;
@@ -473,23 +474,18 @@ html:not(.print-pdf) .reveal:has(.section-slide.present) .footer {
     --pdf-logo-top: calc(
       (#{$banner-height} - var(--pdf-logo-height)) / 2
       - #{$banner-optical-shift}
-);
- /* AGGIUNGERE QUI */
+    );
+  }
+
+  /* Sfondo completo della pagina PDF contenente la copertina */
   html.print-pdf .reveal .slides > .pdf-page:has(#title-slide),
   html.print-pdf .reveal .slides > .pdf-page:has(#title-slide) .slide-background {
-    background-color: $col-red !important;
+    background: $col-red !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
-  /* Il banner fisso sulla viewport non deve apparire nella stampa. */
-  .reveal::before {
-    display: none !important;
-  }
-  
-  }
-
-  /* Il banner fisso sulla viewport non deve apparire nella stampa. */
+  /* Il banner fisso sulla viewport non deve apparire nella stampa */
   .reveal::before {
     display: none !important;
   }
@@ -901,3 +897,4 @@ html.print-pdf .reveal .slides section.columns-max .columns > .column img {
     border-left: 4px solid $col-red !important;
   }
 }
+

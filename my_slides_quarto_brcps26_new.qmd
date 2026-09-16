@@ -38,7 +38,7 @@ livello guida OMS?]{.highlight .big}
 <br>
 
 :::::: columns
-::: {.column width="55%"}
+::: {.column width="50%"}
 <br>
 
 ```{r}
@@ -52,10 +52,10 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 ```
 :::
 
-:::: {.column .left-align width="45%"}
+:::: {.column .left-align width="50%"}
 <br>
 
-::: {.tabella-grande style="--table-font-size: 22px; --table-line-height: 1.5; --table-padding: 8px;"}
+::: {.tabella-grande style="--table-font-size: 20px; --table-line-height: 1.5; --table-padding: 8px;"}
 | Componente           | Dato utilizzato                                  |
 |:---------------------|:-------------------------------------------------|
 | Disegno studio       | Ecologico su base territoriale                   |
@@ -63,7 +63,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 | Popolazione target   | 3 521 995 residenti 30+ (ISTAT 2021)             |
 | Esposizione          | $NO_2$ modellato griglia 4 km (ARPAV)            |
 | Mortalità basale     | Tassi grezzi provinciali 30+ (ISTAT 2024)        |
-| Esito sanitario      | Mortalità malattie respiratorie (ICD-10 J00–J99) |
+| Esito sanitario      | Mortalità cause respiratorie (ICD-10 J00–J99) |
 | Funzione rischio     | $RR_{10}=1{.}05$ - IC 95%: 1.03 – 1.07 (OMS)     |
 | Serie storica $NO_2$ | 2019–2025 (ARPAV)                                |
 :::
@@ -209,60 +209,79 @@ media pesata per Provincia: BL = 7 $\mu g~m^{-3}$, PD e VE = 18
 
 ---
 
-# Dal controfattuale per sezione alla stima regionale
-
-::: {.formula style="--formula-size: 36px;"}
-[$\Delta C_i \longrightarrow AF_i \longrightarrow AC_i$]{.highlight}
-:::
-
-## Per sezione censuaria $i$:
-
-$$C_{i,\mathrm{cf}}=\min(C_{i,2025},10),
-\qquad
-\Delta C_i=\max(C_{i,2025}-10, 0)$$
+# Dall'esposizione ai casi evitabili
 
 <br>
+<br>
 
-:::::: columns
-::: {.column width="30%"}
+::: {.formula style="--formula-size: 34px;"}
 
-## Decessi attesi
+[$\Delta C_i \longrightarrow AF_i \longrightarrow AC_i$]{.highlight}
 
-$$E_i=N_{i,30+}\cdot B_{p(i),30+}$$
-
-$N_{i,30+}$: popolazione della sezione
-
-$B_{p(i),30+}$: tasso grezzo provinciale
 :::
 
-::: {.column width="30%"}
+
+<br>
+<br>
+
+:::::: {.columns}
+
+::: {.column width="32%"}
+
+## Eccedenza concentrazione (esposizione)
+
+$$
+\Delta C_i=\max(C_{i,2025}-10,0)
+$$
+
+- solo la concentrazione eccedente il livello guida OMS
+
+:::
+
+::: {.column width="32%"}
 
 ## Frazione attribuibile
 
-$$AF_i = \frac{RR_i-1}{RR_i} = 1-e^{-\beta\Delta C_i}$$
+$$
+AF_i=\frac{RR_i-1}{RR_i} =1-e^{-\beta\Delta C_i}
+$$
 
-$$RR_i = e^{\beta\Delta C_i} \qquad \beta=\frac{\log(RR_{10})}{10}$$
-$AF_i$: quota casi attribuibili all’esposizione
+- $\beta=\log(RR_{10})/10$.
+
 :::
 
-::: {.column width="30%"}
-## Casi evitabili
+::: {.column width="32%"}
 
-$$AC_i=E_i\cdot AF_i$$
-stima di impatto controfattuale
+## Casi attribuibili (evitabili)
+
+$$
+AC_i=
+N_{i,30+}\,B_{p(i),30+}\,AF_i
+$$
+
+- popolazione 30+
+- mortalità basale provinciale
+- frazione attribuibile.
+
 :::
-::::::
 
 <br>
+<br>
 
-## Per Regione:
+::::::
 
-$$AC_{\mathrm{Regione}}=\sum_i AC_i$$
+::: {.formula style="--formula-size: 32px;"}
+$$
+AC_{\mathrm{Regione}}=\sum_i AC_i
+$$
+:::
 
-Nelle sezioni censuarie con $C_i \leq 10$ viene definito
-$\Delta C_i = 0$ per non attribuire un *artificiale effetto protettivo*.
+::: {.testo-centrato}
+[Il calcolo viene effettuato per sezione censuaria e successivamente aggregato]{.highlight}
+:::
 
 ---
+
 
 # Popolazione \| Attesi \| AF per sezione {.columns-max}
 
@@ -282,7 +301,8 @@ knitr::include_graphics("./fig_tab/map_sez_pop30p.png")
 
 ```
 
-- popolazione 30+ ($N$): 3 521 995 ab (73% popolazione totale)
+- popolazione 30+ ($N$): 3 521 995 ab
+- 73% popolazione totale
 - densità mediana sezione: 13.5 ab/ha
 :::
 
@@ -305,6 +325,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_attesi.png")
 - tasso grezzo mortalità provinciale ($B$)
 - malattie sistema respiratorio (ICD-10:J00-J99)
 - tasso medio regionale: 0.107% (0.084% - 0.140%), 107 casi ogni 100 000 ab
+- casi attesi: mappatura demografico-attuariale della Regione Veneto
 :::
 
 ::: {.column width="33%"}
@@ -323,24 +344,26 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 
 ```
 
-$$AF_i = \frac{RR_i-1}{RR_i} = 1-e^{-\beta\Delta C_i}$$
+- quota di mortalità potenzialmente evitabile attraverso l’azzeramento del differenziale di esposizione controfattuale
+
+- $(RR−1)/RR$ esprime la proporzione dei casi attesi associata al differenziale considerato
 
 ::::::
 
 <br>
 
-[**Casi attesi: mappatura demografico-attuariale della Regione Veneto**]{.highlight}
+::: testo-centrato
 
-[**Frazione attribuibile: quota di mortalità potenzialmente evitabile attraverso l’azzeramento del differenziale di esposizione controfattuale; $(RR−1)/RR$ esprime la proporzione dei casi attesi associata al differenziale considerato.**]{.highlight}
+[**Le tre mappe mostrano i fattori che determinano la distribuzione territoriale dei casi evitabili**]{.highlight}
 
-
+:::
 
 ---
 
 # AC casi attribuibili (evitabili)
 
-$$AC_i=E_i\cdot AF_i \qquad AC_{\mathrm{Provincia}}=\sum_i AC_i \qquad AC_{\mathrm{Regione}}=\sum_i AC_i$$
-
+<br>
+<br>
 
 ## Stima puntuale 2025 
 
@@ -402,8 +425,8 @@ $$AC_i=E_i\cdot AF_i \qquad AC_{\mathrm{Provincia}}=\sum_i AC_i \qquad AC_{\math
 
 # Simulazione 2025
 
-::::: columns
-::: {.column width="75%"}
+:::: columns
+::: {.column width="73%"}
 ```{r}
 #| echo: false
 #| fig-align: "center"
@@ -440,50 +463,52 @@ knitr::include_graphics("./fig_tab/ac_sim_2025.png")
 
 [IC 95% propaga esclusivamente l'incertezza epidemiologica $RR$]{.highlight}
 :::
-:::::
+::::
 
 ---
 
 # Simulazione 2019-2025
 
-:::::: columns
-::: {.column width="65%"}
-```{r}
+:::: columns
 
+::: {.column width="73%"}
+```{r}
 #| echo: false
 #| fig-align: "center"
-#| out-width: "90%"
+#| out-width: "75%"
 
 knitr::include_graphics("./fig_tab/ac_sim_hist.png")
-
 ```
 :::
 
-:::: {.column .left-align width="35%"}
-```{r}
+::: {.column .left-align width="25%"}
 
-#| echo: false
-#| fig-align: "center"
-#| out-width: "45%"
+<br>
 
-knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
+## Che cosa varia?
 
-```
+- estratto un anno di simulazione 2019-2025 
+- estratto un valore $RR$
 
-- estratto un anno 2019 - 2025, campo spaziale applicato a tutte le
-  sezioni, estratto un valore $RR$, popolazione e tassi basali fissi
+## Rimangono fissi
 
+- campo spaziale concentrazioni per sezioni
+- popolazione sezionale
+- tassi grezzi provinciali
+
+## Risultato
 
 - mediana: **145,8 casi/anno**
 - intervallo 95%: 81.5 – 230.5
 - stima centrale **+34%** rispetto al 2025
 
-::: testo-centrato
+
 [Descrive la sensibilità dei risultati agli scenari storici impiegati
 (anno esposizione)]{.highlight}
+
 :::
+
 ::::
-::::::
 
 ---
 
@@ -539,9 +564,7 @@ Padova e Venezia con i valori assoluti più elevati, Belluno più bassi
 <br>
 
 ::: row-highlight
-L'esposizione a $\mathrm{NO}_2$ eccedente il livello controfattuale di
-riferimento è associata ad un carico non trascurabile di mortalità
-respiratoria nella popolazione 30+ del Veneto.
+Esposizione a $\mathrm{NO}_2$ eccedente il livello controfattuale di riferimento è associata ad un carico non trascurabile di mortalità respiratoria nella popolazione 30+ del Veneto.
 
 I risultati quantificano un impatto potenziale sulla popolazione 30+:
 
@@ -560,7 +583,7 @@ I risultati quantificano un impatto potenziale sulla popolazione 30+:
 
 ::::: columns
 ::: {.column width="48%"}
-### Punti di forza
+## Punti di forza
 
 - Analisi demografica alla scala delle sezioni censuarie
 - Calcolo sezionale prima dell’aggregazione regionale
@@ -572,11 +595,11 @@ I risultati quantificano un impatto potenziale sulla popolazione 30+:
 :::
 
 ::: {.column width="48%"}
-### Limiti
+## Limiti
 
 - Disegno ecologico: nessuna inferenza individuale
 - Possibili confondimento spaziale, MAUP e spillover
-- Tassi provinciali grezzi 30+: nessun aggiustamento per età
+- Tassi provinciali grezzi 30+: no aggiustamento per età
 - Esposizione vincolata al grigliato di 4 km
 - Disallineamento temporale: popolazione 2021, mortalità 2024,
   esposizione 2025
@@ -588,40 +611,46 @@ I risultati quantificano un impatto potenziale sulla popolazione 30+:
 <br>
 
 ::: row-highlight
-L'estensione della propagazione dell'incertezza, l'adozione di modelli
-spaziali e spazio-temporali e l'integrazione di metodi di inferenza
-causale renderebbero la valutazione più solida e più adatta al supporto
-quantitativo delle politiche regionali di prevenzione ambientale e
-sanitaria.
+- estensione della propagazione dell'incertezza
+- adozione di modelli spazio-temporali
+- integrazione di metodi di inferenza causale 
+
+potrebbero rendere la valutazione più solida e più adatta al supporto quantitativo delle politiche regionali di prevenzione ambientale e sanitaria.
 :::
 
 ---
 
-# Possibili sviluppi futuri
+# Lista possibili sviluppi futuri
 
-- **Mortalità basale**
-  - utilizzo di tassi provinciali età-specifici
-  - confronto di sensibilità tra tassi provinciali e regionali
-- **Propagazione integrata dell’incertezza**
-  - concentrazioni modellate
-  - tassi di mortalità
-  - stime demografiche
-- **Stime ambientali**
-  - downscaling modellistica regionale 1 km
-  - propagazione dell’errore con struttura spaziale
-- **Modelli spaziali e spazio-temporali**
-  - Stima stabilizzata della mortalità nelle piccole aree mediante
-    Empirical Bayes
-  - Modelli gerarchici bayesiani per la dipendenza spaziale, con
-    inferenza tramite INLA
-  - Modellazione esplicita del trend e dell’autocorrelazione temporale
-- **Inferenza causale spaziale**
-  - controllo dei confondenti socio-demografici
-  - applicazione di *propensity score*, *IPTW*, *g-computation*
+<br>
+
+**Mortalità basale**
+
+  - utilizzo di tassi provinciali età-specifici ( confronto di sensibilità tra tassi provinciali e regionali)
+  
+**Propagazione integrata incertezza di stima**
+
+  - concentrazioni, tassi di mortalità, demografia
+  
+**Stime ambientali**
+
+  - downscaling modellistica 1 km, ripartizione errore con struttura spaziale
+
+**Inferenza causale spaziale**
+
+  - controllo confondenti socio-demografici: *propensity score*, *IPTW*
+  
+**Modelli spaziali e spazio-temporali**
+
+  - stabilizzazione mortalità per piccole aree mediante Empirical Bayes
+  - modelli gerarchici bayesiani per la dipendenza spaziale (inferenza INLA), modellazione esplicita trend ed autocorrelazione temporale
+
 
 ::: row-highlight
-**Obiettivo operativo:** estendere la VIS da analisi descrittiva a
-strumento più robusto di supporto alle politiche regionali.
+**Obiettivo operativo:** 
+
+estendere VIS da analisi descrittiva a strumento robusto di supporto alle politiche regionali
+
 :::
 
 ---
@@ -631,5 +660,4 @@ strumento più robusto di supporto alle politiche regionali.
 ---
 
 # BACKUP SLIDES
-
 
