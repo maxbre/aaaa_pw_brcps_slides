@@ -1,6 +1,6 @@
 ---
 title: "Valutazione di impatto sanitario<br>dell’inquinamento atmosferico da $NO_2$: scenario controfattuale ed  analisi dell’incertezza"
-subtitle: "Il caso studio della Regione Veneto"
+subtitle: "Il caso della Regione Veneto"
 author: "<br>Massimo Bressan"
 date: today
 title-slide-attributes:
@@ -209,7 +209,7 @@ media pesata per Provincia: BL = 7 $\mu g~m^{-3}$, PD e VE = 18
 
 ---
 
-# Dall'esposizione ai casi evitabili
+# Dall'eccedenza di esposizione ai casi evitabili
 
 <br>
 <br>
@@ -564,15 +564,14 @@ Padova e Venezia con i valori assoluti più elevati, Belluno più bassi
 <br>
 
 ::: row-highlight
-Esposizione a $\mathrm{NO}_2$ eccedente il livello controfattuale di riferimento è associata ad un carico non trascurabile di mortalità respiratoria nella popolazione 30+ del Veneto.
+L'esposizione a $\mathrm{NO}_2$ eccedente il livello controfattuale OMS è associata ad un carico non trascurabile di mortalità respiratoria nella popolazione 30+ del Veneto.
 
-I risultati quantificano un impatto potenziale sulla popolazione 30+:
+I risultati quantificano un impatto potenziale sulla popolazione 30+ (casi evitabili/anno) ma:
 
 - *non* si tratta di decessi individualmente identificabili (stime
   ecologiche di gruppo)
 
-- *non* è una dimostrazione di causalità locale (nesting $RR$ da
-  letteratura OMS)
+- *non* è una dimostrazione di causalità locale (nesting $RR$ da letteratura OMS)
 :::
 
 ---
@@ -611,6 +610,9 @@ I risultati quantificano un impatto potenziale sulla popolazione 30+:
 <br>
 
 ::: row-highlight
+
+In prospettiva:
+
 - estensione della propagazione dell'incertezza
 - adozione di modelli spazio-temporali
 - integrazione di metodi di inferenza causale 
@@ -620,13 +622,13 @@ potrebbero rendere la valutazione più solida e più adatta al supporto quantita
 
 ---
 
-# Lista possibili sviluppi futuri
+# Possibili sviluppi futuri
 
 <br>
 
 **Mortalità basale**
 
-  - utilizzo di tassi provinciali età-specifici ( confronto di sensibilità tra tassi provinciali e regionali)
+  - utilizzo di tassi provinciali età-specifici (primo confronto di sensibilità tra utilizzo di tassi provinciali e regionale medio)
   
 **Propagazione integrata incertezza di stima**
 
