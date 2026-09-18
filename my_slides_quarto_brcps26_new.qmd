@@ -1,7 +1,8 @@
 ---
 title: "Valutazione di impatto sanitario<br>dell’inquinamento atmosferico da $NO_2$: scenario controfattuale ed  analisi dell’incertezza"
 subtitle: "Il caso della Regione Veneto"
-author: "<br>Massimo Bressan"
+#author: "<br>Massimo Bressan"
+author: "<br><span class='title-author-name'>Massimo Bressan</span><a class='title-email' href='mailto:massimo.bressan@arpa.veneto.it'>massimo.bressan@arpa.veneto.it</a>"
 date: today
 title-slide-attributes:
   data-visibility: uncounted
@@ -59,7 +60,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 | Componente           | Dato utilizzato                                  |
 |:---------------------|:-------------------------------------------------|
 | Disegno studio       | Ecologico su base territoriale                   |
-| Unità demografica    | 43 447 sezioni censuarie (ISTAT 2021)            |
+| Unità demografica    | 43 447 sezioni censimento (ISTAT 2021)            |
 | Popolazione target   | 3 521 995 residenti 30+ (ISTAT 2021)             |
 | Esposizione          | $NO_2$ modellato griglia 4 km (ARPAV)            |
 | Mortalità basale     | Tassi grezzi provinciali 30+ (ISTAT 2024)        |
@@ -81,7 +82,6 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 
 ## $NO_2$ modellistica 2019-2025
 
-<br>
 
 ```{r}
 #| echo: false
@@ -98,7 +98,6 @@ knitr::include_graphics("./fig_tab/map_no2_ts_rv.png")
 
 ## $NO_2$ boxplot per Provincia 2019-2025
 
-<br>
 
 ```{r}
 #| echo: false
@@ -261,7 +260,7 @@ $$
 
 - popolazione 30+
 - mortalità basale provinciale
-- frazione attribuibile.
+- frazione attribuibile (RR, $\Delta C$)
 
 :::
 
@@ -651,15 +650,18 @@ potrebbero rendere la valutazione più solida e più adatta al supporto quantita
 ::: row-highlight
 **Obiettivo operativo:** 
 
-estendere VIS da analisi descrittiva a strumento robusto di supporto alle politiche regionali
+estendere VIS da analisi descrittiva a strumento robusto di supporto operativo alle politiche regionali di settore
 
 :::
 
 ---
 
-# Fine {.section-slide data-visibility="uncounted"}
+# Grazie per l'attenzione {.section-slide data-visibility="uncounted"}
+
+## massimo.bressan@arpa.veneto.it
 
 ---
+
 
 # BACKUP SLIDES
 
