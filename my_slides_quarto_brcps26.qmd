@@ -72,7 +72,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 ::::::
 
 ::: testo-centrato
-Sezione di censimento come unità spaziale e demografica con granularità fine: estensione mediana: 2.90 ha, densità mediana: 13.5 ab/ha.
+Sezione di censimento ISTAT come unità spaziale e demografica con granularità fine: estensione mediana: 2.90 ha, densità mediana: 13.5 ab/ha.
 :::
 
 ---
