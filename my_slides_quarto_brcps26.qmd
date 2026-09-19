@@ -208,76 +208,184 @@ media pesata per Provincia: BL = 7 $\mu g~m^{-3}$, PD e VE = 18
 
 ---
 
-# Dall'eccedenza di esposizione ai casi evitabili
+# Dall'esposizione ai casi attribuibili (evitabili)
 
 <br>
-<br>
 
-::: {.formula style="--formula-size: 34px;"}
+```{dot}
+//| fig-width: 14
+//| fig-height: 7.2
 
-[$\Delta C_i \longrightarrow AF_i \longrightarrow AC_i$]{.highlight}
+digraph VIS {
 
-:::
+  graph [
+    rankdir=TB,
+    bgcolor="transparent",
+    pad=0.05,
+    nodesep=0.38,
+    ranksep=0.38,
+    splines=ortho
+  ];
 
+  node [
+    shape=box,
+    style="rounded,filled",
+    fontname="Arial",
+    fontsize=16,
+    fixedsize=true,
+    margin="0.08,0.05",
+    penwidth=2
+  ];
 
-<br>
-<br>
+  edge [
+    color="#7D7D7D",
+    penwidth=2,
+    arrowsize=0.7
+  ];
 
-:::::: {.columns}
+  A [
+    label="NO₂ per sezione",
+    width=2.20,
+    height=0.70,
+    fillcolor="#FFFFFF",
+    color="#7D7D7D",
+    fontcolor="#393D3F"
+  ];
 
-::: {.column width="32%"}
+  B [
+    label="Popolazione 30+",
+    width=2.20,
+    height=0.70,
+    fillcolor="#FFFFFF",
+    color="#7D7D7D",
+    fontcolor="#393D3F"
+  ];
 
-## Eccedenza concentrazione (esposizione)
+  C [
+    label="Mortalità basale",
+    width=2.20,
+    height=0.70,
+    fillcolor="#FFFFFF",
+    color="#7D7D7D",
+    fontcolor="#393D3F"
+  ];
 
-$$
-\Delta C_i=\max(C_{i,2025}-10,0)
-$$
+  D [
+    label="RR₁₀ OMS: 1,05",
+    width=2.20,
+    height=0.70,
+    fillcolor="#FFFFFF",
+    color="#7D7D7D",
+    fontcolor="#393D3F"
+  ];
 
-- solo la concentrazione eccedente il livello guida OMS
+  E [
+    label="Eccedenza esposizione\nΔC = max(C − 10, 0)",
+    width=3.20,
+    height=0.78,
+    fillcolor="#FFFFFF",
+    color="#AA0004",
+    fontcolor="#393D3F"
+  ];
 
-:::
+  F [
+    label="Casi attesi\nE = N × B",
+    width=3.20,
+    height=0.78,
+    fillcolor="#FFFFFF",
+    color="#AA0004",
+    fontcolor="#393D3F"
+  ];
 
-::: {.column width="32%"}
+  G [
+    label="Frazione attribuibile\nAF = 1 − exp(−βΔC)",
+    width=3.20,
+    height=0.78,
+    fillcolor="#FFFFFF",
+    color="#AA0004",
+    fontcolor="#393D3F"
+  ];
 
-## Frazione attribuibile
+  H [
+    label="Casi attribuibili per sezione\nAC = E × AF",
+    width=3.40,
+    height=0.78,
+    fillcolor="#FFFFFF",
+    color="#AA0004",
+    fontcolor="#393D3F"
+  ];
 
-$$
-AF_i=\frac{RR_i-1}{RR_i} =1-e^{-\beta\Delta C_i}
-$$
+  I [
+    label="Aggregazione",
+    width=3.40,
+    height=0.78,
+    fillcolor="#FFFFFF",
+    color="#AA0004",
+    fontcolor="#393D3F"
+  ];
 
-- $\beta=\log(RR_{10})/10$.
+  J [
+    label="Stima puntuale 2025",
+    width=3.25,
+    height=0.82,
+    fontsize=18,
+    fillcolor="#AA0004",
+    color="#850205",
+    fontcolor="#FFFFFF"
+  ];
 
-:::
+  K [
+    label="Stima 2025 incertezza RR",
+    width=3.25,
+    height=0.82,
+    fontsize=18,
+    fillcolor="#AA0004",
+    color="#850205",
+    fontcolor="#FFFFFF"
+  ];
 
-::: {.column width="32%"}
+  L [
+    label="Stima 2019–2025",
+    width=3.25,
+    height=0.82,
+    fontsize=18,
+    fillcolor="#AA0004",
+    color="#850205",
+    fontcolor="#FFFFFF"
+  ];
 
-## Casi attribuibili (evitabili)
+ M [
+    label="Simulazione",
+    width=3.25,
+    height=0.82,
+    fillcolor="#FFFFFF",
+    color="#AA0004",
+    fontcolor="#393D3F"
+  ];
+  
+  { rank=same; A; B; C; D; }
+  { rank=same; E; F;}
+  { rank=same; I; M; }
+  { rank=same; J; K; L;}
 
-$$
-AC_i=
-N_{i,30+}\,B_{p(i),30+}\,AF_i
-$$
-
-- popolazione 30+
-- mortalità basale provinciale
-- frazione attribuibile (RR, $\Delta C$)
-
-:::
-
-<br>
-<br>
-
-::::::
-
-::: {.formula style="--formula-size: 32px;"}
-$$
-AC_{\mathrm{Regione}}=\sum_i AC_i
-$$
-:::
-
-::: {.testo-centrato}
-[Il calcolo viene effettuato per sezione censuaria e successivamente aggregato]{.highlight}
-:::
+  A -> E;
+  B -> F;
+  C -> F;
+  D -> G;
+  E -> G;
+  F -> H;
+  G -> H;
+  H -> I;
+  H -> M;
+  I -> J;
+  M -> L;
+  M -> K;
+  
+/* trick: impone l’ordine orizzontale */
+J -> K [style=invis, weight=100];
+K -> L [style=invis, weight=100];
+}
+```
 
 ---
 
@@ -418,7 +526,9 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 <br>
 <br>
 
-[**Casi attribuibili (evitabili): quota dei decessi attesi associata all’esposizione ambientale eccedente il livello controfattuale<br>sono interpretabili come casi *evitabili* se il differenziale viene annullato**]{.highlight}
+::: testo-centrato
+[**Casi attribuibili (evitabili):<br> quota dei decessi attesi associata all’esposizione ambientale eccedente il livello controfattuale<br>sono interpretabili come casi *evitabili* se il differenziale viene annullato**]{.highlight}
+:::
 
 ---
 
@@ -662,6 +772,106 @@ estendere VIS da analisi descrittiva a strumento robusto di supporto operativo a
 
 ---
 
+# MY BACKUP SLIDES
 
-# BACKUP SLIDES
+---
+
+# Dall'esposizione ai casi attribuibili (evitabili)
+
+<br>
+<br>
+
+::: {.formula style="--formula-size: 34px;"}
+
+[$\Delta C_i \longrightarrow AF_i \longrightarrow AC_i$]{.highlight}
+
+:::
+
+
+<br>
+<br>
+
+:::::: {.columns}
+
+::: {.column width="32%"}
+
+## Eccedenza concentrazione (esposizione)
+
+$$
+\Delta C_i=\max(C_{i,2025}-10,0)
+$$
+
+- solo la concentrazione eccedente il livello guida OMS
+
+:::
+
+::: {.column width="32%"}
+
+## Frazione attribuibile
+
+$$
+AF_i=\frac{RR_i-1}{RR_i} =1-e^{-\beta\Delta C_i}
+$$
+
+- $\beta=\log(RR_{10})/10$.
+
+:::
+
+::: {.column width="32%"}
+
+## Casi attribuibili (evitabili)
+
+$$
+AC_i=
+N_{i,30+}\,B_{p(i),30+}\,AF_i
+$$
+
+- popolazione 30+
+- mortalità basale provinciale
+- frazione attribuibile (RR, $\Delta C$)
+
+:::
+
+<br>
+<br>
+
+::::::
+
+::: {.formula style="--formula-size: 32px;"}
+$$
+AC_{\mathrm{Regione}}=\sum_i AC_i
+$$
+:::
+
+::: {.testo-centrato}
+[Il calcolo viene effettuato per sezione censuaria e successivamente aggregato]{.highlight}
+:::
+
+---
+
+# Simulazione 2019-2025
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: "55%"
+
+knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
+
+```
+
+---
+
+# $NO_2$ - Mann-Kendall test and Sen's slope
+
+Media per Comune con aggiustamento per confronti multipli (Benjamini–Hochberg)
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: "75%"
+
+knitr::include_graphics("./fig_tab/map_mk_sen_no2.png")
+
+```
 
