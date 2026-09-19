@@ -56,22 +56,24 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 :::: {.column .left-align width="50%"}
 <br>
 
-::: {.tabella-grande style="--table-font-size: 20px; --table-line-height: 1.5; --table-padding: 8px;"}
+::: {.tabella-grande style="--table-font-size: 22px; --table-line-height: 1.5; --table-padding: 5px;"}
 | Componente           | Dato utilizzato                                  |
 |:---------------------|:-------------------------------------------------|
 | Disegno studio       | Ecologico su base territoriale                   |
-| Unità demografica    | 43 447 sezioni censimento (ISTAT 2021)            |
-| Popolazione target   | 3 521 995 residenti 30+ (ISTAT 2021)             |
+| Unità analisi        | 43 447 sezioni censimento (ISTAT 2021)            |
+| Popolazione          | 3 521 995 residenti 30+ (ISTAT 2021)             |
 | Esposizione          | $NO_2$ modellato griglia 4 km (ARPAV)            |
 | Mortalità basale     | Tassi grezzi provinciali 30+ (ISTAT 2024)        |
-| Esito sanitario      | Mortalità cause respiratorie (ICD-10 J00–J99) |
-| Funzione rischio     | $RR_{10}=1{.}05$ - IC 95%: 1.03 – 1.07 (OMS)     |
-| Serie storica $NO_2$ | 2019–2025 (ARPAV)                                |
+| Esito sanitario      | Mortalità per malattie sistema respiratorio (ICD-10 J00–J99) |
+| Funzione rischio     | $RR_{10}=1{.}05$ (1.03 – 1.07) (OMS)     |
+| Serie $NO_2$         | 2019–2025 (ARPAV)                                |
 :::
 ::::
 ::::::
 
-<br>
+::: testo-centrato
+Sezione di censimento come unità spaziale e demografica con granularità fine: estensione mediana: 2.90 ha, densità mediana: 13.5 ab/ha.
+:::
 
 ---
 
