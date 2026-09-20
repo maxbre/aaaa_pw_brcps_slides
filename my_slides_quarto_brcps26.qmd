@@ -633,7 +633,7 @@ knitr::include_graphics("./fig_tab/ac_sim_hist.png")
 ::: {.column .left-align width="33%"}
 <br>
 
-## Impatto
+## Impatto sanitario
 
 <br>
 
@@ -647,11 +647,11 @@ popolazione 30+ nello scenario 2025
 ::: {.column .left-align width="33%"}
 <br>
 
-## Territorio
+## Distribuzione spaziale
 
 <br>
 
-Il carico stimato è maggiore nelle aree con:
+Il carico stimato è maggiore con:
 
 - popolazione più numerosa
 - concentrazioni più elevate
@@ -663,7 +663,7 @@ Padova e Venezia con i valori assoluti più elevati, Belluno più bassi
 ::: {.column .left-align width="33%"}
 <br>
 
-## Tempo
+## Intervallo temporale
 
 <br>
 
@@ -691,7 +691,7 @@ I risultati quantificano un impatto potenziale sulla popolazione 30+ (casi evita
 
 ---
 
-# Disegno studio: punti di forza e limiti
+# Punti di forza e limiti
 
 <br> <br>
 
