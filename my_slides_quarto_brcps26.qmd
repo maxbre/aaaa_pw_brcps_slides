@@ -77,7 +77,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 
 ---
 
-# Flowchart: dalle concentrazioni ai casi attribuibili
+# Dalle esposizione ai casi attribuibili
 
 <br>
 
@@ -204,34 +204,34 @@ digraph VIS {
   ];
 
   K [
-    label="Stima 2025 incertezza RR",
-    width=3.25,
-    height=0.82,
-    fontsize=18,
-    fillcolor="#AA0004",
-    color="#850205",
-    fontcolor="#FFFFFF"
-  ];
+  label="Simulazione 2025\n(incertezza del RR)",
+  width=3.25,
+  height=0.82,
+  fontsize=18,
+  fillcolor="#AA0004",
+  color="#850205",
+  fontcolor="#FFFFFF"
+];
 
-  L [
-    label="Stima 2019–2025",
-    width=3.25,
-    height=0.82,
-    fontsize=18,
-    fillcolor="#AA0004",
-    color="#850205",
-    fontcolor="#FFFFFF"
-  ];
+L [
+  label="Simulazione storica\n2019–2025",
+  width=3.25,
+  height=0.82,
+  fontsize=18,
+  fillcolor="#AA0004",
+  color="#850205",
+  fontcolor="#FFFFFF"
+];
 
- M [
-    label="Simulazione",
+M [
+    label="Ripetizione Monte Carlo\ndel calcolo e aggregazione",
     width=3.25,
     height=0.82,
     fillcolor="#FFFFFF",
     color="#AA0004",
     fontcolor="#393D3F"
   ];
-  
+
   { rank=same; A; B; C; D; }
   { rank=same; E; F;}
   { rank=same; I; M; }
@@ -254,6 +254,8 @@ digraph VIS {
 J -> K [style=invis, weight=100];
 K -> L [style=invis, weight=100];
 }
+
+
 ```
 
 
@@ -580,7 +582,7 @@ knitr::include_graphics("./fig_tab/ac_sim_2025.png")
 
 ---
 
-# Simulazione 2019-2025
+# Simulazione storica 2019-2025
 
 :::: columns
 
