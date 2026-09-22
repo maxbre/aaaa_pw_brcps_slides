@@ -349,7 +349,7 @@ Delta esposizione $NO_2$: media 5.7 $\mu g~m^{-3}$, mediana 5.9
 
 ::: testo-centrato
 [**Concentrazione ambientale vs. controfattuale OMS per sezione
-censuaria**]{.highlight}
+di censimento**]{.highlight}
 :::
 
 ---
@@ -850,7 +850,7 @@ $$
 :::
 
 ::: {.testo-centrato}
-[Il calcolo viene effettuato per sezione censuaria e successivamente aggregato]{.highlight}
+[Il calcolo viene effettuato per sezione di censimento e successivamente aggregato]{.highlight}
 :::
 
 ---
