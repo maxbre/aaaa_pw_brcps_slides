@@ -438,7 +438,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_attesi.png")
 - tasso grezzo mortalità provinciale ($B$)
 - malattie sistema respiratorio (ICD-10:J00-J99)
 - tasso medio regionale: 0.107% (0.084% - 0.140%), 107 casi ogni 100 000 ab
-- casi attesi: mappatura demografico-attuariale della Regione Veneto
+- casi attesi: modello demografico RV
 :::
 
 ::: {.column width="33%"}
