@@ -741,34 +741,34 @@ potrebbero rendere la valutazione più solida e più adatta al supporto quantita
 
 <br>
 
+::: row-highlight
+**Obiettivo operativo:** 
+
+estendere VIS da analisi descrittiva a strumento robusto di supporto operativo alle politiche regionali di settore
+:::
+
+<br>
+
 **Mortalità basale**
 
   - utilizzo di tassi provinciali età-specifici (primo confronto di sensibilità tra utilizzo di tassi provinciali e regionale medio)
   
-**Propagazione integrata incertezza di stima**
+**Propagazione integrata dell'incertezza di stima**
 
   - concentrazioni, tassi di mortalità, demografia
   
 **Stime ambientali**
 
-  - downscaling modellistica 1 km, ripartizione errore con struttura spaziale
+  - downscaling modellistica 1 km e ripartizione errore con struttura spaziale
 
 **Inferenza causale spaziale**
 
-  - controllo confondenti socio-demografici: *propensity score*, *IPTW*
+  - controllo confondenti socio-demografici: *ecological propensity score*, *IPTW*
   
 **Modelli spaziali e spazio-temporali**
 
   - stabilizzazione mortalità per piccole aree mediante Empirical Bayes
   - modelli gerarchici bayesiani per la dipendenza spaziale (inferenza INLA), modellazione esplicita trend ed autocorrelazione temporale
-
-
-::: row-highlight
-**Obiettivo operativo:** 
-
-estendere VIS da analisi descrittiva a strumento robusto di supporto operativo alle politiche regionali di settore
-
-:::
 
 ---
 
