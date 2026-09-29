@@ -786,11 +786,28 @@ html.print-pdf .reveal .slides > .pdf-page:has([data-visibility="uncounted"])
   margin-right: auto;
 }
 
+
+.reveal .slides section .tabella-grande table {
+  width: var(--table-width, 100%);
+  margin-left: auto;
+  margin-right: auto;
+  table-layout: fixed;
+}
+
 .reveal .slides section .tabella-grande th,
 .reveal .slides section .tabella-grande td {
   font-size: var(--table-font-size, 26px) !important;
   line-height: var(--table-line-height, 1.25) !important;
   padding: var(--table-padding, 8px) 12px;
+}
+
+
+/* Larghezze personalizzabili per colonne 1–10 */
+@for $i from 1 through 10 {
+  .reveal .slides section .tabella-grande th:nth-child(#{$i}),
+  .reveal .slides section .tabella-grande td:nth-child(#{$i}) {
+    width: var(--col#{$i}-width, auto);
+  }
 }
 
 /* ==========================================================================

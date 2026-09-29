@@ -40,7 +40,6 @@ livello guida OMS?]{.highlight .big}
 
 :::::: columns
 ::: {.column width="50%"}
-<br>
 
 ```{r}
 #| echo: false
@@ -54,25 +53,27 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 :::
 
 :::: {.column .left-align width="50%"}
+
 <br>
 
-::: {.tabella-grande style="--table-font-size: 22px; --table-line-height: 1.5; --table-padding: 5px;"}
-| Componente           | Dato utilizzato                                  |
+::: {.tabella-grande style="--table-font-size: 22px; --table-line-height: 1.5; --table-padding: 2px; --table-width: 100%; --col1-width: 20%; --col2-width: 80%;"}
+
+| Componente           | Specifiche / Dato utilizzato                     |
 |:---------------------|:-------------------------------------------------|
 | Disegno studio       | Ecologico su base territoriale                   |
 | Unità analisi        | 43 447 sezioni censimento (ISTAT 2021)            |
 | Popolazione          | 3 521 995 residenti 30+ (ISTAT 2021)             |
-| Esposizione          | $NO_2$ modellato griglia 4 km (ARPAV)            |
+| Esposizione          | $NO_2$ modello a griglia 4 km, serie 2019–2025 (ARPAV)            |
 | Mortalità basale     | Tassi grezzi provinciali 30+ (ISTAT 2024)        |
-| Esito sanitario      | Mortalità per malattie sistema respiratorio (ICD-10 J00–J99) |
-| Funzione rischio     | $RR_{10}=1{.}05$ (1.03 – 1.07) (OMS)     |
-| Serie $NO_2$         | 2019–2025 (ARPAV)                                |
+| Esito sanitario      | Mortalità malattie sistema respiratorio (ICD-10 J00–J99) |
+| Rischio relativo     | $RR_{10}=1{.}05$ (1.03 – 1.07) (OMS)     |
+| Controfattuale       | $NO_2 \leq 10\ \mu g\,m^{-3}$ (OMS Linee Guida AQ)                               |
 :::
 ::::
 ::::::
 
 ::: testo-centrato
-[Sezione di censimento ISTAT come unità spaziale e demografica con granularità più fine:<br>estensione mediana 2.90 ha, densità mediana 13.5 ab/ha]{.highlight}
+[Sezione di censimento ISTAT come unità spaziale e demografica con granularità più fine disponibile con:<br>estensione mediana 2.90 ha, densità popolazione mediana 13.5 ab/ha]{.highlight}
 :::
 
 ---
@@ -354,7 +355,7 @@ di censimento**]{.highlight}
 
 ---
 
-# Esposizione popolazione {.columns-max}
+# Esposizione cumulativa popolazione {.columns-max}
 
 ::::: columns
 ::: {.column width="50%"}
