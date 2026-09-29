@@ -62,10 +62,10 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 |:---------------------|:-------------------------------------------------|
 | Disegno studio       | Ecologico su base territoriale                   |
 | Unità analisi        | 43 447 sezioni censimento (ISTAT 2021)            |
-| Popolazione          | 3 521 995 residenti 30+ (ISTAT 2021)             |
+| Popolazione          | 3 521 995 residenti, target 30+ (ISTAT 2021)             |
 | Esposizione          | $NO_2$ modello a griglia 4 km, serie 2019–2025 (ARPAV)            |
 | Mortalità basale     | Tassi grezzi provinciali 30+ (ISTAT 2024)        |
-| Esito sanitario      | Mortalità malattie sistema respiratorio (ICD-10 J00–J99) |
+| Esito sanitario      | Mortalità per malattie respiratorie (ICD-10 J00–J99) |
 | Rischio relativo     | $RR_{10}=1{.}05$ (1.03 – 1.07) (OMS)     |
 | Controfattuale       | $NO_2 \leq 10\ \mu g\,m^{-3}$ (OMS Linee Guida AQ)                               |
 :::
@@ -298,8 +298,8 @@ knitr::include_graphics("./fig_tab/no2_boxplot_no2_provincia.png")
 :::::
 
 ::: testo-centrato
-[Il valore OMS controfattuale non è una soglia biologica al di sotto
-della quale il rischio è necessariamente nullo]{.highlight}
+[Il controfattuale OMS  non è una soglia biologica al di sotto
+della quale il rischio è necessariamente nullo<br>è un 'valore guida' definito sulla base della attuali conoscenze]{.highlight}
 :::
 
 ---
@@ -349,8 +349,8 @@ Delta esposizione $NO_2$: media 5.7 $\mu g~m^{-3}$, mediana 5.9
 <br>
 
 ::: testo-centrato
-[**Concentrazione ambientale vs. controfattuale OMS per sezione
-di censimento**]{.highlight}
+[**Concentrazione ambientale e delta controfattuale OMS per sezione
+di censimento definito con operazioni di *overlay geografico* **]{.highlight}
 :::
 
 ---
@@ -468,7 +468,7 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 
 ::: testo-centrato
 
-[**Le tre mappe mostrano i fattori che determinano la distribuzione territoriale dei casi evitabili**]{.highlight}
+[**Le mappe rappresentano i fattori che determinano la stima della distribuzione territoriale dei casi evitabili in Regione Veneto**]{.highlight}
 
 :::
 
@@ -534,7 +534,7 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 <br>
 
 ::: testo-centrato
-[**Casi attribuibili (evitabili):<br> quota dei decessi attesi associata all’esposizione ambientale eccedente il livello controfattuale<br>sono interpretabili come casi *evitabili* se il differenziale viene annullato**]{.highlight}
+[**Casi attribuibili (evitabili):<br> quota dei decessi attesi associata all’esposizione ambientale eccedente il livello controfattuale OMS<br>sono interpretabili come casi *evitabili* se il differenziale viene annullato**]{.highlight}
 :::
 
 ---
@@ -619,7 +619,7 @@ knitr::include_graphics("./fig_tab/ac_sim_hist.png")
 - stima centrale **+34%** rispetto al 2025
 
 
-[Descrive la sensibilità dei risultati agli scenari storici impiegati
+[Stima che descrive la sensibilità dei risultati agli scenari storici impiegati
 (anno esposizione)]{.highlight}
 
 :::
@@ -656,7 +656,7 @@ Il carico stimato è maggiore con:
 
 - popolazione più numerosa
 - concentrazioni più elevate
-- maggiore differenziale dal riferimento OMS
+- maggiore differenziale da controfattuale OMS
 
 Padova e Venezia con i valori assoluti più elevati, Belluno più bassi
 :::
@@ -680,14 +680,16 @@ Padova e Venezia con i valori assoluti più elevati, Belluno più bassi
 <br>
 
 ::: row-highlight
-L'esposizione a $\mathrm{NO}_2$ eccedente il livello controfattuale OMS è associata ad un carico non trascurabile di mortalità respiratoria nella popolazione 30+ del Veneto.
+**Sintesi**
 
-I risultati quantificano un impatto potenziale sulla popolazione 30+ (casi evitabili/anno) ma:
+- Esposizione $\mathrm{NO}_2$ eccedente il valore controfattuale OMS è associata ad un carico non trascurabile di mortalità respiratoria nella popolazione.
 
-- *non* si tratta di decessi individualmente identificabili (stime
+- I risultati quantificano un impatto potenziale sulla popolazione 30+ (casi evitabili/anno) ma:
+
+  - *non* si tratta di decessi individualmente identificabili (stime
   ecologiche di gruppo)
 
-- *non* è una dimostrazione di causalità locale (nesting $RR$ da letteratura OMS)
+  - *non* è una dimostrazione di causalità locale (nesting $RR$ da letteratura OMS)
 :::
 
 ---
@@ -733,7 +735,7 @@ In prospettiva:
 - adozione di modelli spazio-temporali
 - integrazione di metodi di inferenza causale 
 
-potrebbero rendere la valutazione più solida e più adatta al supporto quantitativo delle politiche regionali di prevenzione ambientale e sanitaria.
+potrebbero rendere la valutazione più robusta ed adatta al supporto quantitativo delle politiche regionali di prevenzione ambientale e sanitaria.
 :::
 
 ---
