@@ -247,6 +247,8 @@ $presentation-heading-font: Arial, Helvetica, sans-serif;
   color: $col-red !important;       /* Changes just this word to your brand red */
   font-weight: bold !important;     /* Makes the word bold */
   font-style: italic !important;    /* Makes the word italic */
+  font-size: var(--highlight-size, 1em) !important; /* Usa la variabile, altrimenti default a 1.2em */
+  display: inline-block;
 }
 
 /* Custom helper to scale up individual words inline ------*/
@@ -254,6 +256,11 @@ $presentation-heading-font: Arial, Helvetica, sans-serif;
 .reveal .big {
   font-size: 1.4em !important; /* <--- Adjust this value to control the word size */
   display: inline-block;       /* Keeps layout spacing perfect for resized inline text */
+}
+
+.reveal .small {
+  font-size: 0.8em !important; /* Regola questo valore per rimpicciolire il testo (es. 0.7em o 0.8em) */
+  display: inline-block;        /* Mantiene la gestione corretta degli spazi inline */
 }
 
 /* Full Row Highlight Strip -----------------------------------*/

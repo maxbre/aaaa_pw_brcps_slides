@@ -63,7 +63,8 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 | Disegno              | Studio ecologico su base territoriale                   |
 | Unità analisi        | 43 447 sezioni censimento (ISTAT 2021)            |
 | Popolazione          | 3 521 995 residenti, target 30+ (ISTAT 2021)             |
-| Esposizione          | $NO_2$ modello a griglia 4 km, serie 2019–2025 (ARPAV)            |
+| Determinante         | $NO_2$ modello 4 km, serie 2019–2025 (ARPAV)            |
+| Esposizione          | Lungo termine (media annuale), no effetti acuti (OMS)
 | Mortalità basale     | Tassi grezzi provinciali 30+ (ISTAT 2024)        |
 | Esito sanitario      | Mortalità per malattie respiratorie (ICD-10 J00–J99) |
 | Rischio relativo     | $RR_{10}=1{.}05$ (1.03 – 1.07) (OMS)     |
@@ -299,7 +300,7 @@ knitr::include_graphics("./fig_tab/no2_boxplot_no2_provincia.png")
 
 ::: testo-centrato
 [Il controfattuale OMS  non è una soglia biologica al di sotto
-della quale il rischio è necessariamente nullo<br>è un 'valore guida' definito sulla base della attuali conoscenze]{.highlight}
+della quale il rischio è necessariamente nullo.<br>Rappresenta un 'valore guida' definito sulla base della attuali conoscenze scientifiche.]{.highlight}
 :::
 
 ---
@@ -390,9 +391,8 @@ Differenziale controfattuale $NO_2$: media 5.7 $\mu g~m^{-3}$, mediana 5.9
 <br>
 
 ::: testo-centrato
-[**Concentrazione ambientale per sezione di censimento definito con operazioni di *overlay geografico***]{.highlight}
+[**Concentrazione ambientale per sezione di censimento definita con *overlay geografico* e calcolo media pesata sulla superficie.<br>La stima di impatto sanitario è calcolata sul differenziale controfattuale tramite la funzione concentrazione-risposta.**]{.highlight}
 
-[**La stima di impatto sanitario è calcolata sul differenziale controfattuale tramite la funzione concentrazione-risposta**]{.highlight}
 :::
 
 ---
@@ -468,7 +468,7 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 
 ::: testo-centrato
 
-[**Le mappe rappresentano gli 'strati' (*layers*) che determinano la stima della distribuzione territoriale dei casi evitabili in Regione Veneto**]{.highlight}
+[**Le mappe rappresentano gli 'strati' (*layers*) che determinano la stima della distribuzione territoriale dei casi evitabili.**]{.highlight}
 
 :::
 
@@ -534,7 +534,7 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 <br>
 
 ::: testo-centrato
-[**Casi attribuibili (evitabili):<br> quota dei decessi attesi associata all’esposizione ambientale eccedente il livello controfattuale OMS<br>sono interpretabili come casi *evitabili* se il differenziale viene annullato**]{.highlight}
+[**Casi attribuibili (evitabili):<br> quota dei decessi attesi associata all’esposizione ambientale eccedente il livello controfattuale OMS,<br>sono interpretabili come casi *evitabili* se il differenziale viene annullato.**]{.highlight}
 :::
 
 ---
@@ -563,15 +563,15 @@ knitr::include_graphics("./fig_tab/ac_sim_2025.png")
 
 - concentrazioni modellate 2025
 
-- popolazione sezionale
+- popolazione per sezione
 
 - tassi grezzi provinciali
 
 ## Risultato
 
-- **mediana:** 108,7 casi/anno
+- **mediana:** 108.7 casi/anno
 
-- **IC 95%:** 67,6–149,7 casi/anno
+- **IC 95%:** 67.6–149.7 casi/anno
 
 - **stima deterministica:** 109 casi/anno
 
@@ -619,9 +619,9 @@ knitr::include_graphics("./fig_tab/ac_sim_hist.png")
 
 ## Risultato
 
-- mediana: **145,8 casi/anno**
+- mediana: 145.8 casi/anno
 - intervallo 95%: 81.5 – 230.5
-- stima centrale **+34%** rispetto al 2025 (scenario esposizione "favorevole")
+- stima centrale +34% rispetto 2025, scenario esposizione "favorevole"
 
 
 [Descrive la sensibilità dei risultati agli scenari storici ambientali impiegati
@@ -669,8 +669,10 @@ knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
 
 ::::
 
+<br>
+
 ::: testo-centrato
-[**Per la simulazione storica complessiva l'ampiezza della distribuzione deriva non solo da incertezza RR ma anche da distribuzioni annuali incentrate su differenti livelli di inquinamento atmosferico. Lo spostamento verso valori più bassi dal 2019 al 2025 descrive la variazione del carico attribuibile che si otterrebbe applicando i vari scenari di esposizione alla stessa popolazione di riferimento**]{.highlight}
+[Per la simulazione storica complessiva l'ampiezza della distribuzione deriva da incertezza RR ma anche da distribuzioni annuali su differenti livelli di inquinamento atmosferico.<br>Lo spostamento verso valori più bassi dal 2019 al 2025 descrive la variazione del carico attribuibile che si otterrebbe applicando i vari scenari alla stessa popolazione di riferimento.]{.highlight style="--highlight-size: 0.75em;"}
 :::
 
 ---
@@ -725,8 +727,7 @@ Padova e Venezia con i valori assoluti più elevati, Belluno più bassi
 
 Stima casi/anno potenzialmente evitabili:
 
-- Scenario 2025 relativamente favorevole rispetto a gran parte del
-  periodo 2019–2025
+- Scenario 2025 relativamente "favorevole" del periodo 2019–2025
 
 - La simulazione storica non sostituisce la stima specifica del 2025 ma la colloca nel contesto della variabilità ambientale osservata.
 :::
@@ -749,13 +750,13 @@ Stima casi/anno potenzialmente evitabili:
 
 ---
 
-# Punti di forza e limiti
+# Punti di forza e debolezza
 
 <br> <br>
 
 ::::: columns
 ::: {.column width="48%"}
-## Punti di forza
+## Strenght [+]
 
 - Analisi demografica alla scala delle sezioni censuarie
 - Calcolo sezionale prima dell’aggregazione regionale
@@ -767,11 +768,12 @@ Stima casi/anno potenzialmente evitabili:
 :::
 
 ::: {.column width="48%"}
-## Limiti
+## Weakness [-]
 
 - Disegno ecologico: nessuna inferenza individuale
-- Possibili confondimento spaziale, MAUP e spillover
-- Tassi provinciali grezzi 30+: no aggiustamento per età
+- Singolo inquinante (collinearità)
+- Confondimento e dipendenza spaziale, MAUP
+- Tassi provinciali grezzi 30+ senza aggiustamento per età
 - Esposizione vincolata al grigliato di 4 km
 - Disallineamento temporale: popolazione 2021, mortalità 2024,
   esposizione 2025
@@ -779,8 +781,6 @@ Stima casi/anno potenzialmente evitabili:
 - Simulazione storica descrittiva, non prognostica
 :::
 :::::
-
-<br>
 
 ::: row-highlight
 
@@ -790,7 +790,7 @@ In prospettiva:
 - adozione di modelli spazio-temporali
 - integrazione di metodi di inferenza causale 
 
-potrebbero rendere la valutazione più robusta ed adatta al supporto quantitativo delle politiche regionali di prevenzione ambientale e sanitaria.
+possono rendere la valutazione più robusta ed adatta al supporto quantitativo delle politiche regionali di prevenzione ambientale e sanitaria.
 :::
 
 ---
@@ -809,7 +809,7 @@ estendere VIS da analisi descrittiva a strumento robusto di supporto operativo a
 
 **Mortalità basale**
 
-  - utilizzo di tassi provinciali età-specifici (primo confronto di sensibilità tra utilizzo di tassi provinciali e regionale medio)
+  - utilizzo di tassi età-specifici
   
 **Propagazione integrata dell'incertezza di stima**
 
@@ -821,7 +821,7 @@ estendere VIS da analisi descrittiva a strumento robusto di supporto operativo a
 
 **Inferenza causale spaziale**
 
-  - controllo confondenti socio-demografici: *ecological propensity score*, *IPTW*
+  - controllo confondenti socio-demografici: *generalised ecological propensity score*, *IPTW*
   
 **Modelli spaziali e spazio-temporali**
 
