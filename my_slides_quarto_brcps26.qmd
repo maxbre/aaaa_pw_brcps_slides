@@ -60,7 +60,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 
 | Componente           | Specifiche / Dato utilizzato                     |
 |:---------------------|:-------------------------------------------------|
-| Disegno studio       | Ecologico su base territoriale                   |
+| Disegno              | Studio ecologico su base territoriale                   |
 | Unità analisi        | 43 447 sezioni censimento (ISTAT 2021)            |
 | Popolazione          | 3 521 995 residenti, target 30+ (ISTAT 2021)             |
 | Esposizione          | $NO_2$ modello a griglia 4 km, serie 2019–2025 (ARPAV)            |
@@ -637,6 +637,44 @@ Non è un IC della stima 2025
 
 ---
 
+# Scomposizione simulazione storica 2019-2025
+
+:::: columns
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: "100%"
+
+knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years.png")
+
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: "100%"
+
+knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
+
+```
+
+:::
+
+::::
+
+::: testo-centrato
+[**Per la simulazione storica complessiva l'ampiezza della distribuzione deriva non solo da incertezza RR ma anche da distribuzioni annuali incentrate su differenti livelli di inquinamento atmosferico. Lo spostamento verso valori più bassi dal 2019 al 2025 descrive la variazione del carico attribuibile che si otterrebbe applicando i vari scenari di esposizione alla stessa popolazione di riferimento**]{.highlight}
+:::
+
+---
+
 # Conclusioni
 
 :::::: columns
@@ -872,33 +910,6 @@ $$
 ::: {.testo-centrato}
 [Il calcolo viene effettuato per sezione di censimento e successivamente aggregato]{.highlight}
 :::
-
----
-
-
-# Simulazione 2019-2025
-
-```{r}
-#| echo: false
-#| fig-align: "center"
-#| out-width: "55%"
-
-knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years.png")
-
-```
-
----
-
-# Simulazione 2019-2025
-
-```{r}
-#| echo: false
-#| fig-align: "center"
-#| out-width: "55%"
-
-knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
-
-```
 
 ---
 
