@@ -304,6 +304,47 @@ della quale il rischio è necessariamente nullo<br>è un 'valore guida' definito
 
 ---
 
+
+# Esposizione cumulativa popolazione {.columns-max}
+
+::::: columns
+::: {.column width="50%"}
+
+## Per Regione
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: "65%"
+
+knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025.png")
+
+```
+
+2025, media pesata: 16 $\mu g~m^{-3}$
+
+:::
+
+::: {.column width="50%"}
+
+## Per Provincia
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: "65%"
+
+knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025_by_province.png")
+
+```
+
+2025, media pesata: BL = 7 $\mu g~m^{-3}$, PD e VE = 18
+  $\mu g~m^{-3}$
+:::
+:::::
+
+---
+
 # Concentrazioni ambientali per sezione {.columns-max}
 
 ::::: columns
@@ -323,7 +364,7 @@ media pesata  $NO_2$ sulla superficie
 :::
 
 ::: {.column width="50%"}
-## Delta $NO_2$ : \[2025\] - \[target OMS\]
+## Differenziale $NO_2$ : \[2025\] - \[target OMS\]
 
 ```{r}
 #| echo: false
@@ -343,59 +384,18 @@ Media annuale $NO_2$: overlay disegno sezioni censuarie e grigliato
   output modello dispersione atmosferica CAMx con risoluzione
   orizzontale 4 km.
 
-Delta esposizione $NO_2$: media 5.7 $\mu g~m^{-3}$, mediana 5.9
+Differenziale controfattuale $NO_2$: media 5.7 $\mu g~m^{-3}$, mediana 5.9
   $\mu g~m^{-3}$, range interquartile 3.9 $\mu g~m^{-3}$.
 
 <br>
 
 ::: testo-centrato
-[**Concentrazione ambientale e delta controfattuale OMS per sezione
-di censimento definito con operazioni di *overlay geografico* **]{.highlight}
+[**Concentrazione ambientale per sezione di censimento definito con operazioni di *overlay geografico***]{.highlight}
+
+[**La stima di impatto sanitario è calcolata sul differenziale controfattuale tramite la funzione concentrazione-risposta**]{.highlight}
 :::
 
 ---
-
-# Esposizione cumulativa popolazione {.columns-max}
-
-::::: columns
-::: {.column width="50%"}
-
-## Per Regione
-
-```{r}
-#| echo: false
-#| fig-align: "center"
-#| out-width: "65%"
-
-knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025.png")
-
-```
-
-media pesata per Regione: 16 $\mu g~m^{-3}$
-
-:::
-
-::: {.column width="50%"}
-
-## Per Provincia
-
-```{r}
-#| echo: false
-#| fig-align: "center"
-#| out-width: "65%"
-
-knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025_by_province.png")
-
-```
-
-media pesata per Provincia: BL = 7 $\mu g~m^{-3}$, PD e VE = 18
-  $\mu g~m^{-3}$
-:::
-:::::
-
----
-
-
 
 # Popolazione \| Attesi \| AF per sezione {.columns-max}
 
@@ -468,7 +468,7 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 
 ::: testo-centrato
 
-[**Le mappe rappresentano i fattori che determinano la stima della distribuzione territoriale dei casi evitabili in Regione Veneto**]{.highlight}
+[**Le mappe rappresentano gli 'strati' (*layers*) che determinano la stima della distribuzione territoriale dei casi evitabili in Regione Veneto**]{.highlight}
 
 :::
 
@@ -552,7 +552,7 @@ knitr::include_graphics("./fig_tab/ac_sim_2025.png")
 ```
 :::
 
-::: {.column .left-align width="25%"}
+::: {.column .left-align width="27%"}
 <br>
 
 ## Che cosa varia?
@@ -577,7 +577,12 @@ knitr::include_graphics("./fig_tab/ac_sim_2025.png")
 
 <br>
 
-[IC 95% propaga esclusivamente l'incertezza epidemiologica $RR$]{.highlight}
+[IC 95% propaga incertezza $RR$]{.highlight}
+
+<br>
+
+Non è una validazione indipendente ma una descrizione della distribuzione probabilistica di impatto
+
 :::
 ::::
 
@@ -597,18 +602,18 @@ knitr::include_graphics("./fig_tab/ac_sim_hist.png")
 ```
 :::
 
-::: {.column .left-align width="25%"}
+::: {.column .left-align width="27%"}
 
 <br>
 
 ## Che cosa varia?
 
-- estratto un anno di simulazione 2019-2025 
-- estratto un valore $RR$
+- estratto un anno di simulazione 2019-2025 (uniforme)
+- estratto un valore $RR$ (lognorm)
 
 ## Rimangono fissi
 
-- campo spaziale concentrazioni per sezioni
+- campo spaziale per sezioni
 - popolazione sezionale
 - tassi grezzi provinciali
 
@@ -616,11 +621,15 @@ knitr::include_graphics("./fig_tab/ac_sim_hist.png")
 
 - mediana: **145,8 casi/anno**
 - intervallo 95%: 81.5 – 230.5
-- stima centrale **+34%** rispetto al 2025
+- stima centrale **+34%** rispetto al 2025 (scenario esposizione "favorevole")
 
 
-[Stima che descrive la sensibilità dei risultati agli scenari storici impiegati
+[Descrive la sensibilità dei risultati agli scenari storici ambientali impiegati
 (anno esposizione)]{.highlight}
+
+<br>
+
+Non è un IC della stima 2025
 
 :::
 
@@ -638,11 +647,19 @@ knitr::include_graphics("./fig_tab/ac_sim_hist.png")
 
 <br>
 
-109 decessi respiratori attribuibili/anno
+Scenario 2025
 
-$$AF=2{,}86\%$$
+- stima puntuale popolazione 30+
 
-popolazione 30+ nello scenario 2025
+- 109 decessi respiratori attribuibili/anno 
+
+- $AF=2{.}86\%$
+
+Simulazione 2025 
+
+- quantifica incertezza epidemiologica RR
+- IC 95%: 68–150 casi/anno
+
 :::
 
 ::: {.column .left-align width="33%"}
@@ -668,12 +685,12 @@ Padova e Venezia con i valori assoluti più elevati, Belluno più bassi
 
 <br>
 
-- Stima casi/anno potenzialmente evitabili
+Stima casi/anno potenzialmente evitabili:
 
 - Scenario 2025 relativamente favorevole rispetto a gran parte del
   periodo 2019–2025
 
-- La simulazione storica non sostituisce la stima specifica del 2025.
+- La simulazione storica non sostituisce la stima specifica del 2025 ma la colloca nel contesto della variabilità ambientale osservata.
 :::
 ::::::
 
@@ -855,6 +872,20 @@ $$
 ::: {.testo-centrato}
 [Il calcolo viene effettuato per sezione di censimento e successivamente aggregato]{.highlight}
 :::
+
+---
+
+
+# Simulazione 2019-2025
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: "55%"
+
+knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years.png")
+
+```
 
 ---
 
