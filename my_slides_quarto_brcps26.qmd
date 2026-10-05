@@ -74,12 +74,12 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 ::::::
 
 ::: testo-centrato
-[Sezione di censimento ISTAT come unità spaziale e demografica con granularità più fine disponibile con:<br>estensione mediana 2.90 ha, densità popolazione mediana 13.5 ab/ha]{.highlight}
+[Sezione di censimento ISTAT come unità spaziale e demografica con più fine granularità:<br>estensione mediana 2.90 ha, densità popolazione mediana 13.5 ab/ha]{.highlight}
 :::
 
 ---
 
-# Dalle esposizione ai casi attribuibili
+# Dall'esposizione ai casi attribuibili
 
 <br>
 
@@ -750,13 +750,13 @@ Stima casi/anno potenzialmente evitabili:
 
 ---
 
-# Punti di forza e debolezza
+# Punti di forza e criticità
 
 <br> <br>
 
 ::::: columns
 ::: {.column width="48%"}
-## Strenght [+]
+## Punti di forza [+]
 
 - Analisi demografica alla scala delle sezioni censuarie
 - Calcolo sezionale prima dell’aggregazione regionale
@@ -768,16 +768,16 @@ Stima casi/anno potenzialmente evitabili:
 :::
 
 ::: {.column width="48%"}
-## Weakness [-]
+## Criticità [-]
 
 - Disegno ecologico: nessuna inferenza individuale
-- Singolo inquinante (collinearità)
+- Singolo inquinante (problema collinearità altri inquinanti)
 - Confondimento e dipendenza spaziale, MAUP
 - Tassi provinciali grezzi 30+ senza aggiustamento per età
 - Esposizione vincolata al grigliato di 4 km
 - Disallineamento temporale: popolazione 2021, mortalità 2024,
   esposizione 2025
-- Incertezza propagata solo per il $RR$
+- No propagazione complessiva incertezza
 - Simulazione storica descrittiva, non prognostica
 :::
 :::::
