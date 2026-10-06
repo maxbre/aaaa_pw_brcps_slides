@@ -479,13 +479,37 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 <br>
 <br>
 
-## Stima puntuale 2025 
-
+::: testo-centrato
+[**Stima puntuale anno 2025**]{.highlight .big}
+:::
 <br>
 
 :::::: columns
 
 :::: {.column width="50%"}
+
+
+## Per Regione
+
+<br>
+
+### Stima con valore centrale (RR = 1.05)
+
+[$AC$ = 109.0 casi/anno ($AF$ = 2.86%)]{.highlight}
+
+<br>
+<br>
+
+### Stima con incertezza RR (1.03 - 1.07)
+
+[$AC_{low}$ = 66.3 casi/anno ($AF_{low}$ = 1.74%)]{.highlight}
+
+[$AC_{upp}$ = 150.0 casi/anno ($AF_{upp}$ = 3.95%)]{.highlight}
+
+::::
+
+:::: {.column .left-align width="50%"}
+
 
 ## Per Provincia
 
@@ -504,27 +528,6 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 | Vicenza   |    668 | 17.70 | 0.0265 |      10.80 |      24.40 |
 
 :::
-
-::::
-
-:::: {.column .left-align width="50%"}
-
-## Per Regione
-
-<br>
-
-### Stima con valore centrale (RR = 1.05)
-
-[$AC$ = 109.0 casi/anno ($AF$ = 2.86%)]{.highlight}
-
-<br>
-<br>
-
-### Stima con incertezza RR (1.03 - 1.07)
-
-[$AC_{low}$ = 66.3 casi/anno ($AF_{low}$ = 1.74%)]{.highlight}
-
-[$AC_{upp}$ = 150.0 casi/anno ($AF_{upp}$ = 3.95%)]{.highlight}
 
 ::::
 
@@ -635,26 +638,15 @@ Non è un IC della stima 2025
 
 ::::
 
+[Ampiezza distribuzione deriva da incertezza RR ma anche da distribuzioni annuali su differenti livelli di inquinamento atmosferico.]{.highlight}
+
 ---
 
 # Scomposizione simulazione storica 2019-2025
 
 :::: columns
 
-::: {.column width="50%"}
-
-```{r}
-#| echo: false
-#| fig-align: "center"
-#| out-width: "100%"
-
-knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years.png")
-
-```
-
-:::
-
-::: {.column width="50%"}
+::: {.column width="60%"}
 
 ```{r}
 #| echo: false
@@ -667,25 +659,14 @@ knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
 
 :::
 
-::::
+::: {.column width="40%"}
+
 
 <br>
-
-::: testo-centrato
-[Per la simulazione storica complessiva l'ampiezza della distribuzione deriva da incertezza RR ma anche da distribuzioni annuali su differenti livelli di inquinamento atmosferico.<br>Lo spostamento verso valori più bassi dal 2019 al 2025 descrive la variazione del carico attribuibile che si otterrebbe applicando i vari scenari alla stessa popolazione di riferimento.]{.highlight style="--highlight-size: 0.75em;"}
-:::
-
----
-
-# Scomposizione simulazione storica 2019-2025
-
-:::: columns
-
-::: {.column width="50%"}
-
+<br>
 <br>
 
-<br>
+::: {.tabella-highlight .riga-1 .riga-7}
 
 | Anno di esposizione | Mediana AC | Intervallo percentile 95% |
 |:-------------------:|-----------:|:--------------------------:|
@@ -697,30 +678,16 @@ knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
 | 2024 | 126.4 | 78.0–173.8 |
 | 2025 | 108.9 | 66.8–150.0 |
 
-
-
 :::
-
-::: {.column width="50%"}
-
-```{r}
-#| echo: false
-#| fig-align: "center"
-#| out-width: "100%"
-
-knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
-
-```
+<br>
+<br>
+<br>
+[Lo spostamento verso valori più bassi dal 2019 al 2025 descrive la variazione del carico attribuibile che si otterrebbe applicando i vari scenari espositivi alla stessa popolazione di riferimento.]{.highlight}
 
 :::
 
 ::::
 
-<br>
-
-::: testo-centrato
-[Per la simulazione storica complessiva l'ampiezza della distribuzione deriva da incertezza RR ma anche da distribuzioni annuali su differenti livelli di inquinamento atmosferico.<br>Lo spostamento verso valori più bassi dal 2019 al 2025 descrive la variazione del carico attribuibile che si otterrebbe applicando i vari scenari alla stessa popolazione di riferimento.]{.highlight style="--highlight-size: 0.75em;"}
-:::
 
 ---
 
@@ -805,16 +772,16 @@ Stima casi/anno potenzialmente evitabili:
 ::: row-highlight
 **Obiettivo operativo:** 
 
-rafforzare la VIS come strumento quantitativo di supporto alle politiche regionali di prevenzione ambientale e sanitaria
+arricchire e rafforzare la VIS per definire uno strumento quantitativo di supporto alle politiche regionali di prevenzione ambientale e sanitaria
 
 :::
 
-<br>
 
 **Mortalità basale**
 
   - utilizzo di tassi età-specifici e popolazioni sezionali aggiornate
-  
+  - stabilizzazione mortalità per piccole aree mediante Empirical Bayes
+
 **Propagazione integrata dell'incertezza di stima**
 
   - RR, concentrazioni, tassi basali e demografia
@@ -829,8 +796,8 @@ rafforzare la VIS come strumento quantitativo di supporto alle politiche regiona
   
 **Modelli spaziali e spazio-temporali**
 
-  - stabilizzazione mortalità per piccole aree mediante Empirical Bayes
-  - modelli gerarchici bayesiani per la dipendenza spaziale (inferenza INLA), modellazione esplicita trend ed autocorrelazione temporale
+  - modelli gerarchici bayesiani per la dipendenza spaziale (inferenza INLA)
+  - modellazione esplicita trend ed autocorrelazione temporale
 
 ---
 
