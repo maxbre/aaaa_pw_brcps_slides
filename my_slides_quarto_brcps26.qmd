@@ -28,7 +28,7 @@ editor:
 
 # Quesito di ricerca e fonti informative
 
-<br>
+## Domanda di Sanità Pubblica
 
 ::: testo-centrato
 [**Quanti decessi per cause respiratorie sono potenzialmente evitabili
@@ -358,7 +358,7 @@ knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025_by_province.png")
 
 ::::: columns
 ::: {.column width="50%"}
-## $NO_2$ anno 2025
+## $NO_2$ per sezione anno 2025
 
 ```{r}
 #| echo: false
