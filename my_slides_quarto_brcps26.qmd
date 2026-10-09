@@ -81,11 +81,9 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 
 # Dall'esposizione ai casi attribuibili
 
-<br>
-
 ```{dot}
-//| fig-width: 14
-//| fig-height: 7.2
+//| fig-width: 16
+//| fig-height: 8.5
 
 digraph VIS {
 
@@ -114,8 +112,17 @@ digraph VIS {
     arrowsize=0.7
   ];
 
-  A [
+  A1 [
     label="NO₂ per sezione",
+    width=2.20,
+    height=0.70,
+    fillcolor="#FFFFFF",
+    color="#7D7D7D",
+    fontcolor="#393D3F"
+  ];
+  
+   A2 [
+    label="Controfattuale OMS",
     width=2.20,
     height=0.70,
     fillcolor="#FFFFFF",
@@ -142,7 +149,7 @@ digraph VIS {
   ];
 
   D [
-    label="RR₁₀ OMS: 1,05",
+    label="RR₁₀ OMS: 1.05",
     width=2.20,
     height=0.70,
     fillcolor="#FFFFFF",
@@ -234,12 +241,13 @@ M [
     fontcolor="#393D3F"
   ];
 
-  { rank=same; A; B; C; D; }
+  { rank=same; A1; A2; B; C; D; }
   { rank=same; E; F;}
   { rank=same; I; M; }
   { rank=same; J; K; L;}
 
-  A -> E;
+  A1 -> E;
+  A2 ->E;
   B -> F;
   C -> F;
   D -> G;
@@ -255,13 +263,13 @@ M [
 /* trick: impone l’ordine orizzontale */
 J -> K [style=invis, weight=100];
 K -> L [style=invis, weight=100];
+A1 -> A2 [style=invis, weight=100];
 }
-
 
 ```
 
-
 ---
+
 
 # Mappatura concentrazioni ambientali {.columns-max}
 
