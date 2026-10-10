@@ -28,7 +28,9 @@ editor:
 
 # Quesito di ricerca e fonti informative
 
-## Domanda di Sanità Pubblica
+## La domanda di Sanità Pubblica
+
+<br>
 
 ::: testo-centrato
 [**Quanti decessi per cause respiratorie sono potenzialmente evitabili
@@ -58,7 +60,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 
 ::: {.tabella-grande style="--table-font-size: 22px; --table-line-height: 1.5; --table-padding: 2px; --table-width: 100%; --col1-width: 20%; --col2-width: 80%;"}
 
-| Componente           | Specifiche / Dato utilizzato                     |
+|                      | Specifiche (Dato utilizzato)                     |
 |:---------------------|:-------------------------------------------------|
 | Disegno              | Studio ecologico su base territoriale                   |
 | Unità analisi        | 43 447 sezioni censimento (ISTAT 2021)            |
@@ -74,7 +76,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 ::::::
 
 ::: testo-centrato
-[Sezione di censimento ISTAT come unità spaziale e demografica con più fine granularità:<br>estensione mediana 2.90 ha, densità popolazione mediana 13.5 ab/ha]{.highlight}
+[Sezione di censimento ISTAT come unità spaziale e demografica con granularità più fine.]{.highlight}
 :::
 
 ---
@@ -369,10 +371,16 @@ knitr::include_graphics("./fig_tab/map_sezioni_no2_2025.png")
 
 ```
 
-media pesata  $NO_2$ sulla superficie
+
+Media annuale $NO_2$ pesata sulla superficie
+
+overlay sezioni censuarie e grigliato output modellistica 4 km
+
+
 :::
 
 ::: {.column width="50%"}
+
 ## Differenziale $NO_2$ : \[2025\] - \[target OMS\]
 
 ```{r}
@@ -384,17 +392,15 @@ knitr::include_graphics("./fig_tab/map_sezioni_delta_no2_2025_target_oms.png")
 
 ```
 
-delta controfattuale $NO_2$
+differenziale controfattuale OMS
 
+media 5.7 $\mu g~m^{-3}$, mediana 5.9 $\mu g~m^{-3}$, range IQ 3.9 $\mu g~m^{-3}$
+  
 :::
 :::::
 
-Media annuale $NO_2$: overlay disegno sezioni censuarie e grigliato
-  output modello dispersione atmosferica CAMx con risoluzione
-  orizzontale 4 km.
 
-Differenziale controfattuale $NO_2$: media 5.7 $\mu g~m^{-3}$, mediana 5.9
-  $\mu g~m^{-3}$, range interquartile 3.9 $\mu g~m^{-3}$.
+
 
 <br>
 
@@ -425,7 +431,9 @@ knitr::include_graphics("./fig_tab/map_sez_pop30p.png")
 
 - popolazione 30+ ($N$): 3 521 995 ab
 - 73% popolazione totale
-- densità mediana sezione: 13.5 ab/ha
+- estensione mediana 2.90 ha
+- densità mediana 13.5 ab/ha
+
 :::
 
 ::: {.column width="33%"}
@@ -447,7 +455,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_attesi.png")
 - tasso grezzo mortalità provinciale ($B$)
 - malattie sistema respiratorio (ICD-10:J00-J99)
 - tasso medio regionale: 0.107% (0.084% - 0.140%), 107 casi ogni 100 000 ab
-- casi attesi: modello demografico RV
+
 :::
 
 ::: {.column width="33%"}
@@ -466,9 +474,9 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 
 ```
 
-- quota di mortalità potenzialmente evitabile attraverso l’azzeramento del differenziale di esposizione controfattuale
+- quota di mortalità potenzialmente evitabile con l’annullamento del differenziale di esposizione
 
-- $(RR−1)/RR$ esprime la proporzione dei casi attesi associata al differenziale considerato
+- $(RR−1)/RR$ esprime la proporzione dei casi attesi associata al differenziale
 
 ::::::
 
@@ -484,8 +492,11 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 
 # AC casi attribuibili (evitabili)
 
-<br>
-<br>
+::: {.formula style="--formula-size: 32px;"}
+$$
+AC_i = E_i\cdot AF_i \quad \quad AC_{\mathrm{Regione}}=\sum_i AC_i
+$$
+:::
 
 ::: testo-centrato
 [**Stima puntuale anno 2025**]{.highlight .big}
@@ -557,14 +568,13 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| out-width: "70%"
+#| out-width: "75%"
 
 knitr::include_graphics("./fig_tab/ac_sim_2025.png")
 ```
 :::
 
 ::: {.column .left-align width="27%"}
-<br>
 
 ## Che cosa varia?
 
@@ -615,7 +625,6 @@ knitr::include_graphics("./fig_tab/ac_sim_hist.png")
 
 ::: {.column .left-align width="27%"}
 
-<br>
 
 ## Che cosa varia?
 
@@ -632,21 +641,18 @@ knitr::include_graphics("./fig_tab/ac_sim_hist.png")
 
 - mediana: 145.8 casi/anno
 - intervallo 95%: 81.5 – 230.5
-- stima centrale +34% rispetto 2025, scenario esposizione "favorevole"
+- stima centrale +34% rispetto 2025 (scenario esposizione "favorevole")
 
 
-[Descrive la sensibilità dei risultati agli scenari storici ambientali impiegati
-(anno esposizione)]{.highlight}
+[Descrive la sensibilità dei risultati agli scenari storici 
+(annuali)]{.highlight}
 
-<br>
-
-Non è un IC della stima 2025
+- Non è un IC della stima 2025
+- Ampiezza distribuzione da incertezza RR e differenti livelli di inquinamento
 
 :::
 
 ::::
-
-[Ampiezza distribuzione deriva da incertezza RR ma anche da distribuzioni annuali su differenti livelli di inquinamento atmosferico.]{.highlight}
 
 ---
 
@@ -690,7 +696,7 @@ knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
 <br>
 <br>
 <br>
-[Lo spostamento verso valori più bassi dal 2019 al 2025 descrive la variazione del carico attribuibile che si otterrebbe applicando i vari scenari espositivi alla stessa popolazione di riferimento.]{.highlight}
+[Lo spostamento verso valori più bassi dal 2019 al 2025 descrive la variazione del carico attribuibile che si potrebbe ottenere applicando differenti scenari espositivi alla stessa popolazione di riferimento.]{.highlight}
 
 :::
 
@@ -775,7 +781,6 @@ Stima casi/anno potenzialmente evitabili:
 
 # Possibili sviluppi futuri
 
-<br>
 
 ::: row-highlight
 **Obiettivo operativo:** 
@@ -784,6 +789,7 @@ arricchire e rafforzare la VIS per definire uno strumento quantitativo di suppor
 
 :::
 
+<br>
 
 **Mortalità basale**
 
@@ -800,7 +806,7 @@ arricchire e rafforzare la VIS per definire uno strumento quantitativo di suppor
 
 **Inferenza causale spaziale**
 
-  - trattamento confondenti socio-demografici: *generalised ecological propensity score*, *IPTW*
+  - trattamento confondenti socio-demografici: *ecological propensity score* generalizzato, *IPTW*
   
 **Modelli spaziali e spazio-temporali**
 
