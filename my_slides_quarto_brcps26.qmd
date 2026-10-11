@@ -3,7 +3,7 @@ title: "Valutazione di impatto sanitario<br>dell’inquinamento atmosferico da $
 subtitle: "Il caso della Regione Veneto"
 #author: "<br>Massimo Bressan"
 author: "<br><span class='title-author-name'>Massimo Bressan</span><a class='title-email' href='mailto:massimo.bressan@arpa.veneto.it'>massimo.bressan@arpa.veneto.it</a>"
-date: today
+date: 2026-10-19
 title-slide-attributes:
   data-visibility: uncounted
 format:
