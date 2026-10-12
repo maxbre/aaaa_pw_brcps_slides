@@ -76,7 +76,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 ::::::
 
 ::: testo-centrato
-[Sezione di censimento ISTAT come unità spaziale e demografica con granularità più fine.]{.highlight}
+[Sezione di censimento ISTAT come unità spaziale e demografica con granularità più fine a livello aggrregato.]{.highlight}
 :::
 
 ---
@@ -454,7 +454,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_attesi.png")
 
 - tasso grezzo mortalità provinciale ($B$)
 - malattie sistema respiratorio (ICD-10:J00-J99)
-- tasso medio regionale: 0.107% (0.084% - 0.140%), 107 casi ogni 100 000 ab
+- tasso grezzo regionale: 0.107% (0.084% - 0.140%), 107 casi ogni 100 000 ab 30+
 
 :::
 
@@ -773,7 +773,7 @@ Stima casi/anno potenzialmente evitabili:
   - *non* si tratta di decessi individualmente identificabili (stime
   ecologiche di gruppo)
 
-  - *non* è una dimostrazione di causalità locale (nesting $RR$ da letteratura OMS)
+  - *non* è una dimostrazione di causalità locale ($RR$ trasferito da letteratura OMS)
 :::
 
 ---
@@ -781,6 +781,8 @@ Stima casi/anno potenzialmente evitabili:
 
 # Possibili sviluppi futuri
 
+
+<br>
 
 ::: row-highlight
 **Obiettivo operativo:** 
@@ -790,27 +792,27 @@ arricchire e rafforzare la VIS per definire uno strumento quantitativo di suppor
 :::
 
 <br>
+<br>
 
-**Mortalità basale**
+Direzioni principali di sviluppo:
 
+- **Propagazione integrata incertezza di stima**
+
+  - RR, tassi basali, demografia, concentrazioni ambientali 
+  
   - utilizzo di tassi età-specifici e popolazioni sezionali aggiornate
-  - stabilizzazione mortalità per piccole aree mediante Empirical Bayes
-
-**Propagazione integrata dell'incertezza di stima**
-
-  - RR, concentrazioni, tassi basali e demografia
   
-**Stime ambientali**
+  - downscaling modellistica e ripartizione errore con struttura spaziale
 
-  - downscaling modellistica 1 km e ripartizione errore con struttura spaziale
+- **Inferenza causale spaziale**
 
-**Inferenza causale spaziale**
-
-  - trattamento confondenti socio-demografici: *ecological propensity score* generalizzato, *IPTW*
+  - trattamento confondenti socio-demografici
   
-**Modelli spaziali e spazio-temporali**
+  - ecological propensity score generalizzato, IPTW, g-computation 
+  
+- **Modelli spaziali e spazio-temporali**
 
-  - modelli gerarchici bayesiani per la dipendenza spaziale (inferenza INLA)
+  - modelli gerarchici bayesiani per la dipendenza spaziale
   - modellazione esplicita trend ed autocorrelazione temporale
 
 ---
