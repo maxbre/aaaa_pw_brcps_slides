@@ -798,7 +798,7 @@ Direzioni principali di sviluppo:
 
   - RR, tassi basali, demografia, concentrazioni ambientali 
   
-  - utilizzo di tassi età-specifici e smoothing tassi piccole aree (shrinkage)
+  - utilizzo di tassi età-specifici e smoothing tassi piccole aree 
   
   - downscaling modellistica e ripartizione errore con struttura spaziale
 
