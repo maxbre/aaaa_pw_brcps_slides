@@ -273,12 +273,12 @@ A1 -> A2 [style=invis, weight=100];
 ---
 
 
-# Mappatura concentrazioni ambientali {.columns-max}
+# Modellistica ambientale {.columns-max}
 
 ::::: columns
 ::: {.column width="50%"}
 
-## $NO_2$ modellistica 2019-2025
+## $NO_2$ output grid 2019-2025
 
 
 ```{r}
@@ -309,14 +309,13 @@ knitr::include_graphics("./fig_tab/no2_boxplot_no2_provincia.png")
 :::::
 
 ::: testo-centrato
-[Il controfattuale OMS  non è una soglia biologica al di sotto
-della quale il rischio è necessariamente nullo.<br>Rappresenta un 'valore guida' definito sulla base della attuali conoscenze scientifiche.]{.highlight}
+[Il controfattuale OMS non è una soglia biologica con rischio nullo ma un 'valore guida' definito sulle attuali conoscenze scientifiche.]{.highlight}
 :::
 
 ---
 
 
-# Esposizione cumulativa popolazione {.columns-max}
+# Esposizione popolazione {.columns-max}
 
 ::::: columns
 ::: {.column width="50%"}
@@ -356,11 +355,11 @@ knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025_by_province.png")
 
 ---
 
-# Concentrazioni ambientali per sezione {.columns-max}
+# Concentrazioni per sezione {.columns-max}
 
 ::::: columns
 ::: {.column width="50%"}
-## $NO_2$ per sezione anno 2025
+## Mappatura $NO_2$ per sezione anno 2025
 
 ```{r}
 #| echo: false
@@ -381,7 +380,7 @@ overlay sezioni censuarie e grigliato output modellistica 4 km
 
 ::: {.column width="50%"}
 
-## Differenziale $NO_2$ : \[2025\] - \[target OMS\]
+## Differenziale $NO_2$: \[2025\] - \[target OMS\]
 
 ```{r}
 #| echo: false
@@ -740,8 +739,8 @@ Simulazione 2025
 Il carico stimato è maggiore con:
 
 - popolazione più numerosa
-- concentrazioni più elevate
-- maggiore differenziale da controfattuale OMS
+- RR più alto
+- differenziale controfattuale OMS più elevato
 
 Padova e Venezia con i valori assoluti più elevati, Belluno più bassi
 :::
@@ -781,7 +780,6 @@ Stima casi/anno potenzialmente evitabili:
 
 # Possibili sviluppi futuri
 
-
 <br>
 
 ::: row-highlight
@@ -800,7 +798,7 @@ Direzioni principali di sviluppo:
 
   - RR, tassi basali, demografia, concentrazioni ambientali 
   
-  - utilizzo di tassi età-specifici e popolazioni sezionali aggiornate
+  - utilizzo di tassi età-specifici e smoothing tassi piccole aree (shrinkage)
   
   - downscaling modellistica e ripartizione errore con struttura spaziale
 
@@ -812,7 +810,8 @@ Direzioni principali di sviluppo:
   
 - **Modelli spaziali e spazio-temporali**
 
-  - modelli gerarchici bayesiani per la dipendenza spaziale
+  - modelli bayesiani gerarchici per la dipendenza spaziale
+  
   - modellazione esplicita trend ed autocorrelazione temporale
 
 ---
