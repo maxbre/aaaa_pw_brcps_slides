@@ -677,8 +677,6 @@ background-size:
 /*
  * Reveal crea un .slide-number-pdf dentro ogni .pdf-page. Si mantiene la
  * numerazione del tema originale, ancorandola alla stessa quota del footer.
- * Il denominatore / 10 e' quello del file originale: modificarlo se cambia
- * il numero totale delle slide conteggiate.
  */
 html.print-pdf .reveal .slides {
   counter-reset: pdf-slide-number;
@@ -705,7 +703,7 @@ html.print-pdf .reveal .slide-number-pdf {
 }
 
 html.print-pdf .reveal .slide-number-pdf::before {
-  content: counter(pdf-slide-number) " / 10";
+  content: counter(pdf-slide-number) " / " var(--pdf-slide-total);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-style: normal;
