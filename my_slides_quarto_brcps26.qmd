@@ -404,7 +404,7 @@ media 5.7 $\mu g~m^{-3}$, mediana 5.9 $\mu g~m^{-3}$, range IQ 3.9 $\mu g~m^{-3}
 <br>
 
 ::: testo-centrato
-[**Concentrazione ambientale per sezione di censimento definita con *overlay geografico* e calcolo media pesata sulla superficie.<br>La stima di impatto sanitario è calcolata sul differenziale controfattuale tramite la funzione concentrazione-risposta.**]{.highlight}
+[**La concentrazione per sezione è calcolata come media pesata sulla superficie esposta.<br>La stima di impatto sanitario è calcolata sul differenziale controfattuale tramite la funzione concentrazione-risposta.**]{.highlight}
 
 :::
 
