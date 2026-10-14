@@ -33,8 +33,8 @@ editor:
 <br>
 
 ::: testo-centrato
-[**Quanti decessi per cause respiratorie sono potenzialmente evitabili
-se**<br> l'esposizione annuale a $NO_2$ atmosferico viene ricondotta al
+[Quanti decessi per cause respiratorie sono potenzialmente evitabili<br>
+se l'esposizione annuale a $NO_2$ atmosferico viene ricondotta al
 livello guida OMS?]{.highlight .big}
 :::
 
@@ -76,7 +76,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 ::::::
 
 ::: testo-centrato
-[Sezione di censimento ISTAT come unità spaziale e demografica con granularità più fine a livello aggrregato.]{.highlight}
+[Sezione di censimento come unità spaziale e demografica con granularità più fine a livello aggregato.]{.highlight}
 :::
 
 ---
@@ -493,7 +493,7 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 
 ::: {.formula style="--formula-size: 32px;"}
 $$
-AC_i = E_i\cdot AF_i \quad \quad AC_{\mathrm{Regione}}=\sum_i AC_i
+AC_i = E_i\cdot AF_i 
 $$
 :::
 
@@ -515,7 +515,6 @@ $$
 
 [$AC$ = 109.0 casi/anno ($AF$ = 2.86%)]{.highlight}
 
-<br>
 <br>
 
 ### Stima con incertezza RR (1.03 - 1.07)
@@ -577,7 +576,7 @@ knitr::include_graphics("./fig_tab/ac_sim_2025.png")
 
 ## Che cosa varia?
 
-- estrazione valore di $RR_{10}$ da una distribuzione log-normale.
+- estrazione valore di $RR_{10}$ da una distribuzione log-normale
 
 ## Rimangono fissi
 
@@ -593,7 +592,7 @@ knitr::include_graphics("./fig_tab/ac_sim_2025.png")
 
 - **IC 95%:** 67.6–149.7 casi/anno
 
-- **stima deterministica:** 109 casi/anno
+- stima deterministica: 109 casi/anno
 
 <br>
 
@@ -624,11 +623,10 @@ knitr::include_graphics("./fig_tab/ac_sim_hist.png")
 
 ::: {.column .left-align width="27%"}
 
-
 ## Che cosa varia?
 
-- estratto un anno di simulazione 2019-2025 (uniforme)
-- estratto un valore $RR$ (lognorm)
+- estratto un anno 2019-2025 (uniforme)
+- estratto un valore $RR$ (log-normale)
 
 ## Rimangono fissi
 
@@ -638,9 +636,9 @@ knitr::include_graphics("./fig_tab/ac_sim_hist.png")
 
 ## Risultato
 
-- mediana: 145.8 casi/anno
-- intervallo 95%: 81.5 – 230.5
-- stima centrale +34% rispetto 2025 (scenario esposizione "favorevole")
+- **mediana**: 145.8 casi/anno
+- **intervallo 95%**: 81.5 – 230.5
+- **stima centrale**: +34% rispetto 2025 (scenario esposizione "favorevole")
 
 
 [Descrive la sensibilità dei risultati agli scenari storici 
@@ -695,7 +693,7 @@ knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
 <br>
 <br>
 <br>
-[Lo spostamento verso valori più bassi dal 2019 al 2025 descrive la variazione del carico attribuibile che si potrebbe ottenere applicando differenti scenari espositivi alla stessa popolazione di riferimento.]{.highlight}
+[Variazione del carico sanitario che si potrebbe ottenere applicando differenti scenari espositivi alla stessa popolazione di riferimento.]{.highlight}
 
 :::
 
@@ -778,7 +776,7 @@ Stima casi/anno potenzialmente evitabili:
 ---
 
 
-# Possibili sviluppi futuri
+# Sviluppi futuri
 
 <br>
 
@@ -792,7 +790,7 @@ arricchire e rafforzare la VIS per definire uno strumento quantitativo di suppor
 <br>
 <br>
 
-Direzioni principali di sviluppo:
+Possibili direzioni di sviluppo:
 
 - **Propagazione integrata incertezza di stima**
 
