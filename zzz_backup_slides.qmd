@@ -3,7 +3,7 @@ title: "Valutazione di impatto sanitario<br>dell’inquinamento atmosferico da $
 subtitle: "Il caso della Regione Veneto"
 #author: "<br>Massimo Bressan"
 author: "<br><span class='title-author-name'>Massimo Bressan</span><a class='title-email' href='mailto:massimo.bressan@arpa.veneto.it'>massimo.bressan@arpa.veneto.it</a>"
-date: today
+date: 2026-10-19
 title-slide-attributes:
   data-visibility: uncounted
 format:
@@ -14,6 +14,7 @@ format:
     slide-level: 1
     transition: fade   # none, fade, slide, convex, concave, or zoom
     slide-number: "c/t"
+    include-after-body: theme_custom/numerazione_slides.html
     footer: "BRCPS26 - Dipartimento di Scienze Cardio-Toraco-Vascolari e Sanità Pubblica - Unità di Biostatistica, Epidemiologia e Sanità Pubblica"
     #chalkboard: true              # Enables an interactive drawing board
     #incremental: true             # Makes bullet points appear one-by-one by default
@@ -475,4 +476,85 @@ crea_grafico_scenari_jensen <- function(
 crea_grafico_scenari_jensen()
 
 ```
+
+---
+
+
+# Popolazione \| Attesi \| AF per sezione {.columns-max}
+
+::: {.column width="33%"}
+
+## Popolazione 30+ $(N_i)$
+
+<br>
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: "100%"
+
+
+knitr::include_graphics("./fig_tab/map_sez_pop30p.png")
+
+```
+
+- popolazione 30+ ($N$): 3 521 995 ab
+- 73% popolazione totale
+- estensione mediana 2.90 ha
+- densità mediana 13.5 ab/ha
+
+:::
+
+::: {.column width="33%"}
+
+## Casi attesi $(E_i = N_i \cdot B_i)$
+
+<br>
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: "100%"
+
+
+knitr::include_graphics("./fig_tab/map_sezioni_attesi.png")
+
+```
+
+- tasso grezzo mortalità provinciale ($B$)
+- malattie sistema respiratorio (ICD-10:J00-J99)
+- tasso grezzo regionale: 0.107% (0.084% - 0.140%), 107 casi ogni 100 000 ab 30+
+
+:::
+
+::: {.column width="33%"}
+
+## Frazione Attribuibile $(AF_i)$
+
+<br>
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: "100%"
+
+
+knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
+
+```
+
+- quota di mortalità potenzialmente evitabile con l’annullamento del differenziale di esposizione
+
+- $(RR−1)/RR$ esprime la proporzione dei casi attesi associata al differenziale
+
+::::::
+
+<br>
+
+::: testo-centrato
+
+[**Le mappe rappresentano gli 'strati' (*layers*) che determinano la stima della distribuzione territoriale dei casi evitabili.**]{.highlight}
+
+:::
+
 

@@ -27,9 +27,7 @@ editor:
     wrap: 72
 ---
 
-# Quesito di ricerca e fonti informative
-
-## La domanda di Sanità Pubblica
+# Quesito di ricerca e fonti
 
 <br>
 
@@ -63,9 +61,9 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 
 |                      | Specifiche (Dato utilizzato)                     |
 |:---------------------|:-------------------------------------------------|
-| Disegno              | Studio ecologico su base territoriale                   |
-| Unità analisi        | 43 447 sezioni censimento (ISTAT 2021)            |
-| Popolazione          | 3 521 995 residenti, target 30+ (ISTAT 2021)             |
+| Disegno studio       | Ecologico su base territoriale                   |
+| Unità analisi        | 43 447 sezioni censimento (ISTAT 2021)           |
+| Popolazione          | 3 521 995 residenti, target 30+ (ISTAT 2021)     |
 | Determinante         | $NO_2$ modello 4 km, serie 2019–2025 (ARPAV)            |
 | Esposizione          | Lungo termine (media annuale), no effetti acuti (OMS)
 | Mortalità basale     | Tassi grezzi provinciali 30+ (ISTAT 2024)        |
@@ -274,7 +272,7 @@ A1 -> A2 [style=invis, weight=100];
 ---
 
 
-# Modellistica ambientale {.columns-max}
+# Modellistica concentrazioni ambientali {.columns-max}
 
 ::::: columns
 ::: {.column width="50%"}
@@ -315,8 +313,7 @@ knitr::include_graphics("./fig_tab/no2_boxplot_no2_provincia.png")
 
 ---
 
-
-# Esposizione popolazione {.columns-max}
+# Esposizione popolazione per sezione {.columns-max}
 
 ::::: columns
 ::: {.column width="50%"}
@@ -360,7 +357,7 @@ knitr::include_graphics("./fig_tab/no2_exp_pop_2019_2025_by_province.png")
 
 ::::: columns
 ::: {.column width="50%"}
-## Mappatura $NO_2$ per sezione anno 2025
+## $NO_2$ per sezione anno 2025
 
 ```{r}
 #| echo: false
@@ -372,7 +369,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_no2_2025.png")
 ```
 
 
-Media annuale $NO_2$ pesata sulla superficie
+Media annuale $NO_2$ pesata sulla superficie esposta
 
 overlay sezioni censuarie e grigliato output modellistica 4 km
 
@@ -392,7 +389,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_delta_no2_2025_target_oms.png")
 
 ```
 
-differenziale controfattuale OMS
+Differenziale controfattuale OMS
 
 media 5.7 $\mu g~m^{-3}$, mediana 5.9 $\mu g~m^{-3}$, range IQ 3.9 $\mu g~m^{-3}$
   
@@ -405,15 +402,17 @@ media 5.7 $\mu g~m^{-3}$, mediana 5.9 $\mu g~m^{-3}$, range IQ 3.9 $\mu g~m^{-3}
 <br>
 
 ::: testo-centrato
-[**La concentrazione per sezione è calcolata come media pesata sulla superficie esposta.<br>La stima di impatto sanitario è calcolata sul differenziale controfattuale tramite la funzione concentrazione-risposta.**]{.highlight}
+[**La stima di impatto sanitario è calcolata sul differenziale controfattuale tramite la funzione concentrazione-risposta.**]{.highlight}
 
 :::
 
 ---
 
-# Popolazione \| Attesi \| AF per sezione {.columns-max}
+# Popolazione \| Attesi per sezione {.columns-max}
 
-::: {.column width="33%"}
+::::: columns
+
+::: {.column width="50%"}
 
 ## Popolazione 30+ $(N_i)$
 
@@ -431,12 +430,11 @@ knitr::include_graphics("./fig_tab/map_sez_pop30p.png")
 
 - popolazione 30+ ($N$): 3 521 995 ab
 - 73% popolazione totale
-- estensione mediana 2.90 ha
 - densità mediana 13.5 ab/ha
 
 :::
 
-::: {.column width="33%"}
+::: {.column width="50%"}
 
 ## Casi attesi $(E_i = N_i \cdot B_i)$
 
@@ -454,37 +452,37 @@ knitr::include_graphics("./fig_tab/map_sezioni_attesi.png")
 
 - tasso grezzo mortalità provinciale ($B$)
 - malattie sistema respiratorio (ICD-10:J00-J99)
-- tasso grezzo regionale: 0.107% (0.084% - 0.140%), 107 casi ogni 100 000 ab 30+
+- tasso grezzo regionale: 107 casi / 100k ab 30+
+
+:::
+::::: 
+
+
+::: testo-centrato
+
+[La mappe rappresentano la distribuzione territoriale della popolazione target e della stima dei casi attesi.]{.highlight}  
 
 :::
 
-::: {.column width="33%"}
+---
 
-## Frazione Attribuibile $(AF_i)$
-
-<br>
+# Frazione Attribuibile per sezione  $\, (AF_i)$
 
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| out-width: "100%"
+#| out-width: "65%"
 
 
 knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 
 ```
 
-- quota di mortalità potenzialmente evitabile con l’annullamento del differenziale di esposizione
-
-- $(RR−1)/RR$ esprime la proporzione dei casi attesi associata al differenziale
-
-::::::
-
-<br>
 
 ::: testo-centrato
 
-[**Le mappe rappresentano gli 'strati' (*layers*) che determinano la stima della distribuzione territoriale dei casi evitabili.**]{.highlight}
+[La mappa rappresenta la quota dei decessi attesi associata all’esposizione ambientale eccedente il livello controfattuale OMS.]{.highlight}
+
 
 :::
 
@@ -492,7 +490,7 @@ knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
 
 # AC casi attribuibili (evitabili)
 
-::: {.formula style="--formula-size: 32px;"}
+::: {.formula style="--formula-size: 30px;"}
 $$
 AC_i = E_i\cdot AF_i 
 $$
@@ -555,7 +553,7 @@ $$
 <br>
 
 ::: testo-centrato
-[**Casi attribuibili (evitabili):<br> quota dei decessi attesi associata all’esposizione ambientale eccedente il livello controfattuale OMS,<br>sono interpretabili come casi *evitabili* se il differenziale viene annullato.**]{.highlight}
+[**Casi attribuibili (evitabili): sono interpretabili come casi *evitabili* se il differenziale viene annullato.**]{.highlight}
 :::
 
 ---
@@ -597,11 +595,7 @@ knitr::include_graphics("./fig_tab/ac_sim_2025.png")
 
 <br>
 
-[IC 95% propaga incertezza $RR$]{.highlight}
-
-<br>
-
-Non è una validazione indipendente ma una descrizione della distribuzione probabilistica di impatto
+[IC 95% propaga incertezza $RR$.<br><br>E' una descrizione della distribuzione probabilistica di impatto sanitario.]{.highlight}
 
 :::
 ::::
@@ -642,11 +636,9 @@ knitr::include_graphics("./fig_tab/ac_sim_hist.png")
 - **stima centrale**: +34% rispetto 2025 (scenario esposizione "favorevole")
 
 
+<br>
 [Descrive la sensibilità dei risultati agli scenari storici 
-(annuali)]{.highlight}
-
-- Non è un IC della stima 2025
-- Ampiezza distribuzione da incertezza RR e differenti livelli di inquinamento
+(annuali).]{.highlight}
 
 :::
 
@@ -663,7 +655,7 @@ knitr::include_graphics("./fig_tab/ac_sim_hist.png")
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| out-width: "100%"
+#| out-width: "98%"
 
 knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
 
@@ -694,7 +686,7 @@ knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
 <br>
 <br>
 <br>
-[Variazione del carico sanitario che si potrebbe ottenere applicando differenti scenari espositivi alla stessa popolazione di riferimento.]{.highlight}
+[Esprime la variazione del carico sanitario che si potrebbe ottenere applicando differenti scenari espositivi alla stessa popolazione di riferimento.]{.highlight}
 
 :::
 
@@ -705,6 +697,11 @@ knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
 
 # Conclusioni
 
+
+::: row-highlight
+L'esposizione $\mathrm{NO}_2$ eccedente il valore controfattuale OMS è associata ad un carico non trascurabile di mortalità respiratoria nella popolazione 30+.
+:::
+
 :::::: columns
 ::: {.column .left-align width="33%"}
 <br>
@@ -714,8 +711,6 @@ knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
 <br>
 
 Scenario 2025
-
-- stima puntuale popolazione 30+
 
 - 109 decessi respiratori attribuibili/anno 
 
@@ -746,7 +741,7 @@ Padova e Venezia con i valori assoluti più elevati, Belluno più bassi
 ::: {.column .left-align width="33%"}
 <br>
 
-## Intervallo temporale
+## Riferimento temporale
 
 <br>
 
@@ -754,23 +749,21 @@ Stima casi/anno potenzialmente evitabili:
 
 - Scenario 2025 relativamente "favorevole" del periodo 2019–2025
 
-- La simulazione storica non sostituisce la stima specifica del 2025 ma la colloca nel contesto della variabilità ambientale osservata.
+- La simulazione storica 2019-2025 non sostituisce la stima annuale 2025 ma la colloca nel contesto della variabilità ambientale osservata.
 :::
 ::::::
 
 <br>
 
 ::: row-highlight
-**Sintesi**
+**Avvertenze**
 
-- Esposizione $\mathrm{NO}_2$ eccedente il valore controfattuale OMS è associata ad un carico non trascurabile di mortalità respiratoria nella popolazione.
+I risultati quantificano un impatto potenziale sulla popolazione 30+ (casi evitabili/anno) ma:
 
-- I risultati quantificano un impatto potenziale sulla popolazione 30+ (casi evitabili/anno) ma:
-
-  - *non* si tratta di decessi individualmente identificabili (stime
+- *non* si tratta di decessi individualmente identificabili (stime
   ecologiche di gruppo)
 
-  - *non* è una dimostrazione di causalità locale ($RR$ trasferito da letteratura OMS)
+- *non* è una dimostrazione di causalità locale ($RR$ trasferito da letteratura OMS)
 :::
 
 ---
@@ -781,9 +774,9 @@ Stima casi/anno potenzialmente evitabili:
 <br>
 
 ::: row-highlight
-**Obiettivo operativo:** 
+**Obiettivo operativo** 
 
-arricchire e rafforzare la VIS per definire uno strumento quantitativo di supporto alle politiche regionali di prevenzione ambientale e sanitaria
+- arricchire e rafforzare la VIS per definire uno strumento quantitativo di supporto alle politiche regionali di prevenzione ambientale e sanitaria
 
 :::
 
