@@ -57,7 +57,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 
 <br>
 
-::: {.tabella-grande style="--table-font-size: 22px; --table-line-height: 1.5; --table-padding: 2px; --table-width: 100%; --col1-width: 20%; --col2-width: 80%;"}
+::: {.tabella-grande style="--table-font-size: 22px; --table-line-height: 1.5; --table-padding: 2px; --table-width: 100%; --col1-width: 30%; --col2-width: 70%;"}
 
 |                      | Specifiche (Dato utilizzato)                     |
 |:---------------------|:-------------------------------------------------|
@@ -69,7 +69,8 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 | Mortalità basale     | Tassi grezzi provinciali 30+ (ISTAT 2024)        |
 | Esito sanitario      | Mortalità per malattie respiratorie (ICD-10 J00–J99) |
 | Rischio relativo     | $RR_{10}=1{.}05$ (1.03 – 1.07) (OMS)     |
-| Controfattuale       | $NO_2 \leq 10\ \mu g\,m^{-3}$ (OMS Linee Guida AQ)                               |
+| Controfattuale OMS   | $NO_2 \leq 10\ \mu g\,m^{-3}$ (Linee Guida AQ OMS)   |
+
 :::
 ::::
 ::::::
@@ -272,7 +273,7 @@ A1 -> A2 [style=invis, weight=100];
 ---
 
 
-# Modellistica concentrazioni ambientali {.columns-max}
+# Il contesto ambientale {.columns-max}
 
 ::::: columns
 ::: {.column width="50%"}
@@ -369,7 +370,7 @@ knitr::include_graphics("./fig_tab/map_sezioni_no2_2025.png")
 ```
 
 
-Media annuale $NO_2$ pesata sulla superficie esposta
+media annuale $NO_2$ pesata sulla superficie esposta
 
 overlay sezioni censuarie e grigliato output modellistica 4 km
 
@@ -389,9 +390,9 @@ knitr::include_graphics("./fig_tab/map_sezioni_delta_no2_2025_target_oms.png")
 
 ```
 
-Differenziale controfattuale OMS
+mediana 5.9 $\mu g~m^{-3}$
 
-media 5.7 $\mu g~m^{-3}$, mediana 5.9 $\mu g~m^{-3}$, range IQ 3.9 $\mu g~m^{-3}$
+range IQ 3.9 $\mu g~m^{-3}$
   
 :::
 :::::
@@ -402,13 +403,37 @@ media 5.7 $\mu g~m^{-3}$, mediana 5.9 $\mu g~m^{-3}$, range IQ 3.9 $\mu g~m^{-3}
 <br>
 
 ::: testo-centrato
-[**La stima di impatto sanitario è calcolata sul differenziale controfattuale tramite la funzione concentrazione-risposta.**]{.highlight}
+[**La stima di impatto sanitario è calcolata sul differenziale controfattuale ed il rischio relativo OMS<br> con la funzione concentrazione-risposta.**]{.highlight}
 
 :::
 
 ---
 
-# Popolazione \| Attesi per sezione {.columns-max}
+
+# Frazione attribuibile per sezione  $\, (AF_i)$
+
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: "66%"
+
+
+knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
+
+```
+
+
+::: testo-centrato
+
+[La mappa rappresenta la distribuzione territoriale della *frazione* di decessi attesi<br>associata all’esposizione ambientale eccedente il livello controfattuale OMS.]{.highlight}
+
+
+:::
+
+---
+
+# Popolazione e casi attesi per sezione {.columns-max}
 
 ::::: columns
 
@@ -466,28 +491,6 @@ knitr::include_graphics("./fig_tab/map_sezioni_attesi.png")
 
 ---
 
-# Frazione Attribuibile per sezione  $\, (AF_i)$
-
-```{r}
-#| echo: false
-#| fig-align: "center"
-#| out-width: "65%"
-
-
-knitr::include_graphics("./fig_tab/map_AF_sezioni_no2_2025.png")
-
-```
-
-
-::: testo-centrato
-
-[La mappa rappresenta la quota dei decessi attesi associata all’esposizione ambientale eccedente il livello controfattuale OMS.]{.highlight}
-
-
-:::
-
----
-
 # AC casi attribuibili (evitabili)
 
 ::: {.formula style="--formula-size: 30px;"}
@@ -497,7 +500,7 @@ $$
 :::
 
 ::: testo-centrato
-[**Stima puntuale anno 2025**]{.highlight .big}
+[**Stima puntuale per anno 2025**]{.highlight .big}
 :::
 <br>
 
@@ -524,7 +527,7 @@ $$
 
 ::::
 
-:::: {.column .left-align width="50%"}
+:::: {.column width="50%"}
 
 
 ## Per Provincia
@@ -553,7 +556,7 @@ $$
 <br>
 
 ::: testo-centrato
-[**Casi attribuibili (evitabili): sono interpretabili come casi *evitabili* se il differenziale viene annullato.**]{.highlight}
+[**Casi attribuibili: sono interpretabili come casi *evitabili* se il differenziale controfattuale viene annullato.**]{.highlight}
 :::
 
 ---
@@ -672,8 +675,8 @@ knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
 
 ::: {.tabella-highlight .riga-1 .riga-7}
 
-| Anno di esposizione | Mediana AC | Intervallo percentile 95% |
-|:-------------------:|-----------:|:--------------------------:|
+| Anno esposizione | Mediana AC | Intervallo percentile 95% |
+|:-------------------:|:-----------:|:--------------------------:|
 | 2019 | 186.8 | 113.5–255.0 |
 | 2020 | 172.5 | 101.5–234.5 |
 | 2021 | 170.9 | 105.0–234.0 |
@@ -686,7 +689,7 @@ knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
 <br>
 <br>
 <br>
-[Esprime la variazione del carico sanitario che si potrebbe ottenere applicando differenti scenari espositivi alla stessa popolazione di riferimento.]{.highlight}
+[Descrive la variazione del carico sanitario che si potrebbe ottenere applicando differenti scenari espositivi alla stessa popolazione di riferimento.]{.highlight}
 
 :::
 
@@ -699,14 +702,16 @@ knitr::include_graphics("./fig_tab/ac_sim_hist_cfr_years_highligt.png")
 
 
 ::: row-highlight
-L'esposizione $\mathrm{NO}_2$ eccedente il valore controfattuale OMS è associata ad un carico non trascurabile di mortalità respiratoria nella popolazione 30+.
+::: testo-centrato
+**L'esposizione a lungo termine di $\mathrm{NO}_2$ eccedente il controfattuale OMS<br>è associata ad un carico non trascurabile di eventi per mortalità respiratoria nella popolazione adulta in Regione Veneto.**
+:::
 :::
 
 :::::: columns
 ::: {.column .left-align width="33%"}
 <br>
 
-## Impatto sanitario
+## Stima complessiva 
 
 <br>
 
@@ -735,7 +740,10 @@ Il carico stimato è maggiore con:
 - popolazione più numerosa
 - differenziale controfattuale OMS più elevato
 
-Padova e Venezia con i valori assoluti più elevati, Belluno più bassi
+PD e VE stime AC più elevate
+
+BL stime AC più basse
+
 :::
 
 ::: {.column .left-align width="33%"}
@@ -749,7 +757,7 @@ Stima casi/anno potenzialmente evitabili:
 
 - Scenario 2025 relativamente "favorevole" del periodo 2019–2025
 
-- La simulazione storica 2019-2025 non sostituisce la stima annuale 2025 ma la colloca nel contesto della variabilità ambientale osservata.
+- Simulazione storica 2019-2025 contestualizza la stima annuale 2025 entro la variabilità ambientale osservata
 :::
 ::::::
 
@@ -769,21 +777,19 @@ I risultati quantificano un impatto potenziale sulla popolazione 30+ (casi evita
 ---
 
 
-# Sviluppi futuri
+# Possibili sviluppi
 
 <br>
 
 ::: row-highlight
-**Obiettivo operativo** 
+::: testo-centrato
+**Obiettivo futuro** 
 
-- arricchire e rafforzare la VIS per definire uno strumento quantitativo di supporto alle politiche regionali di prevenzione ambientale e sanitaria
-
+**arricchire e rafforzare la VIS per definire uno strumento operativo di tipo quantitativo per il supporto decisionale<br>alle politiche regionali in materia di prevenzione ambientale e sanitaria**
+:::
 :::
 
 <br>
-<br>
-
-Possibili direzioni di sviluppo:
 
 - **Propagazione integrata incertezza di stima**
 
