@@ -59,17 +59,18 @@ knitr::include_graphics("./fig_tab/map_sezioni_censuarie_rv.png")
 
 ::: {.tabella-grande style="--table-font-size: 22px; --table-line-height: 1.5; --table-padding: 2px; --table-width: 100%; --col1-width: 30%; --col2-width: 70%;"}
 
-|                      | Specifiche (Dato utilizzato)                     |
+| Parametro            | Specifiche (fonte dato)                     |
 |:---------------------|:-------------------------------------------------|
 | Disegno studio       | Ecologico su base territoriale                   |
 | Unità analisi        | 43 447 sezioni censimento (ISTAT 2021)           |
 | Popolazione          | 3 521 995 residenti, target 30+ (ISTAT 2021)     |
-| Determinante         | $NO_2$ modello 4 km, serie 2019–2025 (ARPAV)            |
+| Inquinante           | $NO_2$ modello 4 km, serie 2019–2025 (ARPAV)     |
 | Esposizione          | Lungo termine (media annuale), no effetti acuti (OMS)
 | Mortalità basale     | Tassi grezzi provinciali 30+ (ISTAT 2024)        |
 | Esito sanitario      | Mortalità per malattie respiratorie (ICD-10 J00–J99) |
-| Rischio relativo     | $RR_{10}=1{.}05$ (1.03 – 1.07) (OMS)     |
-| Controfattuale OMS   | $NO_2 \leq 10\ \mu g\,m^{-3}$ (Linee Guida AQ OMS)   |
+| Rischio Relativo     | $RR_{10}=1{.}05$ (1.03 – 1.07) (OMS HRAPIE-2)    |
+| Funzione CR          | modello log-lineare (AirQ+ OMS)                  |
+| Controfattuale       | $NO_2 \quad 10\ \mu g\,m^{-3}$ (LG AQ OMS)   |
 
 :::
 ::::
